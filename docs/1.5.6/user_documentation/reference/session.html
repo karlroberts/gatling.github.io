@@ -1,0 +1,260 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Session &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Reference" href="index.html" />
+    <link rel="next" title="Configuration" href="configuration.html" />
+    <link rel="prev" title="Reference" href="index.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              User Documentation
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Reference
+              </a>
+            </li>
+            <li><a href="">
+              Session
+            </a></li>
+          </ul>
+          
+  <div class="section" id="session">
+<span id="id1"></span><h1>Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h1>
+<p>The Session is a storage attached to each &#8220;virtual user&#8221;.</p>
+<p>Using <tt class="docutils literal"><span class="pre">saveAs(&quot;key&quot;)</span></tt> actually stores the data into the Session, under the given key.</p>
+<p>Using a <tt class="docutils literal"><span class="pre">${...}</span></tt> EL in a String retrieves the data stored in the Session under the given key.</p>
+<div class="section" id="expression-language">
+<span id="session-el"></span><h2>Expression Language<a class="headerlink" href="#expression-language" title="Permalink to this headline">¶</a></h2>
+<p>Gatling supports very basic Expression Language that can be used for making String parameters dynamic, such as URLs, HTTP parameters, HTTP basic auth credentials, etc.</p>
+<p><tt class="docutils literal"><span class="pre">&quot;${myKey}&quot;</span></tt> returns the Session attribute stored as <tt class="docutils literal"><span class="pre">myKey</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">&quot;${myKey(i)}&quot;</span></tt> where <tt class="docutils literal"><span class="pre">i</span></tt> is an Integer returns the value in the multivalued Session attribute stored as <tt class="docutils literal"><span class="pre">myKey</span></tt> with the rank <tt class="docutils literal"><span class="pre">i</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">&quot;${myKey.size()}&quot;</span></tt> returns the size of the multivalued Session attribute stored as <tt class="docutils literal"><span class="pre">myKey</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">&quot;${myKey(myRank)}&quot;</span></tt> where <tt class="docutils literal"><span class="pre">myRank</span></tt> is a String returns the value in the multivalued Session attribute stored as <tt class="docutils literal"><span class="pre">myKey</span></tt> with the rank that is the value of the Session attribute <tt class="docutils literal"><span class="pre">myRank</span></tt></p>
+<p>For example, if a given Session contains <tt class="docutils literal"><span class="pre">(&quot;myValue&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;foo&quot;)</span></tt>, <tt class="docutils literal"><span class="pre">(&quot;myList&quot;</span> <span class="pre">-&gt;</span> <span class="pre">List(&quot;bar&quot;,</span> <span class="pre">baz))</span></tt> and <tt class="docutils literal"><span class="pre">(&quot;myInteger&quot;</span> <span class="pre">-&gt;</span> <span class="pre">1)</span></tt>:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">&quot;AAA${myValue}BBB&quot;</span></tt> will be resolved as <tt class="docutils literal"><span class="pre">&quot;AAAfooBBB&quot;</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">&quot;AAA${myList(0)}BBB&quot;</span></tt> will be resolved as <tt class="docutils literal"><span class="pre">&quot;AAAbarBBB&quot;</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">&quot;AAA${myList(myInteger)}BBB&quot;</span></tt> will be resolved as <tt class="docutils literal"><span class="pre">&quot;AAAbazBBB&quot;</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">&quot;AAA${myList.size()}&quot;</span></tt> will be resolved as <tt class="docutils literal"><span class="pre">2</span></tt></li>
+</ul>
+</div>
+<div class="section" id="immutability">
+<h2>Immutability<a class="headerlink" href="#immutability" title="Permalink to this headline">¶</a></h2>
+<p>The most important characteristic of Sessions is that they are <strong>immutable</strong>.</p>
+<p>As Gatling engine is completely asynchronous, immutability garanties that state desynchronization can&#8217;t happen when moving from one core to another.</p>
+<p>As a consequence, editing the Session actually generates a new Session instance and leaves the original instance untouched.</p>
+</div>
+<div class="section" id="session-members">
+<h2>Session members<a class="headerlink" href="#session-members" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">getAttribute(key:</span> <span class="pre">String):</span> <span class="pre">Any</span> <span class="pre">=</span> <span class="pre">getTypedAttribute[Any](key)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">getTypedAttribute[X](key:</span> <span class="pre">String)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">getAttributeAsOption[T](key:</span> <span class="pre">String):</span> <span class="pre">Option[T]</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">setAttributes(attributes:</span> <span class="pre">Map[String,</span> <span class="pre">Any])</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">setAttribute(attributeKey:</span> <span class="pre">String,</span> <span class="pre">attributeValue:</span> <span class="pre">Any)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">removeAttribute(attributeKey:</span> <span class="pre">String)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">isAttributeDefined(attributeKey:</span> <span class="pre">String)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">getCounterValue(counterName:</span> <span class="pre">String)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">getTimerValue(timerName:</span> <span class="pre">String)</span></tt></li>
+</ul>
+</div>
+<div class="section" id="building-session-functions">
+<h2>Building Session functions<a class="headerlink" href="#building-session-functions" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, one might want to manipulate the Session is a way that is not built in Gatling, like printing for debugging or adding custom attributes.</p>
+<p>In this case, Gatling provides a hack for editing the Session programmatically.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As Session is immutable, so when writing a Session function, one has to ensure that it returns the new Session.</p>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">session</span> <span class="k">=&gt;</span> <span class="o">{</span>
+  <span class="c1">// print the Session for debugging, don&#39;t do that on real Simulations</span>
+  <span class="n">println</span><span class="o">(</span><span class="n">session</span><span class="o">)</span>
+  <span class="n">session</span>
+<span class="o">})</span>
+<span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">session</span> <span class="k">=&gt;</span>
+  <span class="c1">// session.setAttribute returns the new Session, and Scala automatically returns the last assignment</span>
+  <span class="c1">// braces are omitted as there&#39;s only one instruction</span>
+  <span class="n">session</span><span class="o">.</span><span class="n">setAttribute</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">,</span> <span class="s">&quot;bar&quot;</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Session</a><ul class="nav">
+<li><a class="reference internal" href="#expression-language">Expression Language</a></li>
+<li><a class="reference internal" href="#immutability">Immutability</a></li>
+<li><a class="reference internal" href="#session-members">Session members</a></li>
+<li><a class="reference internal" href="#building-session-functions">Building Session functions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="index.html" title="Previous Chapter: Reference">
+      Reference
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="configuration.html" title="Next Chapter: Configuration">
+      Configuration
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

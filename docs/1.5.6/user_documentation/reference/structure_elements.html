@@ -1,0 +1,448 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure Elements &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Reference" href="index.html" />
+    <link rel="next" title="Feeders" href="feeders.html" />
+    <link rel="prev" title="Configuration" href="configuration.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              User Documentation
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Reference
+              </a>
+            </li>
+            <li><a href="">
+              Structure Elements
+            </a></li>
+          </ul>
+          
+  <div class="section" id="structure-elements">
+<span id="id1"></span><h1>Structure Elements<a class="headerlink" href="#structure-elements" title="Permalink to this headline">¶</a></h1>
+<p>Reference of the different components available to write scenarios with Gatling.</p>
+<div class="section" id="scenario">
+<h2>scenario<a class="headerlink" href="#scenario" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">scenario</span></tt> is the way to bootstrap a new scenario.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scenario</span><span class="o">(</span><span class="s">&quot;My Scenario&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>You can use any character in the name of the scenario <strong>except</strong> tabulations: <tt class="docutils literal"><span class="pre">\t</span></tt>.</p>
+</div>
+<div class="section" id="bootstrap-since-1-3-0">
+<span id="bootstrap"></span><h2><tt class="docutils literal"><span class="pre">bootstrap</span></tt> <em>(since 1.3.0)</em><a class="headerlink" href="#bootstrap-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Import bootstrap methods with <tt class="docutils literal"><span class="pre">import</span> <span class="pre">bootstrap._</span></tt> let you directly call DSL methods without having to use <tt class="docutils literal"><span class="pre">chain</span></tt> like in old Gatling versions.</p>
+<p><tt class="docutils literal"><span class="pre">bootstrap</span></tt> is actually an empty chain, so it can be used for example for bootstrapping a Scala foldLeft.</p>
+</div>
+<div class="section" id="exec">
+<span id="id2"></span><h2>exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h2>
+<p>This method is used to execute an action. Actions are usually requests (HTTP, LDAP, POP, IMAP, etc) that will be sent during the simulation. Any action that will be executed will be called with exec.</p>
+<p>For example, one using Gatling HTTP module would write the following line:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scenario</span><span class="o">(</span><span class="s">&quot;My Scenario&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;Get Homepage&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com/excilys/gatling&quot;</span><span class="o">)</span> <span class="o">)</span>
+</pre></div>
+</div>
+<p>Since 1.3.0:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">exec</span></tt> can be called directly without requiring a <tt class="docutils literal"><span class="pre">chain</span></tt> element</li>
+<li><tt class="docutils literal"><span class="pre">exec</span></tt> can be passed multiple chains used for inserting multiple actions or chains.</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// build a chain with actions being inserted one by one</span>
+<span class="k">val</span> <span class="n">chain1</span> <span class="k">=</span> <span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">&quot;Get Homepage&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com/excilys/gatling&quot;</span><span class="o">))</span>
+             <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">&quot;Get Wiki&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com/excilys/gatling/wiki&quot;</span><span class="o">))</span>
+
+<span class="k">val</span> <span class="n">chain2</span> <span class="k">=</span> <span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">&quot;Get Homepage&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com/excilys/gatling&quot;</span><span class="o">))</span>
+             <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">&quot;Get Issues&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com/excilys/gatling/issues&quot;</span><span class="o">))</span>
+
+<span class="n">scenario</span><span class="o">(</span><span class="s">&quot;My Scenario&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">chain1</span><span class="o">,</span> <span class="n">chain2</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="section" id="session-manipulation">
+<h3>Session manipulation<a class="headerlink" href="#session-manipulation" title="Permalink to this headline">¶</a></h3>
+<p>Apart from actions, exec can take a function (Session =&gt; Session) as argument. Using this function, you can set a value in the session between two actions, eg: <tt class="docutils literal"><span class="pre">exec(session</span> <span class="pre">=&gt;</span> <span class="pre">session.setAttribute(&quot;myKey&quot;,</span> <span class="pre">&quot;myValue&quot;)</span> <span class="pre">)</span></tt></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Be advised that Sessions are immutable in Gatling. That&#8217;s why the signature of the function is <tt class="docutils literal"><span class="pre">Session</span> <span class="pre">=&gt;</span> <span class="pre">Session</span></tt>. Don&#8217;t forget to return the session if needed.</p>
+</div>
+</div>
+</div>
+<div class="section" id="pause">
+<h2>pause<a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h2>
+<p>When a user sees a page he/she often reads what is shown and then chooses to click on another link. To reproduce this behavior, the pause method is used.</p>
+<p>There are several ways of using it:</p>
+<p><strong>With fixed duration</strong></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">pause</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span>           <span class="c1">// will pause for 4 seconds</span>
+<span class="n">pause</span><span class="o">(</span><span class="mi">4</span> <span class="n">seconds</span><span class="o">)</span>   <span class="c1">// new syntax since 1.3.0</span>
+</pre></div>
+</div>
+<p><strong>With uniform random duration</strong></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">)</span>          <span class="c1">// will pause between 4 and 5 seconds</span>
+<span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">4</span> <span class="n">seconds</span><span class="o">,</span> <span class="mi">5</span> <span class="n">seconds</span><span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>With exponential random duration (since 1.2.0)</strong></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">pauseExp</span><span class="o">(</span><span class="mi">4</span><span class="o">)</span>          <span class="c1">// will pause with a mean value of 4 seconds</span>
+<span class="o">.</span><span class="n">pauseExp</span><span class="o">(</span><span class="mi">4</span> <span class="n">seconds</span><span class="o">)</span>  <span class="c1">// new syntax since 1.3.0</span>
+</pre></div>
+</div>
+<p id="custom-pause"><strong>With custom duration generator (since 1.3.0)</strong></p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">pauseCustom</span><span class="o">(()</span> <span class="k">=&gt;</span> <span class="nc">Long</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Available units are: nanosecond(s), microsecond(s), millisecond(s), second(s), minute(s), hour(s), day(s). Note that you&#8217;ll need to import <tt class="docutils literal"><span class="pre">akka.util.duration._</span></tt>. This import is automatically added when using the Recorder.</p>
+</div>
+</div>
+<div class="section" id="doif">
+<h2>doIf<a class="headerlink" href="#doif" title="Permalink to this headline">¶</a></h2>
+<p>Gatling&#8217;s DSL has conditional execution support. If you want to execute a specific chain of actions only when some condition is satisfied, you can do so using the doIf method. It will check if a value in the session equals the one you specified:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">doIf</span><span class="o">(</span><span class="s">&quot;${myKey}&quot;</span><span class="o">,</span> <span class="s">&quot;myValue&quot;</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;...&quot;</span><span class="o">)</span> <span class="o">...</span> <span class="o">)</span> <span class="c1">// executed if the session value stored in &quot;myKey&quot; equals &quot;myValue&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>As you can see, the executed actions if the condition is false are optional.</p>
+<p>If you want to test other conditions than equality, you&#8217;ll have to use a scala function to write it:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">doIf</span><span class="o">(</span><span class="n">session</span> <span class="k">=&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">getTypedAttribute</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;myKey&quot;</span><span class="o">).</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">))</span> <span class="o">{</span>
+   <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;if true&quot;</span><span class="o">)</span> <span class="o">...</span> <span class="o">)</span> <span class="c1">// executed if the session value stored in &quot;myKey&quot; starts with &quot;admin&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Scala functions may seem complex, but they are really useful. Their usage is covered in <a class="reference internal" href="../tutorial/advanced_usage.html#scala-functions"><em>Advanced usage of Gatling</em></a>.</p>
+</div>
+<div class="section" id="doiforelse">
+<h2>doIfOrElse<a class="headerlink" href="#doiforelse" title="Permalink to this headline">¶</a></h2>
+<p>Similar to <tt class="docutils literal"><span class="pre">doIf</span></tt>, but with a fallback if the condition evaluates to false.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">doIfOrElse</span><span class="o">(</span><span class="s">&quot;${myKey}&quot;</span><span class="o">,</span> <span class="s">&quot;myValue&quot;</span><span class="o">)</span> <span class="o">{</span>
+   <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;if true&quot;</span><span class="o">)</span> <span class="o">...</span> <span class="o">)</span> <span class="c1">// executed if the session value stored in &quot;myKey&quot; is equal to &quot;myValue&quot;</span>
+<span class="o">}</span> <span class="o">{</span>
+   <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;if false&quot;</span><span class="o">)</span> <span class="o">...</span> <span class="o">)</span> <span class="c1">// executed if the session value stored in &quot;myKey&quot; is not equal to &quot;myValue&quot;</span>
+<span class="o">}</span>
+
+<span class="o">.</span><span class="n">doIfOrElse</span><span class="o">(</span><span class="n">session</span> <span class="k">=&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">getTypedAttribute</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;myKey&quot;</span><span class="o">).</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&quot;admin&quot;</span><span class="o">))</span> <span class="o">{</span>
+   <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;if true&quot;</span><span class="o">)</span> <span class="o">...</span> <span class="o">)</span> <span class="c1">// executed if the session value stored in &quot;myKey&quot; starts with &quot;admin&quot;</span>
+<span class="o">}</span> <span class="o">{</span>
+   <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;if false&quot;</span><span class="o">)</span> <span class="o">...</span> <span class="o">)</span> <span class="c1">// executed if the session value stored in &quot;myKey&quot; does not start with &quot;admin&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="randomswitch">
+<span id="random-switch"></span><h2>randomSwitch<a class="headerlink" href="#randomswitch" title="Permalink to this headline">¶</a></h2>
+<p>randomSwitch can be used to emulate simple <a class="reference external" href="http://en.wikipedia.org/wiki/Markov_chain">Markov chains</a>. Simple means cyclic graphs are not currently supported.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">randomSwitch</span><span class="o">(</span> <span class="c1">// beware: use parentheses, not brackets!</span>
+    <span class="n">percentage1</span> <span class="o">-&gt;</span> <span class="n">chain1</span><span class="o">,</span>
+    <span class="n">percentage2</span> <span class="o">-&gt;</span> <span class="n">chain2</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p>Percentages sum can&#8217;t exceed 100%. If sum is inferior to 100%, users that won&#8217;t fall into one of the chains will simply exit the switch and continue.
+Once users are done with the switch, they simply continue with the rest of the scenario.</p>
+<p>One can omit the percentages. In this case, percentages will be equally distributed amongst chains.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">randomSwitch</span><span class="o">(</span>
+   <span class="n">chain1</span><span class="o">,</span>
+   <span class="n">chain2</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="roundrobinswitch">
+<span id="round-robin-switch"></span><h2>roundRobinSwitch<a class="headerlink" href="#roundrobinswitch" title="Permalink to this headline">¶</a></h2>
+<p>Quite similar to <tt class="docutils literal"><span class="pre">randomSwitch</span></tt> except dispatch uses a round-robin strategy.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">roundRobinSwitch</span><span class="o">(</span> <span class="c1">// beware: use parentheses, not brackets!</span>
+   <span class="n">chain1</span><span class="o">,</span>
+   <span class="n">chain2</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="repeat-since-1-3-0">
+<h2>repeat <em>(since 1.3.0)</em><a class="headerlink" href="#repeat-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">repeat</span><span class="o">(</span><span class="n">times</span><span class="o">,</span> <span class="n">counterName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">myChain</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">times</span></tt> can be an Int, an EL pointing to an Int Session attribute, or a function.</p>
+<p><tt class="docutils literal"><span class="pre">counterName</span></tt> is optional and can be used to force the name of the loop counter. Current value can be retrieved on the Session as an attribute with a <tt class="docutils literal"><span class="pre">counterName</span></tt> name.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Don&#8217;t forget that the counter starts at 0!</p>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">repeat</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span> <span class="o">{</span><span class="n">myChain</span><span class="o">}</span>     <span class="c1">// will loop on myChain 20 times</span>
+<span class="o">.</span><span class="n">repeat</span><span class="o">(</span><span class="s">&quot;${myKey}&quot;</span><span class="o">)</span> <span class="o">{}</span>    <span class="c1">// will loop on myChain as many times as the Int value of the Session attribute myKey</span>
+<span class="o">.</span><span class="n">repeat</span><span class="o">(</span><span class="n">session</span> <span class="k">=&gt;</span> <span class="cm">/* something that returns an Int*/</span><span class="o">)</span> <span class="o">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="during-since-1-3-0">
+<h2>during <em>(since 1.3.0)</em><a class="headerlink" href="#during-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">during</span><span class="o">(</span><span class="n">duration</span><span class="o">,</span> <span class="n">counterName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">myChain</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">duration</span></tt> can be an Int for a duration in seconds, or a duration expressed like <tt class="docutils literal"><span class="pre">500</span> <span class="pre">milliseconds</span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre">counterName</span></tt> is optional.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">during</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span> <span class="o">{</span><span class="n">myChain</span><span class="o">}</span>     <span class="c1">// will loop on myChain 20 seconds</span>
+<span class="o">.</span><span class="n">during</span><span class="o">(</span><span class="mi">20</span> <span class="n">minutes</span><span class="o">)</span> <span class="o">{</span><span class="n">myChain</span><span class="o">}</span>     <span class="c1">// will loop on myChain 20 minutes</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="aslongas-since-1-3-0">
+<span id="aslongas"></span><h2>asLongAs <em>(since 1.3.0)</em><a class="headerlink" href="#aslongas-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">asLongAs</span><span class="o">(</span><span class="n">condition</span><span class="o">,</span> <span class="n">counterName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">myChain</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">condition</span></tt> is session function that returns a boolean.</p>
+<p><tt class="docutils literal"><span class="pre">counterName</span></tt> is optional.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">asLongAs</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span><span class="n">myChain</span><span class="o">}</span>     <span class="c1">// will loop forever</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="foreach-since-1-4-4">
+<span id="foreach"></span><h2>foreach <em>(since 1.4.4)</em><a class="headerlink" href="#foreach-since-1-4-4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">foreach</span><span class="o">(</span><span class="n">sequenceName</span><span class="o">,</span> <span class="n">elementName</span><span class="o">,</span> <span class="n">counterName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">myChain</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">sequenceName</span></tt> is the name of a sequence attribute in the Session.</p>
+<p><tt class="docutils literal"><span class="pre">elementName</span></tt> is a the name of the Session attribute that will hold the current element.</p>
+<p><tt class="docutils literal"><span class="pre">counterName</span></tt> is optional.</p>
+</div>
+<div class="section" id="trymax-since-1-3-0">
+<span id="trymax"></span><h2>tryMax <em>(since 1.3.0)</em><a class="headerlink" href="#trymax-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">tryMax</span><span class="o">(</span><span class="n">times</span><span class="o">,</span> <span class="n">counterName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">myChain</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>myChain is expected to succeed as a whole. If an error happens (a technical exception such as a time out, or a failed check), the user will bypass the rest of the chain and start over from the beginning.</p>
+<p><tt class="docutils literal"><span class="pre">times</span></tt> is the maximum number of attempts.</p>
+<p><tt class="docutils literal"><span class="pre">counterName</span></tt> is optional.</p>
+</div>
+<div class="section" id="exitblockonfail-since-1-3-0">
+<span id="exit-block-on-fail"></span><h2>exitBlockOnFail <em>(since 1.3.0)</em><a class="headerlink" href="#exitblockonfail-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">exitBlockOnFail</span> <span class="o">{</span>
+    <span class="n">myChain</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Quite similar to <tt class="docutils literal"><span class="pre">tryMax</span></tt>, but without looping on failure.</p>
+</div>
+<div class="section" id="exithereiffailed-since-1-3-0">
+<span id="exit-here-if-failed"></span><h2>exitHereIfFailed <em>(since 1.3.0)</em><a class="headerlink" href="#exithereiffailed-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">exitHereIfFailed</span>
+</pre></div>
+</div>
+<p>Make the user exit the scenario from this point if it previously had an error.</p>
+</div>
+<div class="section" id="group-since-1-4-0">
+<span id="group"></span><h2>group <em>(since 1.4.0)</em><a class="headerlink" href="#group-since-1-4-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">group</span><span class="o">(</span><span class="n">groupName</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">myChain</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Create group of requests to model process or requests in a same page. Groups can be imbricated into another.</p>
+<p>When using groups, statistics calculated for each request are aggregated in the parent group. Aggregated statistics are displayed on the report like request statistics.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Structure Elements</a><ul class="nav">
+<li><a class="reference internal" href="#scenario">scenario</a></li>
+<li><a class="reference internal" href="#bootstrap-since-1-3-0"><tt class="docutils literal"><span class="pre">bootstrap</span></tt> <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#exec">exec</a><ul class="nav">
+<li><a class="reference internal" href="#session-manipulation">Session manipulation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pause">pause</a></li>
+<li><a class="reference internal" href="#doif">doIf</a></li>
+<li><a class="reference internal" href="#doiforelse">doIfOrElse</a></li>
+<li><a class="reference internal" href="#randomswitch">randomSwitch</a></li>
+<li><a class="reference internal" href="#roundrobinswitch">roundRobinSwitch</a></li>
+<li><a class="reference internal" href="#repeat-since-1-3-0">repeat <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#during-since-1-3-0">during <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#aslongas-since-1-3-0">asLongAs <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#foreach-since-1-4-4">foreach <em>(since 1.4.4)</em></a></li>
+<li><a class="reference internal" href="#trymax-since-1-3-0">tryMax <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#exitblockonfail-since-1-3-0">exitBlockOnFail <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#exithereiffailed-since-1-3-0">exitHereIfFailed <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#group-since-1-4-0">group <em>(since 1.4.0)</em></a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="configuration.html" title="Previous Chapter: Configuration">
+      Configuration
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="feeders.html" title="Next Chapter: Feeders">
+      Feeders
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

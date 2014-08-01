@@ -1,0 +1,246 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>IDE Integration &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Tutorial" href="index.html" />
+    <link rel="next" title="Reference" href="../reference/index.html" />
+    <link rel="prev" title="Advanced Usage" href="advanced_usage.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              User Documentation
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Tutorial
+              </a>
+            </li>
+            <li><a href="">
+              IDE Integration
+            </a></li>
+          </ul>
+          
+  <div class="section" id="ide-integration">
+<h1>IDE Integration<a class="headerlink" href="#ide-integration" title="Permalink to this headline">¶</a></h1>
+<p>To help Scala developers with the creation of Gatling simulations in Scala, we provide a Maven Archetype that will create a project with every dependencies set, and the ability to start Gatling Engine and Gatling Recorder from the IDE.</p>
+<p>Using this archetype to create your simulations allows you to use autocompletion while writing the simulations.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>You need a Scala development environment.</p>
+<p>Eclipse users might want to have a look at the Gatling <a class="reference internal" href="../../developing_gatling/development_environment.html#dev-env"><em>Development Environment</em></a> regarding m2e and m2e-scala installation instructions.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Beware that the generated classes might not behave properly if your workspace&#8217;s path contains spaces, like the dreaded &#8220;My Documents&#8221; on Windows.</p>
+</div>
+</div>
+<div class="section" id="installing-the-maven-archetype">
+<h2>Installing the Maven Archetype<a class="headerlink" href="#installing-the-maven-archetype" title="Permalink to this headline">¶</a></h2>
+<p>Here are the Gatling Maven Archetype information:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="nc">Catalog</span><span class="k">:</span>
+<span class="kt">http://repository.excilys.com/content/groups/public/archetype-catalog.xml</span>
+</pre></div>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;groupId&gt;</span>com.excilys.ebi.gatling.highcharts<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>gatling-highcharts-maven-archetype<span class="nt">&lt;/artifactId&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note: If you are using an Enterprise maven repository that acts as a proxy for other repositories on the internet, you&#8217;ll have to set up a proxy for the following repository:</p>
+</div>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;repository&gt;</span>
+    <span class="nt">&lt;id&gt;</span>excilys<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>Excilys Repository<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;url&gt;</span>http://repository.excilys.com/content/groups/public<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/repository&gt;</span>
+</pre></div>
+</div>
+<p>This repository hosts Gatling binaries and all the required dependencies that are not hosted on maven central.</p>
+</div>
+<div class="section" id="running-the-recorder">
+<h2>Running the Recorder<a class="headerlink" href="#running-the-recorder" title="Permalink to this headline">¶</a></h2>
+<p>Simply launch the <tt class="docutils literal"><span class="pre">Recorder</span></tt> Scala class located in the default package.</p>
+<p>Simulations are generated in the <tt class="docutils literal"><span class="pre">src/test/scala</span></tt> directory (you might have to refresh your project).</p>
+</div>
+<div class="section" id="running-the-engine">
+<h2>Running the Engine<a class="headerlink" href="#running-the-engine" title="Permalink to this headline">¶</a></h2>
+<p>Simply launch the <tt class="docutils literal"><span class="pre">Engine</span></tt> Scala class located in the default package.</p>
+<p>Results are generated in the <tt class="docutils literal"><span class="pre">target</span></tt> directory.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">IDE Integration</a><ul class="nav">
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#installing-the-maven-archetype">Installing the Maven Archetype</a></li>
+<li><a class="reference internal" href="#running-the-recorder">Running the Recorder</a></li>
+<li><a class="reference internal" href="#running-the-engine">Running the Engine</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="advanced_usage.html" title="Previous Chapter: Advanced Usage">
+      Advanced Usage
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="../reference/index.html" title="Next Chapter: Reference">
+      Reference
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,384 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Recorder &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Reference" href="index.html" />
+    <link rel="next" title="Reports" href="reports.html" />
+    <link rel="prev" title="Assertions" href="assertions.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              User Documentation
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Reference
+              </a>
+            </li>
+            <li><a href="">
+              Recorder
+            </a></li>
+          </ul>
+          
+  <div class="section" id="recorder">
+<span id="id1"></span><h1>Recorder<a class="headerlink" href="#recorder" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Gatling Recorder is a module which can help writing scenarios for Gatling. Indeed, it could be annoying to write a full scenario from scratch, that&#8217;s why this module has been created.</p>
+<p>This tool acts as a proxy between your browser and the web application you&#8217;d like to write a scenario for. Therefore, all you need to do is to navigate through your application as any user would do to record a scenario.</p>
+<p>Currently, it is developed in Java and uses different libraries:</p>
+<ul class="simple">
+<li>Netty for non blocking I/O</li>
+<li>Scalate for the template engine</li>
+</ul>
+</div>
+<div class="section" id="how-to-run-it">
+<h2>How to run it ?<a class="headerlink" href="#how-to-run-it" title="Permalink to this headline">¶</a></h2>
+<p>The recorder is launched thanks to a launch script (as is the engine):</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">~</span><span class="n">$</span> <span class="nc">$GATLING_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">recorder</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>When done, the configuration interface will appear, allowing you to set the different parameters of the recorder.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/recorder-configuration_frame.png"><img alt="Configuration frame" src="../../_images/recorder-configuration_frame.png" /></a>
+<div class="section" id="local-ports">
+<h3>Local ports<a class="headerlink" href="#local-ports" title="Permalink to this headline">¶</a></h3>
+<p>The recorder can log HTTP and HTTPS requests, therefore, it can listen on two ports, one for each protocol.</p>
+<div class="section" id="configuring-your-browser">
+<span id="recorder-browser-config"></span><h4>Configuring your browser<a class="headerlink" href="#configuring-your-browser" title="Permalink to this headline">¶</a></h4>
+<p>To use the recorder, you have to configure your browser so that it uses the recorder as a proxy. To do so, use the &#8220;Settings&#8221; menu of the browser.</p>
+<a class="reference internal image-reference" href="../../_images/recorder-browser_settings.png"><img alt="Browser settings" src="../../_images/recorder-browser_settings.png" /></a>
+<p>In the &#8220;Advanced settings&#8221; tab, click on &#8220;Network&#8221; (or &#8220;Connection&#8221;) and change the settings to the recorder ports for HTTP and HTTPS. Update also the &#8220;No Proxy for&#8221; setting so that it fits your need.</p>
+<a class="reference internal image-reference" href="../../_images/recorder-browser_advanced_settings.png"><img alt="Browser advanced settings" src="../../_images/recorder-browser_advanced_settings.png" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">HTTPS port isn&#8217;t mandatory if you don&#8217;t plan to use an HTTPS connection.</p>
+</div>
+</div>
+</div>
+<div class="section" id="outgoing-proxy">
+<h3>Outgoing proxy<a class="headerlink" href="#outgoing-proxy" title="Permalink to this headline">¶</a></h3>
+<p>If you must access your web application through a proxy, you can set it up in this section. As the configuration of local ports, two different ports can be defined for the outgoing proxy (HTTP &amp; HTTPS).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If HTTP and HTTPS are on the same port for the outgoing proxy, you need to explicitly specify both.</p>
+</div>
+</div>
+<div class="section" id="filters">
+<h3>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
+<p>One may want not to log certain requests, or only some of them. For this purpose, the recorder provides filters that can will be applied on the requests&#8217; URI passing through it.</p>
+<p>To select whether the requests should be discarded or logged if their URI matches a filter, you can choose which strategy should be used:</p>
+<ul class="simple">
+<li><strong>NONE:</strong>: Doesn&#8217;t apply any filter one the requests, even if there are some declared;</li>
+<li><strong>EXCEPT</strong>: Allows all requests to be logged <strong>except</strong> those which filters apply on the URI;</li>
+<li><strong>ONLY</strong>: Allows <strong>only</strong> requests, which URI matches one of the filters, to be logged.</li>
+</ul>
+<p>Press the <tt class="docutils literal"><span class="pre">+</span></tt> button to add filters. Once a filter is in the table, you can choose the type of the pattern:</p>
+<ul class="simple">
+<li><strong>Java</strong>: The classic regular expression implemented with Java;</li>
+<li><strong>Ant</strong>: A more user-friendly pattern.</li>
+</ul>
+<p><strong>Example</strong>: To exclude all css files with Ant pattern, specify: <tt class="docutils literal"><span class="pre">/**/*.css</span></tt>. The easiest way is to specify: <tt class="docutils literal"><span class="pre">*.css</span></tt>, but this pattern will exclude all css files located <strong>only</strong> at the root of the path.</p>
+<p>The <tt class="docutils literal"><span class="pre">-</span></tt> button is used to delete one or more entries in the table. The right click is also defined to remove directly one or many entries at the same time.</p>
+<a class="reference internal image-reference" href="../../_images/recorder-filters_delete.png"><img alt="Filters delete" src="../../_images/recorder-filters_delete.png" /></a>
+<p>The <tt class="docutils literal"><span class="pre">Clear</span></tt> button removes all filters.</p>
+</div>
+<div class="section" id="output">
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<p>Once you have recorded all the requests you wanted, the recorder will save them as a Gatling scenario. Therefore, you need to specify in which folder the generated scenario(s) will be saved. You can either write the path of the folder yourself, or use the <tt class="docutils literal"><span class="pre">Browse</span></tt> button to get the required folder.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you specify a non-existing folder, Gatling Recorder will create it for you. Therefore, the specified path must be writable. Don&#8217;t make mistakes ;-).</p>
+</div>
+</div>
+<div class="section" id="preferences">
+<h3>Preferences<a class="headerlink" href="#preferences" title="Permalink to this headline">¶</a></h3>
+<p>Next to the <tt class="docutils literal"><span class="pre">Start</span></tt> button, you&#8217;ll find a &#8220;Save preferences&#8221; checkbox. If selected, all the configuration settings will be saved in the <tt class="docutils literal"><span class="pre">gatling-recorder.ini</span></tt> file located in your home directory.</p>
+<p>The next time the recorder will run, all the configuration will be imported automatically from this file.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To remove saved preferences, delete the <tt class="docutils literal"><span class="pre">gatling-recorder.ini</span></tt> file. But if it&#8217;s just for a one-time run, use the <tt class="docutils literal"><span class="pre">Clear</span></tt> button and unselect the &#8220;Save preferences&#8221; checkbox.</p>
+</div>
+</div>
+<div class="section" id="start">
+<h3>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h3>
+<p>Once everything has been configured, press the <tt class="docutils literal"><span class="pre">Start</span></tt> button to launch the recorder.</p>
+</div>
+</div>
+<div class="section" id="running">
+<h2>Running...<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/recorder-running_frame.png"><img alt="Running frame" src="../../_images/recorder-running_frame.png" /></a>
+<div class="section" id="recorded-events">
+<h3>Recorded Events<a class="headerlink" href="#recorded-events" title="Permalink to this headline">¶</a></h3>
+<p>As you navigate through your application, the recorder will log three kinds of events:</p>
+<ul class="simple">
+<li><strong>Requests</strong>: The requests sent by your browser</li>
+<li><strong>Pauses</strong>: The time between each request</li>
+<li><strong>Tags</strong>: These are markers that you can set manually</li>
+</ul>
+<div class="section" id="request-events">
+<h4>Request Events<a class="headerlink" href="#request-events" title="Permalink to this headline">¶</a></h4>
+<p>Even though all requests sent by your browser are transfered by the recorder, only those passing through filters are shown in the list of events and will be saved in the scenarios.</p>
+<p>When you click on a request, information about this request and its response are respectively shown in the &#8220;Request&#8221; and &#8220;Response&#8221; text areas located below the list of events.</p>
+<p>If the request contains a body, it will be displayed in the last text area labeled &#8220;Request Body&#8221;.
+The recorder automatically saves request bodies in a folder located in the output folder defined earlier.</p>
+<p>In the list of executed events, requests are displayed like this: <tt class="docutils literal"><span class="pre">Request</span> <span class="pre">Method</span> <span class="pre">|</span> <span class="pre">Request</span> <span class="pre">URI</span></tt></p>
+<p><strong>Example</strong>: <tt class="docutils literal"><span class="pre">GET</span> <span class="pre">|</span> <span class="pre">http://www.ebusinessinformation.fr/</span></tt></p>
+</div>
+<div class="section" id="pause-events">
+<h4>Pause Events<a class="headerlink" href="#pause-events" title="Permalink to this headline">¶</a></h4>
+<p>Pauses are automatically calculated during the scenario between two requests logged by the recorder. Depending on the scale of the duration, two types of precision will be used:</p>
+<ul class="simple">
+<li>If the pause duration is less than 1 second, the precision will be of +/- 100ms;</li>
+<li>If the pause duration is more than 1 second, the precision will be of +/- 1s.</li>
+</ul>
+<p>In the list of executed events, pauses are displayed like this: <tt class="docutils literal"><span class="pre">PAUSE</span> <span class="pre">|</span> <span class="pre">XXunit</span></tt></p>
+<p><strong>Example:</strong> <tt class="docutils literal"><span class="pre">PAUSE</span> <span class="pre">|</span> <span class="pre">4s</span></tt></p>
+</div>
+<div class="section" id="tag-events">
+<h4>Tag Events<a class="headerlink" href="#tag-events" title="Permalink to this headline">¶</a></h4>
+<p>To make your scenario more understandable, you can add tags, they will appear as comments in the scenario: <tt class="docutils literal"><span class="pre">/*</span> <span class="pre">my</span> <span class="pre">tag</span> <span class="pre">*/</span></tt></p>
+<p>To add a tag, fill in the text field provided and press the <tt class="docutils literal"><span class="pre">Add</span></tt> button. After that, the tag will be displayed in the list below.</p>
+<p><strong>Example:</strong> <tt class="docutils literal"><span class="pre">TAG</span> <span class="pre">|</span> <span class="pre">my</span> <span class="pre">tag</span></tt></p>
+</div>
+</div>
+<div class="section" id="clear">
+<h3>Clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">Clear</span></tt> button removes all logged events. It allows you to restart the recording from scratch.</p>
+</div>
+<div class="section" id="stop">
+<h3>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h3>
+<p>When you have finished recording your scenario, press the <tt class="docutils literal"><span class="pre">Stop</span></tt> button to save it.</p>
+</div>
+</div>
+<div class="section" id="a-word-about-recording-over-https">
+<h2>A word about recording over HTTPS<a class="headerlink" href="#a-word-about-recording-over-https" title="Permalink to this headline">¶</a></h2>
+<p>The recorder ships its own auto signed certificate.</p>
+<ul class="simple">
+<li>If the browser hasn&#8217;t already registered a certificate for this domain, it will automatically prompt asking for accepting Gatling&#8217;s certificate. Note that browsers only do so for the certificate of the main url, note for the resources loaded in the page, such as images hosted on a secured external CDN. If you have such resources, you&#8217;ll have to first browse manually to these other domains in order to accept Gatling&#8217;s certificate for them. Gatling will list all secure domains that you browse in order to help you register certificates (note that it can&#8217;t tell apart already accepted certificates, and to be accepted ones).</li>
+<li>If the browser has already registered a validated certificate for this domain, the browser will detect Gatling as a security breach (well, that&#8217;s what man-in-the-middle softwares are usually about) and will refuse to load the page. If so, you have to remove the trusted certificate from you your browser&#8217;s keystore.</li>
+</ul>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>For those who prefer the command line, command line options can be passed to the gatling-recorder:</p>
+<ul class="simple">
+<li><strong>-lp</strong>: Local port (alias = <strong>&#8211;local-port</strong>)</li>
+<li><strong>-lps</strong>: Local SSL port (alias = <strong>&#8211;local-port-ssl</strong>)</li>
+<li><strong>-ph</strong>: Outgoing proxy host (alias = <strong>&#8211;proxy-host</strong>)</li>
+<li><strong>-pp</strong>: Outgoing proxy port (alias = <strong>&#8211;proxy-port</strong>)</li>
+<li><strong>-pps</strong>: Outgoing proxy SSL port (alias = <strong>&#8211;proxy-port-ssl</strong>)</li>
+<li><strong>-of</strong>: Output folder for results (alias = <strong>&#8211;output-folder</strong>)</li>
+<li><strong>-rbf</strong>: Folder for requests bodies (alias = <strong>&#8211;request-bodies-folder</strong>)</li>
+<li><strong>-cn</strong>: Name of the generated class (alias = <strong>&#8211;class-name</strong>)</li>
+<li><strong>-pkg</strong>: Package of the generated class (alias = <strong>&#8211;package</strong>)</li>
+<li><strong>-enc</strong>: Encoding used in the Recorder (alias = <strong>&#8211;encoding</strong>)</li>
+<li><strong>-fr</strong>: Enable &#8220;Follow Redirects&#8221;  (alias = <strong>&#8211;follow-redirect</strong>)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Command line options override saved preferences.</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Recorder</a><ul class="nav">
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#how-to-run-it">How to run it ?</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul class="nav">
+<li><a class="reference internal" href="#local-ports">Local ports</a><ul class="nav">
+<li><a class="reference internal" href="#configuring-your-browser">Configuring your browser</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#outgoing-proxy">Outgoing proxy</a></li>
+<li><a class="reference internal" href="#filters">Filters</a></li>
+<li><a class="reference internal" href="#output">Output</a></li>
+<li><a class="reference internal" href="#preferences">Preferences</a></li>
+<li><a class="reference internal" href="#start">Start</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running">Running...</a><ul class="nav">
+<li><a class="reference internal" href="#recorded-events">Recorded Events</a><ul class="nav">
+<li><a class="reference internal" href="#request-events">Request Events</a></li>
+<li><a class="reference internal" href="#pause-events">Pause Events</a></li>
+<li><a class="reference internal" href="#tag-events">Tag Events</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#clear">Clear</a></li>
+<li><a class="reference internal" href="#stop">Stop</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#a-word-about-recording-over-https">A word about recording over HTTPS</a></li>
+<li><a class="reference internal" href="#command-line-options">Command Line Options</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="assertions.html" title="Previous Chapter: Assertions">
+      Assertions
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="reports.html" title="Next Chapter: Reports">
+      Reports
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

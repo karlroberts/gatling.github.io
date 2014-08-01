@@ -1,0 +1,289 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FAQ &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="General Information" href="index.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="License" href="license.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              General Information
+              </a>
+            </li>
+            <li><a href="">
+              FAQ
+            </a></li>
+          </ul>
+          
+  <div class="section" id="faq">
+<span id="id1"></span><h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<p>If you are here, chances are that Gatling does not work as expected. To help you fixing the problem, here is a list of common problems and their solutions.</p>
+<div class="section" id="q-why-the-hell-did-you-move-gatling-highcharts-into-a-dedicated-project">
+<h2><strong>Q: Why the hell did you move gatling-highcharts into a dedicated project?</strong><a class="headerlink" href="#q-why-the-hell-did-you-move-gatling-highcharts-into-a-dedicated-project" title="Permalink to this headline">¶</a></h2>
+<p>Highcharts and Highstock are javascript libraries whose licence is not open-source friendly. We pay licence fees so that we can package and distribute them and let people use them <strong>for free</strong>, but this module can&#8217;t be open sourced.</p>
+<p>We really want to keep as much code as possible under Apache 2, so we move the reports generation library implementation into a <a class="reference external" href="https://github.com/excilys/gatling-highcharts">separate project</a>.</p>
+<p>If anyone can come with an Apache 2 licenced solution that&#8217;s as sexy and plug-and-play as Highcharts and Highstock, we&#8217;d gladly make it the default implementation and integrate it into the main project!</p>
+<p>See <a class="reference internal" href="license.html#license"><em>Licence section</em></a></p>
+</div>
+<div class="section" id="q-i-built-from-sources-and-got-a-java-lang-noclassdeffounderror">
+<h2><strong>Q: I built from sources and got a java.lang.NoClassDefFoundError</strong><a class="headerlink" href="#q-i-built-from-sources-and-got-a-java-lang-noclassdeffounderror" title="Permalink to this headline">¶</a></h2>
+<p>See up here, the Highcharts based charts implementation is hosted in a separate project. You have to build it too, and what you are trying to run is probably the <tt class="docutils literal"><span class="pre">gatling-charts-highcharts</span></tt> bundle.</p>
+</div>
+<div class="section" id="q-when-i-launch-my-simulation-i-get-a-stackoverflowerror-what-can-i-do">
+<span id="faq-stack-overflow"></span><h2><strong>Q: When I launch my simulation, I get a StackOverflowError, What can I do?</strong><a class="headerlink" href="#q-when-i-launch-my-simulation-i-get-a-stackoverflowerror-what-can-i-do" title="Permalink to this headline">¶</a></h2>
+<p>It is likely that your simulation contains a very long method chain. You can follow this <a class="reference external" href="https://github.com/excilys/gatling/issues/345#issuecomment-3449721">advice</a> and cut your simulation or increase in the launch script the stack memory size with the <tt class="docutils literal"><span class="pre">-Xss</span></tt> switch.</p>
+</div>
+<div class="section" id="q-how-do-i-set-up-the-grizzly-provider-instead-of-the-netty-one">
+<h2><strong>Q: How do I set up the Grizzly provider instead of the Netty one?</strong><a class="headerlink" href="#q-how-do-i-set-up-the-grizzly-provider-instead-of-the-netty-one" title="Permalink to this headline">¶</a></h2>
+<p>Gatling comes by default with Netty, but one can configure it to use Grizzly instead:</p>
+<ul class="simple">
+<li>download the jars for Grizzly, for exemple on <a class="reference external" href="http://search.maven.org">maven central</a>:<ul>
+<li>org.glassfish.grizzly/grizzly-framework</li>
+<li>org.glassfish.grizzly/grizzly-http</li>
+<li>org.glassfish.grizzly/grizzly-websockets</li>
+<li>org.glassfish.gmbal/gmbal-api-only</li>
+<li>org.glassfish.external/management-api</li>
+</ul>
+</li>
+<li>drop those jars in Gatling lib dir</li>
+<li>configure Gatling to use Grizzly instead of Netty: change Netty into Grizzly in gatling.conf in conf directory</li>
+</ul>
+</div>
+<div class="section" id="q-i-get-a-connection-timed-out-no-further-information-to-http-gatling-tool-org-what-happens">
+<h2><strong>Q: I get a &#8220;Connection timed out: no further information to http://gatling-tool.org&#8221;, what happens?</strong><a class="headerlink" href="#q-i-get-a-connection-timed-out-no-further-information-to-http-gatling-tool-org-what-happens" title="Permalink to this headline">¶</a></h2>
+<p>Since 1.2.0, Gatling has an option for sending a request in order to warm up the engine and have more precise statistics during the run. This option is enabled by default and <tt class="docutils literal"><span class="pre">http://gatling-tool.org</span></tt> is the default url.</p>
+<p>If Gatling can&#8217;t reach out this url either because you don&#8217;t have a connection, or because it requires a proxy configuration, you&#8217;ll get this stacktrace.</p>
+<p>Either disable this feature, or change the target url. See documentation <a class="reference internal" href="../user_documentation/reference/http.html#http-warmup"><em>here</em></a>.</p>
+</div>
+<div class="section" id="q-the-compiler-complains-my-simulation-class-is-too-big">
+<h2><strong>Q: The compiler complains my Simulation class is too big</strong><a class="headerlink" href="#q-the-compiler-complains-my-simulation-class-is-too-big" title="Permalink to this headline">¶</a></h2>
+<p>Scala classes have the same limitations as Java ones. For example, the amount of code inside a method can&#8217;t exceed 64KB.</p>
+<p>If you are in this case (for example, you recorded a big maven installation), you should consider refactoring things a little bit.</p>
+<p>If you want to achieve modular and maintainable scenarios, you should consider externalizing processes as chains in other Scala objects.</p>
+<p>If you don&#8217;t care about maintainability but just want to quickly play what you recorded, you can move the chains outside of the <tt class="docutils literal"><span class="pre">apply</span></tt> method. Also consider changing them from <tt class="docutils literal"><span class="pre">val</span></tt> to <tt class="docutils literal"><span class="pre">lazy</span> <span class="pre">val</span></tt> if you have multiple Simulations in your directory.</p>
+</div>
+<div class="section" id="q-how-can-i-override-the-maven-gatling-plugin-log-level">
+<h2><strong>Q: How can I override the maven-gatling-plugin log level?</strong><a class="headerlink" href="#q-how-can-i-override-the-maven-gatling-plugin-log-level" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>either set a JVM param <tt class="docutils literal"><span class="pre">-Dlogback.configurationFile=/path/to/config.xml</span></tt></li>
+<li>or add a <tt class="docutils literal"><span class="pre">logback-test.xml</span></tt> or <tt class="docutils literal"><span class="pre">logback.groovy</span></tt> to your classpath that will have precedence over the embedded <tt class="docutils literal"><span class="pre">logback.xml</span></tt> file</li>
+</ul>
+</div>
+<div class="section" id="q-i-don-t-get-the-number-of-http-requests-i-expect">
+<h2><strong>Q: I don&#8217;t get the number of HTTP requests I expect?</strong><a class="headerlink" href="#q-i-don-t-get-the-number-of-http-requests-i-expect" title="Permalink to this headline">¶</a></h2>
+<p>Are you sure that some requests are not being cached? Gatling does its best to simulate real users behavior, so HTTP caching is enabled by default.</p>
+<p>Depending on your use case, you might either realize that the number of requests is actually perfectly fine, or you might want to <a class="reference internal" href="../user_documentation/reference/http.html#http-caching"><em>disable caching</em></a>.</p>
+</div>
+<div class="section" id="q-does-gatling-have-a-scheduler">
+<h2><strong>Q: Does Gatling have a scheduler?</strong><a class="headerlink" href="#q-does-gatling-have-a-scheduler" title="Permalink to this headline">¶</a></h2>
+<p>No, and it won&#8217;t. We consider this is not a task for a stress tool. We provide a Jenkins plugin, and it&#8217;s easy to call the Gatling launch scripts from the scheduler of your choice.</p>
+</div>
+<div class="section" id="q-can-gatling-launch-several-simulations-sequentially">
+<h2><strong>Q: Can Gatling launch several simulations sequentially?</strong><a class="headerlink" href="#q-can-gatling-launch-several-simulations-sequentially" title="Permalink to this headline">¶</a></h2>
+<p>No. It was possible in old versions, but it caused tons of problems, so we removed this feature. However, just like scheduling, that&#8217;s something very easy to achieve outside Gatling. For example, one can configure <a class="reference external" href="http://maven.apache.org/guides/mini/guide-default-execution-ids.html">multiple executions</a> of the Gatling maven plugin, or multiple Jenkins jobs.</p>
+</div>
+<div class="section" id="q-what-s-the-meaning-of-the-4-longs-in-simulation-log-file">
+<h2><strong>Q: What&#8217;s the meaning of the 4 longs in simulation.log file?</strong><a class="headerlink" href="#q-what-s-the-meaning-of-the-4-longs-in-simulation-log-file" title="Permalink to this headline">¶</a></h2>
+<p>Those are currently:</p>
+<ol class="arabic simple">
+<li>first byte sent timestamp</li>
+<li>last byte sent timestamp</li>
+<li>first byte received timestamp</li>
+<li>last byte received timestamp</li>
+</ol>
+<p>A timestamp is of course the number of milliseconds since epoch.</p>
+<ul class="simple">
+<li>response time (in ms) = 4 - 1</li>
+<li>latency (in ms) = 3 - 2</li>
+</ul>
+<p>Beware that the format of this file is an implementation details of the FileDataWriter/FileDataReader combo, so it might be subject to changes.</p>
+</div>
+<div class="section" id="q-i-haven-t-found-my-problem-listed-what-can-i-do">
+<h2><strong>Q: I haven&#8217;t found my problem listed, What can I do?</strong><a class="headerlink" href="#q-i-haven-t-found-my-problem-listed-what-can-i-do" title="Permalink to this headline">¶</a></h2>
+<p>Your problem might be new, you can ask for a solution on our <a class="reference external" href="https://groups.google.com/forum/#!forum/gatling">Google Group</a></p>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">FAQ</a><ul class="nav">
+<li><a class="reference internal" href="#q-why-the-hell-did-you-move-gatling-highcharts-into-a-dedicated-project"><strong>Q: Why the hell did you move gatling-highcharts into a dedicated project?</strong></a></li>
+<li><a class="reference internal" href="#q-i-built-from-sources-and-got-a-java-lang-noclassdeffounderror"><strong>Q: I built from sources and got a java.lang.NoClassDefFoundError</strong></a></li>
+<li><a class="reference internal" href="#q-when-i-launch-my-simulation-i-get-a-stackoverflowerror-what-can-i-do"><strong>Q: When I launch my simulation, I get a StackOverflowError, What can I do?</strong></a></li>
+<li><a class="reference internal" href="#q-how-do-i-set-up-the-grizzly-provider-instead-of-the-netty-one"><strong>Q: How do I set up the Grizzly provider instead of the Netty one?</strong></a></li>
+<li><a class="reference internal" href="#q-i-get-a-connection-timed-out-no-further-information-to-http-gatling-tool-org-what-happens"><strong>Q: I get a &#8220;Connection timed out: no further information to http://gatling-tool.org&#8221;, what happens?</strong></a></li>
+<li><a class="reference internal" href="#q-the-compiler-complains-my-simulation-class-is-too-big"><strong>Q: The compiler complains my Simulation class is too big</strong></a></li>
+<li><a class="reference internal" href="#q-how-can-i-override-the-maven-gatling-plugin-log-level"><strong>Q: How can I override the maven-gatling-plugin log level?</strong></a></li>
+<li><a class="reference internal" href="#q-i-don-t-get-the-number-of-http-requests-i-expect"><strong>Q: I don&#8217;t get the number of HTTP requests I expect?</strong></a></li>
+<li><a class="reference internal" href="#q-does-gatling-have-a-scheduler"><strong>Q: Does Gatling have a scheduler?</strong></a></li>
+<li><a class="reference internal" href="#q-can-gatling-launch-several-simulations-sequentially"><strong>Q: Can Gatling launch several simulations sequentially?</strong></a></li>
+<li><a class="reference internal" href="#q-what-s-the-meaning-of-the-4-longs-in-simulation-log-file"><strong>Q: What&#8217;s the meaning of the 4 longs in simulation.log file?</strong></a></li>
+<li><a class="reference internal" href="#q-i-haven-t-found-my-problem-listed-what-can-i-do"><strong>Q: I haven&#8217;t found my problem listed, What can I do?</strong></a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="license.html" title="Previous Chapter: License">
+      License
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="contributing.html" title="Next Chapter: Contributing">
+      Contributing
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

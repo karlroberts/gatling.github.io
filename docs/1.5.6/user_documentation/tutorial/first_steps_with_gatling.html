@@ -1,0 +1,578 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>First Steps With Gatling &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Tutorial" href="index.html" />
+    <link rel="next" title="Advanced Usage" href="advanced_usage.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              User Documentation
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Tutorial
+              </a>
+            </li>
+            <li><a href="">
+              First Steps With Gatling
+            </a></li>
+          </ul>
+          
+  <div class="section" id="first-steps-with-gatling">
+<span id="id1"></span><h1>First Steps With Gatling<a class="headerlink" href="#first-steps-with-gatling" title="Permalink to this headline">¶</a></h1>
+<p>Here you are, waiting to know all about Gatling and all its secrets to achieve incredibly powerful performance testing.</p>
+<p>This page and the next one will guide you through most of the features. You&#8217;ll learn about simulations, scenarios, feeders, recorder, loops, scala functions, etc. But don&#8217;t worry, this won&#8217;t be painful, we&#8217;ll take care of you during this journey through the amazing Gatling!</p>
+<p>Our mission during these two pages will be to test an e-banking application hosted on Cloud Foundry. We will first decide what scenario we want to create, then, we&#8217;ll create it thanks to the Gatling Recorder and run it to see how the application behaved during the performance test.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>You can see the resulting simulation files in the Gatling bundle, they are stored under user-files/simulations:</strong></p>
+<ul class="last simple">
+<li><a class="reference external" href="https://github.com/excilys/gatling/blob/1.5.X/gatling-bundle/src/main/assembly/assembly-structure/user-files/simulations/basic/BasicExampleSimulation.scala&quot;">basic</a></li>
+<li><a class="reference external" href="https://github.com/excilys/gatling/tree/1.5.X/gatling-bundle/src/main/assembly/assembly-structure/user-files/simulations/advanced">advanced</a></li>
+</ul>
+</div>
+<div class="section" id="you-re-going-to-see-some-scala-but-don-t-panic">
+<h2>You&#8217;re going to see some Scala, but don&#8217;t panic!<a class="headerlink" href="#you-re-going-to-see-some-scala-but-don-t-panic" title="Permalink to this headline">¶</a></h2>
+<p>Yes, the Gatling simulation scripts are Scala classes.</p>
+<p>No, it won&#8217;t be painful, Gatling doesn&#8217;t expect you to be a hardcore Scala hacker, but just to read this manual so you can learn the DSL.</p>
+<p>However, once in a while, you might run into a specific use case that&#8217;s not supported out of the box and then want to write your own components. If you write complex simulations, you might want to split them into multiple classes/objects. In this case, you can :</p>
+<ul class="simple">
+<li>learn Scala. One very good starting point is <a class="reference external" href="http://twitter.github.com/scala_school">Twitter&#8217;s Scala School</a></li>
+<li>join the Google Group and ask for help</li>
+</ul>
+<p>Anyway, the Gatling DSL should suffice for most current needs.</p>
+<p>For the non Scala people, here&#8217;s what a Gatling simulation class look like:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">package</span> <span class="nn">foo.bar</span> <span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.core.Predef._</span> <span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.http.Predef._</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.jdbc.Predef._</span>
+<span class="k">import</span> <span class="nn">Headers._</span>
+<span class="k">import</span> <span class="nn">akka.util.duration._</span>
+<span class="k">import</span> <span class="nn">bootstrap._</span>
+<span class="k">import</span> <span class="nn">assertions._</span>
+
+<span class="k">class</span> <span class="nc">SimulationWithFollowRedirect</span> <span class="k">extends</span> <span class="nc">Simulation</span> <span class="o">{</span> <span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+  <span class="c1">// your code starts here</span>
+  <span class="k">val</span> <span class="n">scn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;My scenario&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">&quot;My Page&quot;</span><span class="o">)</span>
+              <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://mywebsite.com/page.html&quot;</span><span class="o">))</span> <span class="o">(</span><span class="mi">4</span><span class="o">)</span>
+
+  <span class="n">setUp</span><span class="o">(</span><span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">10</span><span class="o">))</span> <span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+  <span class="c1">// your code ends here</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>the optional package</li>
+<li>the required imports</li>
+<li>the class declaration. Note that your simulation extends Simulation</li>
+<li>your scenario definition. <tt class="docutils literal"><span class="pre">val</span></tt> is the keyword for defining a non-re-assignable value</li>
+<li>the list of the scenarios declared in the class.</li>
+</ol>
+</div>
+<div class="section" id="the-application-under-test">
+<h2>The application under test<a class="headerlink" href="#the-application-under-test" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, you&#8217;ll be playing with an e-banking application named &#8216;excilys-bank&#8217; deployed on Cloud Foundry at the following url:</p>
+<p><a class="reference external" href="http://excilysbank.gatling.cloudbees.net">http://excilysbank.gatling.cloudbees.net</a></p>
+<p>This application was developed by <a class="reference external" href="http://www.ebusinessinformation.fr">eBusiness Information, Excilys Group</a> to serve as a testing base for Gatling&#8217;s performances.</p>
+<p>Indeed, it was developed with performance and code quality in mind, which lead to an quite fast and responsive application. The source is available <a class="reference external" href="https://github.com/excilys/excilys-bank">here on Github</a>.</p>
+<p>The main features available in this application are:</p>
+<ul class="simple">
+<li>Session management (login, logout)</li>
+<li>Accounts visualization</li>
+<li>Operations visualization by month</li>
+<li>Cards Operations visualization by month</li>
+<li>Transfers visualization and transfer performing</li>
+</ul>
+</div>
+<div class="section" id="planning-the-test">
+<h2>Planning the test<a class="headerlink" href="#planning-the-test" title="Permalink to this headline">¶</a></h2>
+<p>To test the performance of this application, we&#8217;d like to create scenarios representative of what really happens when users navigate it. So we tried to imagine what a real user would do with our application, shrank it and we got the following:</p>
+<ol class="arabic simple">
+<li>The user accesses to the application</li>
+<li>The user enters its credentials and logs in</li>
+<li>The user accesses to the details of one of its accounts</li>
+<li>The user accesses to the operations of the previous month</li>
+<li>The user logs out</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the scenario was shrunk it is to be the clearest possible in the rest of this tutorial.</p>
+</div>
+<p>Now that we have decided what would be the common use of our application, we can create the scenario for Gatling.</p>
+</div>
+<div class="section" id="gatling-recorder">
+<h2>Gatling Recorder<a class="headerlink" href="#gatling-recorder" title="Permalink to this headline">¶</a></h2>
+<p>To ease the creation of scenarios, we will use the <a class="reference internal" href="../reference/recorder.html#recorder"><em>Recorder</em></a>, a tool provided with Gatling that allows you to record your actions on a web application and export them as Gatling scenarios.</p>
+<p>This tool is launched with a script located in the bin directory along the gatling one:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">~</span><span class="n">$</span> <span class="nc">$GATLING_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">recorder</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Once launched, you get the following GUI, which lets use configure how requests and response will be recorded:</p>
+<a class="reference internal image-reference" href="../../_images/recorder-configuration_frame1.png"><img alt="Gatling Recorder - Configuration Frame" src="../../_images/recorder-configuration_frame1.png" /></a>
+<p>After configuring the recorder, all you have to do is to start it and configure your browser to use Gatling Recorder&#8217;s proxy.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For information about how to configure your browser, you can check out the <a class="reference internal" href="../reference/recorder.html#recorder-browser-config"><em>Recorder&#8217;s documentation</em></a>.</p>
+</div>
+</div>
+<div class="section" id="recording-the-scenario">
+<h3>Recording the scenario<a class="headerlink" href="#recording-the-scenario" title="Permalink to this headline">¶</a></h3>
+<p>All you have to do now is to browse the application:</p>
+<ol class="arabic simple">
+<li>Go to the website: <a class="reference external" href="http://excilysbank.gatling.cloudbees.net">http://excilysbank.gatling.cloudbees.net</a></li>
+<li>Authenticate using these credentials:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>username = <tt class="docutils literal"><span class="pre">user1</span></tt></li>
+<li>password = <tt class="docutils literal"><span class="pre">password1</span></tt></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Click on <tt class="docutils literal"><span class="pre">PERSONNAL_CHECKING</span></tt></li>
+<li>Click on the previous month (for us it was November as we were in December)</li>
+<li>Log out</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Try to act as a user, don&#8217;t jump from one page to another without taking the time to read; this will make your scenario closer to real user behavior.</p>
+</div>
+<p>When you have finished to play the scenario, you can click on <tt class="docutils literal"><span class="pre">Stop</span></tt>, and your first Gatling scenario will be created by the recorder. Its name will be <tt class="docutils literal"><span class="pre">SimulationYYYYMMDDHHMMSS.scala</span></tt></p>
+<p>The Gatling scenario corresponding to our example is available in the folder <tt class="docutils literal"><span class="pre">user-files/simulations/basic</span></tt> of your Gatling installation under the name <tt class="docutils literal"><span class="pre">BasicExampleSimulation.scala</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="gatling-scenario-explained">
+<h2>Gatling scenario explained<a class="headerlink" href="#gatling-scenario-explained" title="Permalink to this headline">¶</a></h2>
+<p>So now you&#8217;ve got a file with some mysterious dialect written in it. Nice! but... what does this mean? Don&#8217;t worry, we are going to decrypt these bizarre words for you :-)</p>
+<p>This file is a real Scala class, whose unique method <tt class="docutils literal"><span class="pre">apply</span></tt> contains 4 different parts:</p>
+<ul class="simple">
+<li>The HTTP protocol configuration</li>
+<li>The headers definition</li>
+<li>The scenario definition</li>
+<li>The simulation definition</li>
+</ul>
+<div class="section" id="http-protocol-configuration">
+<h3>HTTP protocol configuration<a class="headerlink" href="#http-protocol-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The first element is the configuration of the HTTP protocol.
+In this example, this configuration is very basic and just defines the base URL that will be prepended to all the relative paths in the scenario definition.
+Here, the base URL is <tt class="docutils literal"><span class="pre">http://excilysbank.gatling.cloudbees.net</span></tt>.</p>
+<p>The HTTP Configuration is stored as a Scala value so that we can set it later in the simulation definition.</p>
+</div>
+<div class="section" id="headers-definition">
+<h3>Headers definition<a class="headerlink" href="#headers-definition" title="Permalink to this headline">¶</a></h3>
+<p>As you&#8217;ll see later, when we define the scenario for Gatling, we can provide the headers used for each request sent to the server. As the file was generated by the recorder, all headers are declared in the beginning of the file and used in the scenario definition.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Adding common headers can seem useless, but don&#8217;t forget that they add load on your server, thus they <em>are</em> important and should not be forgotten.</p>
+</div>
+<p>Headers are declared as Scala Maps:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">headers_1</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span>
+  <span class="s">&quot;Accept&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;</span><span class="o">,</span>
+  <span class="s">&quot;Accept-Charset&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;ISO-8859-1,utf-8;q=0.7,*;q=0.7&quot;</span><span class="o">,</span>
+  <span class="o">...</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scenario-definition">
+<h3>Scenario definition<a class="headerlink" href="#scenario-definition" title="Permalink to this headline">¶</a></h3>
+<p>After the headers definition, you&#8217;ll find the scenario definition. This definition has a name because you can define <a class="reference internal" href="advanced_usage.html#multi-scenarios"><em>several scenarios in the same simulation</em></a>; it is usually stored in a Scala value: <tt class="docutils literal"><span class="pre">val</span> <span class="pre">scn</span> <span class="pre">=</span> <span class="pre">scenario(&quot;Name</span> <span class="pre">of</span> <span class="pre">my</span> <span class="pre">Scenario&quot;)...</span></tt></p>
+<p>The scenario structure is basically made of two methods: <tt class="docutils literal"><span class="pre">exec</span></tt> and <tt class="docutils literal"><span class="pre">pause</span></tt>. The first one is used to describe an action, usually a request sent to the tested application; the second one is used to simulate the thinking time of the user between pages.</p>
+<p>HTTP requests are defined as follows in a scenario:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">http</span><span class="o">(</span><span class="s">&quot;request_3&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;/login&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">headers_3</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">param</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">,</span> <span class="s">&quot;user1&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">param</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">,</span> <span class="s">&quot;password1&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The example above produces a POST HTTP request that authenticate the user with its credentials:</p>
+<div class="highlight-scala"><div class="highlight"><pre>POST http://excilysbank.gatling.cloudbees.net/login
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Accept-Encoding: gzip,deflate
+Accept-Language: fr,en-us;q=0.7,en;q=0.3
+Host: excilysbank.gatling.cloudbees.net
+Keep-Alive: 115
+User-Agent: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.17) Gecko/20110422 Ubuntu/9.10 Firefox/3.6.17
+Content-Length: 33
+Content-Type: application/x-www-form-urlencoded
+Referer: http://excilysbank.gatling.cloudbees.net/public/login.html
+
+username=user1&amp;password=password1
+</pre></div>
+</div>
+</div>
+<div class="section" id="simulation-definitions">
+<h3>Simulation definitions<a class="headerlink" href="#simulation-definitions" title="Permalink to this headline">¶</a></h3>
+<p>The last part of the file contains the simulation definition, this is where you define the load you want to inject to your server, eg:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">setUp</span><span class="o">(</span>
+    <span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p>Here Gatling will simulate <strong>one user</strong> behaving as we did. The protocolConfig is also added to the simulation to set the base URL.</p>
+</div>
+<div class="section" id="long-scenarios">
+<span id="id2"></span><h3>Long scenarios<a class="headerlink" href="#long-scenarios" title="Permalink to this headline">¶</a></h3>
+<p>In case of long scenarios (more than 50 requests), the recorder will split them in chains:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">[</span><span class="kt">...</span><span class="o">]</span>
+
+<span class="k">val</span> <span class="n">chain_1</span> <span class="k">=</span> <span class="n">exec</span><span class="o">(...)...</span>
+<span class="k">val</span> <span class="n">chain_2</span> <span class="k">=</span> <span class="n">exec</span><span class="o">(...)...</span>
+
+<span class="k">val</span> <span class="n">scn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;My Scenario&quot;</span><span class="o">)</span>
+            <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">chain_1</span><span class="o">)</span>
+            <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">chain_2</span><span class="o">)</span>
+
+<span class="o">[</span><span class="kt">...</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>You should be aware that if you have a long chain of methods, the Scala compiler will need more stack memory to be able to compile it (See <a class="reference internal" href="../../general_information/faq.html#faq-stack-overflow"><em>FAQ</em></a>). That is why the recorder splits the scenario when saving it.</p>
+</div>
+</div>
+<div class="section" id="more-users-more-load">
+<h2>More users = more load!<a class="headerlink" href="#more-users-more-load" title="Permalink to this headline">¶</a></h2>
+<p>So, this is great, we can load test our server with... one user! We are going to increase the number of users to show you another great feature of Gatling: feeders.</p>
+<div class="section" id="increasing-the-number-of-users">
+<h3>Increasing the number of users<a class="headerlink" href="#increasing-the-number-of-users" title="Permalink to this headline">¶</a></h3>
+<p>To increase the number of simulated users, all you have to do is to change the configuration of the simulation as follows:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Here we set only 10 users, because we don&#8217;t want to flood our test web application, please be kind and don&#8217;t crash our Cloudbees instance ;-)</p>
+</div>
+<p>For more information about Feeders, see the <a class="reference internal" href="../reference/feeders.html#feeders"><em>Feeders</em></a> reference section.</p>
+</div>
+<div class="section" id="ramping-for-the-win">
+<h3>Ramping for the win!<a class="headerlink" href="#ramping-for-the-win" title="Permalink to this headline">¶</a></h3>
+<p>If you want to simulate 3 000 users, you don&#8217;t want them to start at the same time. Indeed, they are more likely to connect to your web application gradually.</p>
+<p>Gatling provides the <tt class="docutils literal"><span class="pre">ramp</span></tt> option to implement this behavior. The value of the ramp indicates the duration over which the users will be linearly started. Just like every duration in Gatling, the default unit is second.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span> <span class="c1">// 10 users/10s = 1 user/s</span>
+<span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">20</span><span class="o">)</span> <span class="c1">// 10 users/20s = 0.5 user/s = 1 user every 2s</span>
+<span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">1000</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="c1">// 1000 users/100s = 10 users/s</span>
+</pre></div>
+</div>
+<p>In our scenario, we will set a ramp of 10 seconds.</p>
+</div>
+<div class="section" id="dynamic-values-with-feeders">
+<h3>Dynamic values with Feeders<a class="headerlink" href="#dynamic-values-with-feeders" title="Permalink to this headline">¶</a></h3>
+<p>We have set our simulation to run 10 users, but they all use the same credentials. Wouldn&#8217;t it be nice if every user could use its own credentials? This is where Feeders will be useful.</p>
+<p>Feeders are data sources containing all the values you want to use in your scenarios. There are several types of Feeders, the simpliest being the CSV Feeder: this is the one we will use in our test. Feeders are explained in details in the <a class="reference internal" href="../reference/feeders.html#feeders"><em>Feeders</em></a> reference.</p>
+<p>Here are the feeder we use and the modifications we made to our scenario:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* user_information.csv */</span>
+<span class="n">username</span><span class="o">,</span><span class="n">password</span><span class="o">,</span><span class="n">account_id</span>
+<span class="n">user1</span><span class="o">,</span><span class="n">password1</span><span class="o">,</span><span class="mi">4</span>
+<span class="n">user2</span><span class="o">,</span><span class="n">password2</span><span class="o">,</span><span class="mi">7</span>
+<span class="o">...</span>
+<span class="n">user10</span><span class="o">,</span><span class="n">password10</span><span class="o">,</span><span class="mi">34</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* Scenario */</span>
+<span class="o">.</span><span class="n">feed</span><span class="o">(</span><span class="n">csv</span><span class="o">(</span><span class="s">&quot;user_information.csv&quot;</span><span class="o">))</span>
+<span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+  <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_3&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;/login&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">param</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">,</span> <span class="s">&quot;${username}&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">param</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">,</span> <span class="s">&quot;${password}&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">headers_3</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">status</span><span class="o">.</span><span class="n">is</span><span class="o">(</span><span class="mi">302</span><span class="o">))</span>
+<span class="o">)</span>
+<span class="o">...</span>
+<span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+  <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_5&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;/private/bank/account/ACC${account_id}/operations.html&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">headers_5</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">the ${...} expression are part of Gatling EL described in <a class="reference internal" href="advanced_usage.html#the-session"><em>Advanced Usage</em></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="repeating-actions">
+<h2>Repeating actions<a class="headerlink" href="#repeating-actions" title="Permalink to this headline">¶</a></h2>
+<p>Most of the users of web applications will repeat actions while navigating. To represent this behavior, Gatling brings <strong>loops</strong> to you. These loops can be conditioned by either a number of repetitions, a time limit or a condition:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">repeat</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Will repeat the actions 10 times</span>
+    <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(...)</span> <span class="o">...</span> <span class="o">)</span>
+    <span class="o">.</span><span class="n">pause</span><span class="o">(...)</span>
+<span class="o">}</span>
+<span class="nc">OR</span>
+<span class="o">.</span><span class="n">during</span><span class="o">(</span><span class="mi">20</span> <span class="n">seconds</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Will repeat the actions for at least 20s</span>
+    <span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(...)</span> <span class="o">...</span> <span class="o">)</span>
+    <span class="o">.</span><span class="n">pause</span><span class="o">(...)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information about conditional loops, you can check the <a class="reference internal" href="../reference/structure_elements.html#aslongas"><em>reference</em></a>.</p>
+</div>
+<p>In our scenario, we will set a loop with 5 iterations after the login:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+  <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_3&quot;</span><span class="o">)</span>
+    <span class="o">...</span>
+<span class="o">)</span>
+<span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">0</span> <span class="n">milliseconds</span><span class="o">,</span> <span class="mi">100</span> <span class="n">milliseconds</span><span class="o">)</span>
+<span class="o">.</span><span class="n">repeat</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">exec</span><span class="o">(</span>
+      <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_4&quot;</span><span class="o">)</span>
+        <span class="o">...</span>
+    <span class="o">)</span>
+    <span class="o">...</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+      <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_8&quot;</span><span class="o">)</span>
+        <span class="o">...</span>
+    <span class="o">)</span>
+    <span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-the-simulation">
+<h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Great! We have completely defined our first scenario, now we want to run it with Gatling. To do so, all we have to do is to move the file in <tt class="docutils literal"><span class="pre">user-files/simulations/</span></tt> and run Gatling as seen in <a class="reference internal" href="getting_started.html#getting-started"><em>Getting Started</em></a>.</p>
+<p>Choose your simulation and press <strong>Enter</strong> to run it! Here is what it looks like:</p>
+<a class="reference internal image-reference" href="../../_images/cli_gatling_basic_usage.png"><img alt="Gatling's Command Line" src="../../_images/cli_gatling_basic_usage.png" /></a>
+</div>
+<div class="section" id="analyzing-the-simulation">
+<h2>Analyzing the simulation<a class="headerlink" href="#analyzing-the-simulation" title="Permalink to this headline">¶</a></h2>
+<p>When the simulation is done, Gatling generates reports for you to be able to analyze what happened during the simulation and detect performance caveats in your application.</p>
+<p>For comprehensive information about these reports see <a class="reference internal" href="../reference/reports.html#reports"><em>Reports</em></a>.</p>
+<div class="section" id="active-sessions">
+<h3>Active Sessions<a class="headerlink" href="#active-sessions" title="Permalink to this headline">¶</a></h3>
+<p>This report simply shows the number of active sessions (or active users) per second during the simulation:</p>
+<a class="reference internal image-reference" href="../../_images/active_sessions_basic_usage.png"><img alt="Active Sessions Report" src="../../_images/active_sessions_basic_usage.png" /></a>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As we will see in <a class="reference internal" href="advanced_usage.html#multi-scenarios"><em>Advanced Usage</em></a>, there might be several sessions corresponding to the different scenarios used in the simulation.</p>
+</div>
+</div>
+<div class="section" id="number-of-requests-per-second">
+<h3>Number of Requests per Second<a class="headerlink" href="#number-of-requests-per-second" title="Permalink to this headline">¶</a></h3>
+<p>This report shows the number of requests per second that Gatling sent to your application. This gives you an idea of the load that was generated during the simulation.</p>
+<a class="reference internal image-reference" href="../../_images/requests_basic_usage.png"><img alt="Requests per Second Report" src="../../_images/requests_basic_usage.png" /></a>
+</div>
+<div class="section" id="request-details">
+<h3>Request Details<a class="headerlink" href="#request-details" title="Permalink to this headline">¶</a></h3>
+<p>These reports contain various charts and some statistics about the request they present:</p>
+<a class="reference internal image-reference" href="../../_images/req_details_basic_usage.png"><img alt="Request Details Report" src="../../_images/req_details_basic_usage.png" /></a>
+</div>
+</div>
+<div class="section" id="going-further">
+<h2>Going Further<a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h2>
+<p>That&#8217;s it for the basics, you can now write simple scenarios and load test basic applications, but there is more in Gatling. To discover and learn the advanced features of Gatling, read <a class="reference internal" href="advanced_usage.html#advanced-usage"><em>Advanced Usage</em></a>.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">First Steps With Gatling</a><ul class="nav">
+<li><a class="reference internal" href="#you-re-going-to-see-some-scala-but-don-t-panic">You&#8217;re going to see some Scala, but don&#8217;t panic!</a></li>
+<li><a class="reference internal" href="#the-application-under-test">The application under test</a></li>
+<li><a class="reference internal" href="#planning-the-test">Planning the test</a></li>
+<li><a class="reference internal" href="#gatling-recorder">Gatling Recorder</a><ul class="nav">
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#recording-the-scenario">Recording the scenario</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gatling-scenario-explained">Gatling scenario explained</a><ul class="nav">
+<li><a class="reference internal" href="#http-protocol-configuration">HTTP protocol configuration</a></li>
+<li><a class="reference internal" href="#headers-definition">Headers definition</a></li>
+<li><a class="reference internal" href="#scenario-definition">Scenario definition</a></li>
+<li><a class="reference internal" href="#simulation-definitions">Simulation definitions</a></li>
+<li><a class="reference internal" href="#long-scenarios">Long scenarios</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#more-users-more-load">More users = more load!</a><ul class="nav">
+<li><a class="reference internal" href="#increasing-the-number-of-users">Increasing the number of users</a></li>
+<li><a class="reference internal" href="#ramping-for-the-win">Ramping for the win!</a></li>
+<li><a class="reference internal" href="#dynamic-values-with-feeders">Dynamic values with Feeders</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#repeating-actions">Repeating actions</a></li>
+<li><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
+<li><a class="reference internal" href="#analyzing-the-simulation">Analyzing the simulation</a><ul class="nav">
+<li><a class="reference internal" href="#active-sessions">Active Sessions</a></li>
+<li><a class="reference internal" href="#number-of-requests-per-second">Number of Requests per Second</a></li>
+<li><a class="reference internal" href="#request-details">Request Details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#going-further">Going Further</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="getting_started.html" title="Previous Chapter: Getting Started">
+      Getting Started
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="advanced_usage.html" title="Next Chapter: Advanced Usage">
+      Advanced Usage
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,250 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="General Information" href="index.html" />
+    <link rel="next" title="Underlying Technologies" href="underlying_technologies.html" />
+    <link rel="prev" title="General Information" href="index.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              General Information
+              </a>
+            </li>
+            <li><a href="">
+              Introduction
+            </a></li>
+          </ul>
+          
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Gatling was born from the observation that the commonly used stress test tools don&#8217;t have the required performance to stress nowadays applications. Moreover, any Java developer who used these tools was confronted with one of these situations:</p>
+<ul class="simple">
+<li>We can fire the tests only three times, because the license for LoadRunner is way too expensive...</li>
+<li>Oh my ! The structure of the pages has changed, we have to edit the whole script via the GUI, let&#8217;s start clicking...</li>
+<li>Sigh! The customer chose to use OpenSTA, we do not have any choice but to use Windows VMs...</li>
+<li>JMeter cannot take that much load (strange, isn&#8217;t it ?), we have to build a cluster of JMeters and monitor the application AND the injection nodes to be sure that the failure doesn&#8217;t come from JMeter...</li>
+<li>The Grinder failed because of a memory leak, it&#8217;s too hard to debug when you&#8217;re not a Python developer...</li>
+</ul>
+</div>
+<div class="section" id="so-why-use-gatling">
+<h2>So, why use Gatling?<a class="headerlink" href="#so-why-use-gatling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gatling-is-efficient">
+<h3>Gatling is efficient<a class="headerlink" href="#gatling-is-efficient" title="Permalink to this headline">¶</a></h3>
+<p>Gatling uses actors and async IO, so it&#8217;s far more efficient that one-thread-per-user based solutions.
+It gives more accurate results with far less memory and CPU usage.
+What&#8217;s the point in having to run the stress tool with more horse power than the system under test?!</p>
+</div>
+<div class="section" id="gatling-scripts-are-elegant-and-concise">
+<h3>Gatling scripts are elegant and concise<a class="headerlink" href="#gatling-scripts-are-elegant-and-concise" title="Permalink to this headline">¶</a></h3>
+<p>Simulation scripts should be written in a concise and user-friendly manner so that they can be handled by a version control system.
+Why is that? Because performing performance tests should be part of the release process, so a version of a scenario is to be bound to a version of the application sources, and one should be able to perform diffs between versions.
+This can&#8217;t be achieved if the script are huge dumps of XML that can only be read from a specific GUI.
+Gatling provides a <a class="reference internal" href="../user_documentation/reference/structure_elements.html#structure-elements"><em>concise, elegant and easy to learn syntax</em></a>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Standard User&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;Access Github&quot;</span><span class="o">)</span> <span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com&quot;</span><span class="o">)</span> <span class="o">)</span>
+        <span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;Search for &#39;gatling&#39;&quot;</span><span class="o">)</span> <span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com/search&quot;</span><span class="o">)</span> <span class="n">queryParam</span><span class="o">(</span><span class="s">&quot;q&quot;</span><span class="o">,</span><span class="s">&quot;gatling&quot;</span><span class="o">)</span> <span class="o">)</span>
+        <span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gatling-scripts-are-code">
+<h3>Gatling scripts are code<a class="headerlink" href="#gatling-scripts-are-code" title="Permalink to this headline">¶</a></h3>
+<p>The standard DSL should be sufficient for most use cases.
+However, this DSL is actually written in Scala, on top of an open functional API.
+As a consequence, it can be easily <a class="reference internal" href="../user_documentation/tutorial/advanced_usage.html#scala-functions"><em>extended</em></a> with very few basic knowledge: no need to be a Scala hacker.</p>
+</div>
+<div class="section" id="gatling-charts-are-meaningful">
+<h3>Gatling charts are meaningful<a class="headerlink" href="#gatling-charts-are-meaningful" title="Permalink to this headline">¶</a></h3>
+<p>We try our best to provide charts with meaningful information and will continue to do so with regards to user feedback.
+These charts use javascript libraries to give a rich user experience.</p>
+</div>
+<div class="section" id="gatling-is-free">
+<h3>Gatling is free<a class="headerlink" href="#gatling-is-free" title="Permalink to this headline">¶</a></h3>
+<p>Even if Gatling is not fully open source (due to dependencies <a class="reference internal" href="license.html#license"><em>licenses</em></a>), it is completely free of charge!</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Introduction</a><ul class="nav">
+<li><a class="reference internal" href="#motivation">Motivation</a></li>
+<li><a class="reference internal" href="#so-why-use-gatling">So, why use Gatling?</a><ul class="nav">
+<li><a class="reference internal" href="#gatling-is-efficient">Gatling is efficient</a></li>
+<li><a class="reference internal" href="#gatling-scripts-are-elegant-and-concise">Gatling scripts are elegant and concise</a></li>
+<li><a class="reference internal" href="#gatling-scripts-are-code">Gatling scripts are code</a></li>
+<li><a class="reference internal" href="#gatling-charts-are-meaningful">Gatling charts are meaningful</a></li>
+<li><a class="reference internal" href="#gatling-is-free">Gatling is free</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="index.html" title="Previous Chapter: General Information">
+      General Information
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="underlying_technologies.html" title="Next Chapter: Underlying Technologies">
+      Underlying Technologies
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

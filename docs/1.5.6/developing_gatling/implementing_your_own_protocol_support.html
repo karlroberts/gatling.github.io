@@ -1,0 +1,249 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Implementing your own Protocol Support &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="Developing Gatling" href="index.html" />
+    <link rel="prev" title="Gatling Architecture" href="gatling_architecture.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              Developing Gatling
+              </a>
+            </li>
+            <li><a href="">
+              Implementing your own Protocol Support
+            </a></li>
+          </ul>
+          
+  <div class="section" id="implementing-your-own-protocol-support">
+<h1>Implementing your own Protocol Support<a class="headerlink" href="#implementing-your-own-protocol-support" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Work in Progress! See also tutorial by James Gregory: <a class="reference external" href="https://github.com/jagregory/gatling/blob/master/GatlingProtocolBreakdown.md">https://github.com/jagregory/gatling/blob/master/GatlingProtocolBreakdown.md</a></p>
+</div>
+<div class="section" id="the-action">
+<h2>The Action<a class="headerlink" href="#the-action" title="Permalink to this headline">¶</a></h2>
+<p>An Action is the actual component in charge of &#8220;doing something&#8221;, like sending a request (or looping, routing, etc).
+It must:</p>
+<ul class="simple">
+<li>extend the <tt class="docutils literal"><span class="pre">com.excilys.ebi.gatling.core.action.Action</span></tt> trait</li>
+<li>implement the <tt class="docutils literal"><span class="pre">def</span> <span class="pre">execute(session:</span> <span class="pre">Session)</span></tt> method.</li>
+</ul>
+<p>This method has to perform the following operations:</p>
+<ul>
+<li><p class="first">send the request</p>
+</li>
+<li><p class="first">retrieve the response</p>
+</li>
+<li><p class="first">perform checks on the response (optional)</p>
+</li>
+<li><p class="first">save elements from the checks into the session for further usage (optional)</p>
+</li>
+<li><p class="first">log the outcome:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="nc">DataWriter</span><span class="o">.</span><span class="n">logRequest</span><span class="o">(</span><span class="n">session</span><span class="o">.</span><span class="n">scenarioName</span><span class="o">,</span>
+                      <span class="n">session</span><span class="o">.</span><span class="n">userId</span><span class="o">,</span>
+                      <span class="s">&quot;Request &quot;</span> <span class="o">+</span> <span class="n">requestName</span><span class="o">,</span>
+                      <span class="n">requestStartDate</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span>
+                      <span class="n">responseEndDate</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span>
+                      <span class="n">endOfRequestSendingDate</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span>
+                      <span class="n">endOfRequestSendingDate</span><span class="k">:</span> <span class="kt">Long</span><span class="o">,</span>
+                      <span class="n">requestResult</span><span class="k">:</span> <span class="kt">RequestStatus</span><span class="o">,</span>
+                      <span class="n">requestMessage</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">calling the next action in the chain:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">next</span> <span class="o">!</span> <span class="n">session</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Note that an Action is basically an Akka Actor that handles Session messages. An Action instance is to be shared among users.</p>
+</div>
+<div class="section" id="the-actionbuilder">
+<h2>The ActionBuilder<a class="headerlink" href="#the-actionbuilder" title="Permalink to this headline">¶</a></h2>
+<p>An ActionBuilder is what is expected in the DSL. It is used at engine start up for building Action instances.</p>
+<p>An ActionBuilder is to be stateless and immutable so it can be reused at multiple places in the scenario and produce multiple unrelated Actions instances.</p>
+<p>It expects an implementation of the following methods:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">private</span><span class="o">[</span><span class="kt">gatling</span><span class="o">]</span> <span class="k">def</span> <span class="n">withNext</span><span class="o">(</span><span class="n">next</span><span class="k">:</span> <span class="kt">ActorRef</span><span class="o">)</span><span class="k">:</span> <span class="kt">ActionBuilder</span>
+</pre></div>
+</div>
+<p>returns a new ActionBuilder instance with a reference to the given ActorRef. An <tt class="docutils literal"><span class="pre">ActorRef</span></tt> is a stub on an Akka actor.
+This method is called at engine startup when attaching the builder in the scenario chain.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">private</span><span class="o">[</span><span class="kt">gatling</span><span class="o">]</span> <span class="k">def</span> <span class="n">build</span><span class="o">(</span><span class="n">registry</span><span class="k">:</span> <span class="kt">ProtocolConfigurationRegistry</span><span class="o">)</span><span class="k">:</span> <span class="kt">ActorRef</span>
+</pre></div>
+</div>
+<p>builds the Action and starts it. It take a ProtocolConfigurationRegistry parameter that is basically a Map of protocol specific option (such as outgoing proxy for HTTP).
+For starting and returning an Actor from an Action instance, use the following:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">com</span><span class="o">.</span><span class="n">excilys</span><span class="o">.</span><span class="n">ebi</span><span class="o">.</span><span class="n">gatling</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">system</span><span class="o">.</span><span class="n">actorOf</span><span class="o">(</span><span class="nc">Props</span><span class="o">(</span><span class="n">myActionInstance</span><span class="o">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Implementing your own Protocol Support</a><ul class="nav">
+<li><a class="reference internal" href="#the-action">The Action</a></li>
+<li><a class="reference internal" href="#the-actionbuilder">The ActionBuilder</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="gatling_architecture.html" title="Previous Chapter: Gatling Architecture">
+      Gatling Architecture
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

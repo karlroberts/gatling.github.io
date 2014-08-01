@@ -1,0 +1,620 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HTTP &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Reference" href="index.html" />
+    <link rel="next" title="Assertions" href="assertions.html" />
+    <link rel="prev" title="Checks" href="checks.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              User Documentation
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Reference
+              </a>
+            </li>
+            <li><a href="">
+              HTTP
+            </a></li>
+          </ul>
+          
+  <div class="section" id="http">
+<h1>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<p>As the first protocol module of Gatling, Gatling HTTP allows you to load test web applications, web services or websites. It supports HTTP and HTTPS with almost every existing features of common browsers.</p>
+<p>HTTP requests are declared in <tt class="docutils literal"><span class="pre">exec()</span></tt> method, eg:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(...).</span><span class="n">queryParam</span><span class="o">(...)</span> <span class="o">)</span>
+</pre></div>
+</div>
+<div class="section" id="preamble-a-word-on-tuning">
+<span id="http-tuning"></span><h2>Preamble: a Word on Tuning<a class="headerlink" href="#preamble-a-word-on-tuning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connection-sharing">
+<h3>Connection sharing<a class="headerlink" href="#connection-sharing" title="Permalink to this headline">¶</a></h3>
+<p>First of all, be aware that since 1.5.0, virtual users behave by default as distinct user agents, in the sense that they have their own connections. This behavior is the default as we believe most people want to emulate browsers. This behavior is also the only way to have SSL session tracking work.</p>
+<p>If this is not your use case and want your virtual users to share the same connections, you might want to change this behavior. If so, please have a look at the <a class="reference internal" href="#share-connections"><em>shareConnections</em></a> HTTP protocol configuration.</p>
+</div>
+<div class="section" id="connection-closing">
+<h3>Connection closing<a class="headerlink" href="#connection-closing" title="Permalink to this headline">¶</a></h3>
+<p>Gatling doesn&#8217;t close the connections used by a given user when the user exits the simulation.</p>
+<p>Connections are freed on 2 events:</p>
+<ul class="simple">
+<li>Gatling shutdown</li>
+<li>The connection stays idle for too long in the connection pool. This time out can be tuned in <tt class="docutils literal"><span class="pre">gatling.conf</span></tt> with the <tt class="docutils literal"><span class="pre">idleConnectionInPoolTimeoutInMs</span></tt> parameter, default value is 60.</li>
+</ul>
+</div>
+<div class="section" id="os-tuning">
+<h3>OS Tuning<a class="headerlink" href="#os-tuning" title="Permalink to this headline">¶</a></h3>
+<p>Depending on your OS, you might have to tweak a few options so that you can massively open new sockets and reach heavy load.</p>
+<p>For example, on X platforms, you imperatively have to increase the number of files you can open with <tt class="docutils literal"><span class="pre">ulimit</span> <span class="pre">-n</span></tt>.</p>
+<p>Under Mac OS/X Lion you need to run the following commands in order to &#8220;unbuckle the belts&#8221;:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">w</span> <span class="n">kern</span><span class="o">.</span><span class="n">maxfilesperproc</span><span class="k">=</span><span class="mi">200000</span>
+<span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">w</span> <span class="n">kern</span><span class="o">.</span><span class="n">maxfiles</span><span class="k">=</span><span class="mi">200000</span>
+<span class="n">sudo</span> <span class="n">sysctl</span> <span class="o">-</span><span class="n">w</span> <span class="n">net</span><span class="o">.</span><span class="n">inet</span><span class="o">.</span><span class="n">ip</span><span class="o">.</span><span class="n">portrange</span><span class="o">.</span><span class="n">first</span><span class="k">=</span><span class="mi">1024</span>
+</pre></div>
+</div>
+<p>You could also have to increase your <a class="reference external" href="http://www.ncftp.com/ncftpd/doc/misc/ephemeral_ports.html">ephemeral port range</a> or tune your TCP time out so that they expire faster.</p>
+<p>Here&#8217;s also a good entry point: <a class="reference external" href="https://github.com/0xdata/h2o/wiki/EC2-hosts-configuration-and-tuning">https://github.com/0xdata/h2o/wiki/EC2-hosts-configuration-and-tuning</a></p>
+</div>
+</div>
+<div class="section" id="protocol-configuration">
+<h2>Protocol Configuration<a class="headerlink" href="#protocol-configuration" title="Permalink to this headline">¶</a></h2>
+<p>As every protocol in Gatling, the HTTP protocol can be configured for a scenario. This is done thanks to the following statements:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">httpConf</span> <span class="k">=</span> <span class="n">httpConfig</span><span class="o">.</span><span class="n">baseURL</span><span class="o">(</span><span class="s">&quot;http://my.website.tld&quot;</span><span class="o">)</span>
+<span class="o">...</span>
+<span class="n">setUp</span><span class="o">(</span><span class="n">scn</span><span class="o">.</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">))</span>
+</pre></div>
+</div>
+<div class="section" id="base-url">
+<span id="http-base-url"></span><h3>Base URL<a class="headerlink" href="#base-url" title="Permalink to this headline">¶</a></h3>
+<p>As you may have seen in the previous example, you can set a base URL. This base URL will be prepended to all urls that does not start with <tt class="docutils literal"><span class="pre">http</span></tt>, eg:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">httpConf</span> <span class="k">=</span> <span class="n">httpConfig</span><span class="o">.</span><span class="n">baseURL</span><span class="o">(</span><span class="s">&quot;http://my.website.tld&quot;</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">scn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;My Scenario&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+    <span class="n">http</span><span class="o">(</span><span class="s">&quot;My Request&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;/my_path&quot;</span><span class="o">)</span> <span class="c1">// Will actually make a request on &quot;http://my.website.tld/my_path&quot;</span>
+  <span class="o">)</span>
+  <span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+    <span class="n">http</span><span class="o">(</span><span class="s">&quot;My Other Request&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://other.website.tld&quot;</span><span class="o">)</span> <span class="c1">// Will make a request on &quot;http://other.website.tld&quot;</span>
+  <span class="o">...</span>
+
+<span class="n">setUp</span><span class="o">(</span><span class="n">scn</span><span class="o">.</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)...)</span>
+</pre></div>
+</div>
+<div class="section" id="stressing-several-servers-with-client-based-load-balancing-since-1-3-0">
+<h4>Stressing several servers with client based load balancing <em>(since 1.3.0)</em><a class="headerlink" href="#stressing-several-servers-with-client-based-load-balancing-since-1-3-0" title="Permalink to this headline">¶</a></h4>
+<p>If you want to stress several servers at the same time, to bypass a load-balancer for example, you can use the method named <tt class="docutils literal"><span class="pre">baseURLs(String*)</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">httpConf</span> <span class="k">=</span> <span class="n">httpConfig</span><span class="o">.</span><span class="n">baseURLs</span><span class="o">(</span><span class="s">&quot;http://my1.website.tld&quot;</span><span class="o">,</span> <span class="s">&quot;http://my2.website.tld&quot;</span><span class="o">,</span> <span class="s">&quot;http://my3.website.tld&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The selection of the URL is made at each request, using the <tt class="docutils literal"><span class="pre">Random</span></tt> generator.</p>
+</div>
+</div>
+<div class="section" id="outgoing-proxy">
+<h3>Outgoing Proxy<a class="headerlink" href="#outgoing-proxy" title="Permalink to this headline">¶</a></h3>
+<p>If your simulation must be run behind a proxy, you can tell Gatling to use a proxy to send the HTTP requests.</p>
+<p>You can set the HTTP proxy, on optional HTTPS proxy and optional credentials for the proxy:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">httpConf</span> <span class="k">=</span> <span class="n">httpConfig</span><span class="o">.</span><span class="n">proxy</span><span class="o">(</span><span class="s">&quot;myProxyHost&quot;</span><span class="o">,</span> <span class="mi">8080</span><span class="o">)</span>
+                         <span class="o">.</span><span class="n">httpsPort</span><span class="o">(</span><span class="mi">8143</span><span class="o">)</span>
+                         <span class="o">.</span><span class="n">credentials</span><span class="o">(</span><span class="s">&quot;myUsername&quot;</span><span class="o">,</span><span class="s">&quot;myPassword&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="follow-redirects-since-1-1-0">
+<span id="http-follow-redirects"></span><h3>Follow Redirects <em>(since 1.1.0)</em><a class="headerlink" href="#follow-redirects-since-1-1-0" title="Permalink to this headline">¶</a></h3>
+<p>Some requests lead to a redirect response from the server.
+Since 1.2.0, this feature is enabled by default.</p>
+<p>With this configuration, Gatling will automatically follow redirects until reaching a non 301/302 status code. This checks will be applied on the last page of the redirect chain (ie the final page displayed to the user).</p>
+<p>To disable this feature, just add <tt class="docutils literal"><span class="pre">.disableFollowRedirect</span></tt> to an HTTP Protocol Configuration definition.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">httpConf</span> <span class="k">=</span> <span class="n">httpConfig</span><span class="o">.</span><span class="n">disableFollowRedirect</span>
+
+<span class="n">setUp</span><span class="o">(</span><span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">600</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">200</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="common-headers-since-1-2-0">
+<h3>Common Headers <em>(since 1.2.0)</em><a class="headerlink" href="#common-headers-since-1-2-0" title="Permalink to this headline">¶</a></h3>
+<p>Some HTTP headers can be mutualized in the Http Protocol configuration.
+Of course, declaring at request level a header that&#8217;s already been defined at protocol level will override the value.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">acceptHeader</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span>
+<span class="o">.</span><span class="n">acceptCharsetHeader</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span>
+<span class="o">.</span><span class="n">acceptEncodingHeader</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span>
+<span class="o">.</span><span class="n">acceptLanguageHeader</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span>
+<span class="o">.</span><span class="n">userAgentHeader</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Those common headers are automatically computed by the Recorder.</p>
+</div>
+</div>
+<div class="section" id="automatic-referer-since-1-2-0">
+<h3>Automatic Referer <em>(since 1.2.0)</em><a class="headerlink" href="#automatic-referer-since-1-2-0" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">Referer</span></tt> HTTP header can be automatically computed.
+This feature is enabled by default.</p>
+<p>To disable this feature, just add <tt class="docutils literal"><span class="pre">.disableAutomaticReferer</span></tt> to an HTTP Protocol Configuration definition.</p>
+</div>
+<div class="section" id="automatic-warm-up-since-1-2-0">
+<span id="http-warmup"></span><h3>Automatic warm up <em>(since 1.2.0)</em><a class="headerlink" href="#automatic-warm-up-since-1-2-0" title="Permalink to this headline">¶</a></h3>
+<p>The Java/NIO engine start up introduces an overhead on the first request to be executed.
+In order to compensate this effect, Gatling automatically performs a request to <a class="reference external" href="http://gatling-tool.org">http://gatling-tool.org</a>.</p>
+<p>To disable this feature, just add <tt class="docutils literal"><span class="pre">.disableWarmUp</span></tt> to an HTTP Protocol Configuration definition.
+To change the warm up url, just add <tt class="docutils literal"><span class="pre">.warmUp(&quot;newUrl&quot;)</span></tt>.</p>
+</div>
+<div class="section" id="dumping-custom-data-since-1-2-4">
+<span id="dumping-custom-data"></span><h3>Dumping custom data <em>(since 1.2.4)</em><a class="headerlink" href="#dumping-custom-data-since-1-2-4" title="Permalink to this headline">¶</a></h3>
+<p>Some people might want more data than what Gatling normally dumps in the <tt class="docutils literal"><span class="pre">simulation.log</span></tt> file.</p>
+<p>httpConfig provides hooks for dumping extra data: one for request and one for response.</p>
+<p>The extra data will be appended to the relative records in the <tt class="docutils literal"><span class="pre">simulation.log</span></tt> file and reports generation will ignore them. It&#8217;s up to the user to build his own analysis system for them.</p>
+<div class="section" id="requestinfoextractor-function-request-list-string">
+<h4><tt class="docutils literal"><span class="pre">requestInfoExtractor(function:</span> <span class="pre">(Request</span> <span class="pre">=&gt;</span> <span class="pre">List[String]))</span></tt><a class="headerlink" href="#requestinfoextractor-function-request-list-string" title="Permalink to this headline">¶</a></h4>
+<p>The following built-in functions are automatically available:</p>
+<ul class="simple">
+<li>requestUrl</li>
+<li>requestRawUrl</li>
+</ul>
+</div>
+<div class="section" id="responseinfoextractor-function-response-list-string">
+<h4><tt class="docutils literal"><span class="pre">responseInfoExtractor(function:</span> <span class="pre">(Response</span> <span class="pre">=&gt;</span> <span class="pre">List[String]))</span></tt><a class="headerlink" href="#responseinfoextractor-function-response-list-string" title="Permalink to this headline">¶</a></h4>
+<p>The following built-in functions are automatically available:</p>
+<ul class="simple">
+<li>responseStatusCode</li>
+<li>responseStatusText</li>
+<li>responseContentType</li>
+<li>responseUri</li>
+</ul>
+</div>
+<div class="section" id="disableresponsechunksdiscarding-since-1-3-0">
+<h4><tt class="docutils literal"><span class="pre">disableResponseChunksDiscarding</span></tt> <em>(since 1.3.0)</em><a class="headerlink" href="#disableresponsechunksdiscarding-since-1-3-0" title="Permalink to this headline">¶</a></h4>
+<p>Beware that, as an optimization, Gatling doesn&#8217;t pile up response chunks unless a check is defined on the response body.
+If you don&#8217;t want to set up a check and still want to get the response body from <tt class="docutils literal"><span class="pre">responseInfoExtractor</span></tt>, you have to disable this feature. Just add <tt class="docutils literal"><span class="pre">.disableResponseChunksDiscarding</span></tt> to an HTTP Protocol Configuration definition.</p>
+</div>
+<div class="section" id="shareconnections-since-1-5-0">
+<span id="share-connections"></span><h4><tt class="docutils literal"><span class="pre">shareConnections</span></tt> <em>(since 1.5.0)</em><a class="headerlink" href="#shareconnections-since-1-5-0" title="Permalink to this headline">¶</a></h4>
+<p>By default, virtual users don&#8217;t share connections. Use this option to change this behavior.</p>
+</div>
+</div>
+</div>
+<div class="section" id="cookies-handling">
+<h2>Cookies handling<a class="headerlink" href="#cookies-handling" title="Permalink to this headline">¶</a></h2>
+<p>Gatling transparently handles cookies, just like a browser would (they are actually stored in the user Session).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Please note the following limitations:</p>
+<ul class="last simple">
+<li>Idle expiration is not supported, as having an idle user during a stress test doesn&#8217;t make sense. However, explicit expiration when the server returns a cookie with an expiration date in the past is perfectly supported.</li>
+<li>Gatling currently doesn&#8217;t support <tt class="docutils literal"><span class="pre">HttpOnly</span></tt> property, as it currently handles indifferently http and non-http requests.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="caching-since-1-3-0">
+<span id="http-caching"></span><h2>Caching <em>(since 1.3.0)</em><a class="headerlink" href="#caching-since-1-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Gatling supports basic caching, meaning that:</p>
+<ul class="simple">
+<li>Cache-Control different from no-cache is interpreted as cache forever</li>
+<li>Future Expires date is interpreted as cache forever</li>
+<li>ETag is not supported</li>
+</ul>
+<p>To disable this feature, just add <tt class="docutils literal"><span class="pre">.disableCaching</span></tt> to an HTTP Protocol Configuration definition.</p>
+</div>
+<div class="section" id="declaring-an-http-request">
+<h2>Declaring an HTTP request<a class="headerlink" href="#declaring-an-http-request" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="method-and-uri">
+<h3>Method and URI<a class="headerlink" href="#method-and-uri" title="Permalink to this headline">¶</a></h3>
+<p>If you know HTTP protocol, you certainly know that for a request to be sent, there are mandatory parameters to be set. The first ones are the Method and the URI of the request.</p>
+<p>Gatling currently supports 5 of the 8 methods of the HTTP protocol:</p>
+<ul class="simple">
+<li>HEAD - Used to <strong>head</strong> information stored at the URI</li>
+<li>GET - Used to <strong>get</strong> information stored at the URI</li>
+<li>POST - Used to <strong>post</strong> information to an HTTP server</li>
+<li>PUT - Used to <strong>update</strong> existing information at the URI</li>
+<li>DELETE - Used to <strong>delete</strong> existing information at the URI</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These methods are the ones used in REST webservices and RESTful applications; thus, such services can be tested with Gatling.</p>
+</div>
+<p>This is how an HTTP request is declared:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// general structure of an HTTP request</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;Name of the request&quot;</span><span class="o">).</span><span class="n">method</span><span class="o">(</span><span class="nc">URI</span><span class="o">)</span>
+
+<span class="c1">// concrete examples</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;Retrieve home page&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;https://github.com/excilys/gatling&quot;</span><span class="o">)</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;Login&quot;</span><span class="o">).</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;https://github.com/session&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="query-parameters">
+<span id="http-query-parameters"></span><h3>Query Parameters<a class="headerlink" href="#query-parameters" title="Permalink to this headline">¶</a></h3>
+<p>To send information to a web server, frameworks and developers use query parameters, you can find them after the <tt class="docutils literal"><span class="pre">?</span></tt> of an URI:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">excilys</span><span class="o">/</span><span class="n">gatling</span><span class="o">/</span><span class="n">issues</span><span class="o">?</span><span class="n">milestone</span><span class="k">=</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">state</span><span class="k">=</span><span class="n">open</span>
+</pre></div>
+</div>
+<p>Here the query parameters are:</p>
+<ul class="simple">
+<li><em>milestone=1</em> : the key is <tt class="docutils literal"><span class="pre">milestone</span></tt> and its value is <tt class="docutils literal"><span class="pre">1</span></tt></li>
+<li><em>state=open</em> : the key is <tt class="docutils literal"><span class="pre">state</span></tt> and its value is <tt class="docutils literal"><span class="pre">open</span></tt></li>
+</ul>
+<p>To define the query parameters of an HTTP request, you can use the method named <tt class="docutils literal"><span class="pre">queryParam(key:</span> <span class="pre">String,</span> <span class="pre">value:</span> <span class="pre">String)</span></tt>, eg:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// GET https://github.com/excilys/gatling/issues?milestone=1&amp;state=open</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;Getting issues&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;https://github.com/excilys/gatling/issues&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">queryParam</span><span class="o">(</span><span class="s">&quot;milestone&quot;</span><span class="o">,</span> <span class="s">&quot;1&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">queryParam</span><span class="o">(</span><span class="s">&quot;state&quot;</span><span class="o">,</span> <span class="s">&quot;open&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>You can use ELs (defined <a class="reference internal" href="../tutorial/advanced_usage.html#the-session"><em>here</em></a>) to get values from the session:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// GET https://github.com/excilys/gatling?myKey={valueFromSession}</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;Value from session example&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;https://github.com/excilys/gatling&quot;</span><span class="o">)</span>
+  <span class="c1">// Global use case</span>
+  <span class="o">.</span><span class="n">queryParam</span><span class="o">(</span><span class="s">&quot;myKey&quot;</span><span class="o">,</span> <span class="s">&quot;${sessionKey}&quot;</span><span class="o">)</span>
+  <span class="c1">// If the query parameter key and the session are the same</span>
+  <span class="o">.</span><span class="n">queryParam</span><span class="o">(</span><span class="s">&quot;myKey&quot;</span><span class="o">)</span> <span class="c1">// Equivalent to queryParam(&quot;myKey&quot;, &quot;${myKey}&quot;)</span>
+</pre></div>
+</div>
+<p>If you&#8217;d like to specify a query parameter without value, you must use <tt class="docutils literal"><span class="pre">queryParam(&quot;key&quot;,</span> <span class="pre">&quot;&quot;)</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// GET https://github.com/excilys/gatling?myKey</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;Empty value example&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;https://github.com/excilys/gatling&quot;</span><span class="o">).</span><span class="n">queryParam</span><span class="o">(</span><span class="s">&quot;myKey&quot;</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>If you&#8217;d like to pass multiple values for your parameter, but all at once, you can use <tt class="docutils literal"><span class="pre">multiValuedQueryParam</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">multiValuedQueryParam</span><span class="o">(</span><span class="s">&quot;omg&quot;</span><span class="o">,</span> <span class="s">&quot;foo&quot;</span><span class="o">))</span> <span class="c1">// where foo is the name of a Seq Session attribute</span>
+<span class="n">multiValuedQueryParam</span><span class="o">(</span><span class="s">&quot;omg&quot;</span><span class="o">,</span> <span class="nc">List</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)))</span>
+<span class="n">multiValuedQueryParam</span><span class="o">(</span><span class="s">&quot;omg&quot;</span><span class="o">,</span> <span class="n">session</span> <span class="k">=&gt;</span> <span class="nc">List</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-headers">
+<h3>HTTP Headers<a class="headerlink" href="#http-headers" title="Permalink to this headline">¶</a></h3>
+<p>HTTP protocol uses headers to exchange information between client and server that is not part of the message (stored in the body of the request, if there is one). Gatling HTTP allows you to specify any header you want to with the <tt class="docutils literal"><span class="pre">header</span></tt> and <tt class="docutils literal"><span class="pre">headers</span></tt> methods. Here are some examples:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Defining a map of headers before the scenario allows you to reuse these in several requests</span>
+<span class="k">val</span> <span class="n">sentHeaders</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span><span class="s">&quot;Content-Type&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;application/javascript&quot;</span><span class="o">,</span> <span class="s">&quot;Accept&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;text/html&quot;</span><span class="o">)</span>
+
+<span class="n">scenario</span><span class="o">(...)</span>
+  <span class="o">...</span>
+    <span class="n">http</span><span class="o">(...).</span><span class="n">post</span><span class="o">(...)</span>
+      <span class="c1">// Adds several headers at once</span>
+      <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">sentHeaders</span><span class="o">)</span>
+      <span class="c1">// Adds another header to the request</span>
+      <span class="o">.</span><span class="n">header</span><span class="o">(</span><span class="s">&quot;Keep-Alive&quot;</span><span class="o">,</span> <span class="s">&quot;150&quot;</span><span class="o">)</span>
+      <span class="c1">// Overrides the Content-Type header</span>
+      <span class="o">.</span><span class="n">header</span><span class="o">(</span><span class="s">&quot;Content-Type&quot;</span><span class="o">,</span> <span class="s">&quot;application/json&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">headers keys are defined as constants usable in the scenario, for example: <tt class="docutils literal"><span class="pre">CONTENT_TYPE</span></tt>. You can find a list of the predefined constants <a class="reference external" href="http://gatling-tool.org/api/gatling-http/#com.excilys.ebi.gatling.http.Predef$">here</a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There are two handful methods to help you deal with JSON requests and XML requests: <tt class="docutils literal"><span class="pre">asJSON</span></tt> and <tt class="docutils literal"><span class="pre">asXML</span></tt>. They are equivalent to <tt class="docutils literal"><span class="pre">header(CONTENT_TYPE,</span> <span class="pre">APPLICATION_JSON).header(ACCEPT,</span> <span class="pre">APPLICATION_JSON)</span></tt> and <tt class="docutils literal"><span class="pre">header(CONTENT_TYPE,</span> <span class="pre">APPLICATION_XML).header(ACCEPT,</span> <span class="pre">APPLICATION_XML)</span></tt> respectively.</p>
+</div>
+</div>
+<div class="section" id="basic-authentication">
+<h3>BASIC Authentication<a class="headerlink" href="#basic-authentication" title="Permalink to this headline">¶</a></h3>
+<p>HTTP provides two authentication methods to secure URIs:</p>
+<ul class="simple">
+<li>BASIC</li>
+<li>DIGEST</li>
+</ul>
+<p>Gatling supports BASIC authentication.</p>
+<p>To add authentication headers to a request, you must use the method <tt class="docutils literal"><span class="pre">basicAuth(username:</span> <span class="pre">String,</span> <span class="pre">password:</span> <span class="pre">String)</span></tt> as follows:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">http</span><span class="o">(</span><span class="s">&quot;My secured request&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://my.secured.uri&quot;</span><span class="o">).</span><span class="n">basicAuth</span><span class="o">(</span><span class="s">&quot;myUser&quot;</span><span class="o">,</span> <span class="s">&quot;myPassword&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="method-specific-methods">
+<h2>Method specific methods<a class="headerlink" href="#method-specific-methods" title="Permalink to this headline">¶</a></h2>
+<p><em>Sorry for this bizarre title ;-)</em></p>
+<div class="section" id="adding-a-body-to-a-request">
+<h3>Adding a body to a request<a class="headerlink" href="#adding-a-body-to-a-request" title="Permalink to this headline">¶</a></h3>
+<p>When the request&#8217;s method is POST, PUT or DELETE, it can contain a body.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Content-Length HTTP header will be overridden by gatling for each request since the body length is calculated at run time of the simulation.</p>
+</div>
+<div class="section" id="body-body-string">
+<h4>body(body: String)<a class="headerlink" href="#body-body-string" title="Permalink to this headline">¶</a></h4>
+<p>This one one lets you define a body in place with a String:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">http</span><span class="o">(</span><span class="s">&quot;String body&quot;</span><span class="o">).</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;my.post.uri&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">body</span><span class="o">(</span><span class="s">&quot;&quot;&quot;{ &quot;myContent&quot;: &quot;myValue&quot; }&quot;&quot;&quot;</span><span class="o">).</span><span class="n">asJSON</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Scala, you can use escaped strings with this notation: <tt class="docutils literal"><span class="pre">&quot;&quot;&quot;my</span> <span class="pre">&quot;non-escaped&quot;</span> <span class="pre">string&quot;&quot;&quot;</span></tt>. This simplifies the writing and reading of strings containing special characters.</p>
+</div>
+</div>
+<div class="section" id="filebody-filename-string">
+<h4>fileBody(fileName: String)<a class="headerlink" href="#filebody-filename-string" title="Permalink to this headline">¶</a></h4>
+<p>This one lets you include a file as the body of the request. This file must be located in the <cite>user-files/request-bodies</cite> folder of your Gatling directory.</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="cm">/*user-files/request-bodies/myFile.json*/</span>
+<span class="p">{</span> <span class="s2">&quot;myContent&quot;</span><span class="o">:</span> <span class="s2">&quot;myValue&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* Scenario */</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;File body&quot;</span><span class="o">).</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;my.post.uri&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">fileBody</span><span class="o">(</span><span class="s">&quot;myFile.json&quot;</span><span class="o">).</span><span class="n">asJSON</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filebody-templatefilename-string-valuestoreplace-map-string-string">
+<h4>fileBody(templateFileName: String, valuesToReplace: Map[String, String])<a class="headerlink" href="#filebody-templatefilename-string-valuestoreplace-map-string-string" title="Permalink to this headline">¶</a></h4>
+<p>This one lets you include the output of a template as the body of the request. The template file must be located in <tt class="docutils literal"><span class="pre">user-files/request-bodies</span></tt> and be an SSP file, eg: <tt class="docutils literal"><span class="pre">myTemplate.ssp</span></tt>. You can find more information about SSP on the <a class="reference external" href="http://scalate.fusesource.org/documentation/ssp-reference.html">Scalate website</a>.</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="cm">/* user-files/request-bodies/myTemplate.ssp */</span>
+<span class="p">{</span> <span class="s2">&quot;myContent&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;%= value %&gt;&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* Scenario */</span>
+<span class="n">http</span><span class="o">(</span><span class="s">&quot;Template Body&quot;</span><span class="o">).</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;my.post.uri&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">fileBody</span><span class="o">(</span><span class="s">&quot;myTemplate&quot;</span><span class="o">,</span> <span class="nc">Map</span><span class="o">(</span><span class="s">&quot;value&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;myValue&quot;</span><span class="o">)).</span><span class="n">asJSON</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Instead of <tt class="docutils literal"><span class="pre">&quot;myValue&quot;`</span></tt>, you can use ELs to insert session values in your template: <tt class="docutils literal"><span class="pre">Map(&quot;value&quot;</span> <span class="pre">-&gt;</span> <span class="pre">&quot;${mySessionKey}&quot;)</span></tt></p>
+</div>
+</div>
+<div class="section" id="bytearraybody-bytearray-session-array-byte-since-1-3-0">
+<span id="http-byte-array-body"></span><h4>byteArrayBody (byteArray : (Session) =&gt; Array[Byte]) <em>(since 1.3.0)</em><a class="headerlink" href="#bytearraybody-bytearray-session-array-byte-since-1-3-0" title="Permalink to this headline">¶</a></h4>
+<p>This one allows for injection of a byte array body in the http request during a simulation. The method accepts a callback function that returns an Array[Byte]. It is useful for testing APIs that accept binary data (i.e protocol buffers) and you want to generate the data dynamically in memory on the fly. An example simulation where the binary data was loaded beforehand in Redis can be viewed <a class="reference external" href="https://gist.github.com/4345254">here</a>.</p>
+</div>
+</div>
+<div class="section" id="post-parameters">
+<h3>POST Parameters<a class="headerlink" href="#post-parameters" title="Permalink to this headline">¶</a></h3>
+<p>POST requests can have parameters defined in their body. This is typically used for form submission, where all the values are stored as POST parameters in the body of the request.</p>
+<p>To add such parameters to a POST request, you must use the method <tt class="docutils literal"><span class="pre">param(key:</span> <span class="pre">String,</span> <span class="pre">value:</span> <span class="pre">String)</span></tt> which is actually the same as <tt class="docutils literal"><span class="pre">queryParam</span></tt> in <strong>terms of usage</strong> (it has the same signatures).</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">http</span><span class="o">(</span><span class="s">&quot;My Form Data&quot;</span><span class="o">).</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;my.form-action.uri&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">param</span><span class="o">(</span><span class="s">&quot;myKey&quot;</span><span class="o">,</span> <span class="s">&quot;myValue&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>If you&#8217;d like to pass multiple values for your parameter, but all at once, you can use <tt class="docutils literal"><span class="pre">multiValuedParam</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">multiValuedParam</span><span class="o">(</span><span class="s">&quot;omg&quot;</span><span class="o">,</span> <span class="s">&quot;${foo}&quot;</span><span class="o">))</span> <span class="c1">// where foo is the name of a Seq Session attribute</span>
+<span class="n">multiValuedParam</span><span class="o">(</span><span class="s">&quot;omg&quot;</span><span class="o">,</span> <span class="nc">List</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)))</span>
+<span class="n">multiValuedParam</span><span class="o">(</span><span class="s">&quot;omg&quot;</span><span class="o">,</span> <span class="n">session</span> <span class="k">=&gt;</span> <span class="nc">List</span><span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multipart-encoded-requests">
+<h3>Multipart encoded requests<a class="headerlink" href="#multipart-encoded-requests" title="Permalink to this headline">¶</a></h3>
+<p>This applies only for POST requests. When you find forms asking for text values and a file to upload (usually an email attachment), your browser will send a multipart encoded request.</p>
+<p>To define such a request, you have to add the parameters as stated above, and the file to be uploaded at the same time with the following method:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">upload</span><span class="o">(</span><span class="n">paramKey</span><span class="o">,</span> <span class="n">fileName</span><span class="o">,</span> <span class="n">mimeType</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">charset</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">paramKey</span></tt> and <tt class="docutils literal"><span class="pre">fileName</span></tt> can be String, EL or Session =&gt; String.</p>
+<p>The uploaded file must be located in <tt class="docutils literal"><span class="pre">user-files/request-bodies</span></tt>. The Content-Type header will be set to &#8220;multipart/form-data&#8221; and the file added in addition to the parameters.</p>
+<p>One can call <tt class="docutils literal"><span class="pre">upload</span></tt> multiple times in order to upload multiple files.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">http</span><span class="o">(</span><span class="s">&quot;My Multipart Request&quot;</span><span class="o">).</span><span class="n">post</span><span class="o">(</span><span class="s">&quot;my.form-action.uri&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">param</span><span class="o">(</span><span class="s">&quot;myKey&quot;</span><span class="o">,</span> <span class="s">&quot;myValue&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">upload</span><span class="o">(</span><span class="s">&quot;myKey2&quot;</span><span class="o">,</span> <span class="s">&quot;myAttachment.txt&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The MIME Type of the uploaded file defaults to <tt class="docutils literal"><span class="pre">application/octet-stream</span></tt> and the character set defaults to the one configured in <tt class="docutils literal"><span class="pre">gatling.conf</span></tt> (<tt class="docutils literal"><span class="pre">UTF-8</span></tt> by default). Don&#8217;t forget to override them when needed.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">HTTP</a><ul class="nav">
+<li><a class="reference internal" href="#preamble-a-word-on-tuning">Preamble: a Word on Tuning</a><ul class="nav">
+<li><a class="reference internal" href="#connection-sharing">Connection sharing</a></li>
+<li><a class="reference internal" href="#connection-closing">Connection closing</a></li>
+<li><a class="reference internal" href="#os-tuning">OS Tuning</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#protocol-configuration">Protocol Configuration</a><ul class="nav">
+<li><a class="reference internal" href="#base-url">Base URL</a><ul class="nav">
+<li><a class="reference internal" href="#stressing-several-servers-with-client-based-load-balancing-since-1-3-0">Stressing several servers with client based load balancing <em>(since 1.3.0)</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#outgoing-proxy">Outgoing Proxy</a></li>
+<li><a class="reference internal" href="#follow-redirects-since-1-1-0">Follow Redirects <em>(since 1.1.0)</em></a></li>
+<li><a class="reference internal" href="#common-headers-since-1-2-0">Common Headers <em>(since 1.2.0)</em></a></li>
+<li><a class="reference internal" href="#automatic-referer-since-1-2-0">Automatic Referer <em>(since 1.2.0)</em></a></li>
+<li><a class="reference internal" href="#automatic-warm-up-since-1-2-0">Automatic warm up <em>(since 1.2.0)</em></a></li>
+<li><a class="reference internal" href="#dumping-custom-data-since-1-2-4">Dumping custom data <em>(since 1.2.4)</em></a><ul class="nav">
+<li><a class="reference internal" href="#requestinfoextractor-function-request-list-string"><tt class="docutils literal"><span class="pre">requestInfoExtractor(function:</span> <span class="pre">(Request</span> <span class="pre">=&gt;</span> <span class="pre">List[String]))</span></tt></a></li>
+<li><a class="reference internal" href="#responseinfoextractor-function-response-list-string"><tt class="docutils literal"><span class="pre">responseInfoExtractor(function:</span> <span class="pre">(Response</span> <span class="pre">=&gt;</span> <span class="pre">List[String]))</span></tt></a></li>
+<li><a class="reference internal" href="#disableresponsechunksdiscarding-since-1-3-0"><tt class="docutils literal"><span class="pre">disableResponseChunksDiscarding</span></tt> <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#shareconnections-since-1-5-0"><tt class="docutils literal"><span class="pre">shareConnections</span></tt> <em>(since 1.5.0)</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cookies-handling">Cookies handling</a></li>
+<li><a class="reference internal" href="#caching-since-1-3-0">Caching <em>(since 1.3.0)</em></a></li>
+<li><a class="reference internal" href="#declaring-an-http-request">Declaring an HTTP request</a><ul class="nav">
+<li><a class="reference internal" href="#method-and-uri">Method and URI</a></li>
+<li><a class="reference internal" href="#query-parameters">Query Parameters</a></li>
+<li><a class="reference internal" href="#http-headers">HTTP Headers</a></li>
+<li><a class="reference internal" href="#basic-authentication">BASIC Authentication</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#method-specific-methods">Method specific methods</a><ul class="nav">
+<li><a class="reference internal" href="#adding-a-body-to-a-request">Adding a body to a request</a><ul class="nav">
+<li><a class="reference internal" href="#body-body-string">body(body: String)</a></li>
+<li><a class="reference internal" href="#filebody-filename-string">fileBody(fileName: String)</a></li>
+<li><a class="reference internal" href="#filebody-templatefilename-string-valuestoreplace-map-string-string">fileBody(templateFileName: String, valuesToReplace: Map[String, String])</a></li>
+<li><a class="reference internal" href="#bytearraybody-bytearray-session-array-byte-since-1-3-0">byteArrayBody (byteArray : (Session) =&gt; Array[Byte]) <em>(since 1.3.0)</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#post-parameters">POST Parameters</a></li>
+<li><a class="reference internal" href="#multipart-encoded-requests">Multipart encoded requests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="checks.html" title="Previous Chapter: Checks">
+      Checks
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="assertions.html" title="Next Chapter: Assertions">
+      Assertions
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

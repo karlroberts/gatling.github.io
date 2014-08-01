@@ -1,0 +1,1229 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Changelog &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="General Information" href="index.html" />
+    <link rel="next" title="Migrating" href="migrating.html" />
+    <link rel="prev" title="Sponsors" href="sponsors.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              General Information
+              </a>
+            </li>
+            <li><a href="">
+              Changelog
+            </a></li>
+          </ul>
+          
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="v2-0-0-m3a">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=43&amp;state=closed">v2.0.0-M3a</a><a class="headerlink" href="#v2-0-0-m3a" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This version fixes several major bugs in 2.0.0-M3, users are recommended to upgrade (transparent from M3)</p>
+</div>
+<div class="section" id="fixes">
+<h3>Fixes<a class="headerlink" href="#fixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1281">#1281</a> Core: XPath check fails, ByteBufferInputStream buffer overflow</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1282">#1282</a> Core: Simulation doesn&#8217;t terminate properly</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1283">#1283</a> HTTP: Wrong time out</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1286">#1286</a> HTTP: Header regex check fails with NPE</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v2-0-0-m3">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=36&amp;state=closed">v2.0.0-M3</a><a class="headerlink" href="#v2-0-0-m3" title="Permalink to this headline">¶</a></h2>
+<p>This version also contains all the fixes and features from 1.5.1 and 1.5.2.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Beware of the breaking changes since 2.0.0-M2, like protocol set up and HTTP request bodies, see Gatling 2 page.</p>
+</div>
+<div class="section" id="id1">
+<h3>Fixes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1140">#1140</a> Core: Fix during loop</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1148">#1148</a> Core: Remove Expression type alias that messes up with implicit conversions</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1153">#1153</a> Recorder: Bug with URI parsing</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1154">#1154</a> Recorder: Protect headers</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1183">#1183</a> Charts: Incorrect OK/KO counts on groups</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1207">#1207</a> HTTP: Additional CRLF when no Content-Disposition in multipart</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1219">#1219</a> Recorder: Protected values in HAR files</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1224">#1224</a> Core: Don&#8217;t eagerly fetch resources from classpath</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1243">#1243</a> Core: Div by 0 in ramp injection</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1244">#1244</a> Charts: Percentage round up</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1257">#1257</a> Core: TryMax exit condition</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1259">#1259</a> Core: Wrong behavior when existASAP = false (repeat, foreach)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1266">#1266</a> Core: TryMax doesn&#8217;t log inner groups</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1270">#1270</a> App: Wrong behavior when simulation compiled class already exists</li>
+</ul>
+</div>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/62">#62</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1142">#1142</a> JDBC: Store stats in RDBMS, contributed by Jay Patel (&#64;jaypatel512)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1141">#1141</a> Core: Simulation set up refactoring</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1083">#1083</a>, <a class="reference external" href="https://github.com/gatling/gatling/issues/1084">#1084</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1208">#1208</a>  Core: Support loading resources (feeder, bodies) from classpath</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1163">#1163</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1166">#1166</a> HTTP: Multipart support</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1176">#1176</a> Recorder: Generate inline queries instead of queryParams</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1181">#1181</a> Charts: Display KO percentages</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1182">#1182</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1265">#1265</a> Recorder: Handle pauses around tags, contributed by Sébastien Keller (&#64;Skeebl)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1185">#1185</a> Core: Expose XML parser config in gatling.conf</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1211">#1211</a> HTTP: Drop Scalate&#8217;s SSP</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1226">#1226</a> HTTP: Make SSL store type optional</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1237">#1237</a> HTTP: Make request bodies cache configurable</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1252">#1252</a> Charts: Add errors distribution table</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1269">#1269</a> HTTP: Support Grizzly as HTTP provider</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-5-2">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=41&amp;state=closed">v1.5.2</a><a class="headerlink" href="#v1-5-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>Fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1203">#1203</a> Recorder: Recorder doesn&#8217;t record binary bodies correctly</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1204">#1204</a> Core: CSV parser escapeChar doesn&#8217;t work properly</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1213">#1213</a> Maven: When skipping, maven plugin shouldn&#8217;t parse args</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1214">#1214</a> Core: Race condition in DataWriter.uninitialized</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1216">#1216</a> HTTP: Have query param support both &#8220;foo=&#8221; and &#8220;foo&#8221; forms</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1223">#1223</a> Core: JsonPath with array element NPE when the array is actually null</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1225">#1225</a> Charts: Dots in javascript variable names make jQuery crash</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Features<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1209">#1209</a> HTTP: Gatling doesn&#8217;t honor RFC6265 cookie encoding style</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1217">#1217</a> HTTP: Support AHC maxConnectionLifeTime</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1221">#1221</a> HTTP: HEAD verb can have a body</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1222">#1222</a> HTTP: Add OPTIONS verb support</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1235">#1235</a> HTTP: Expose Virtual Host configuration</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1240">#1240</a> HTTP: Add HttpProtocol.baseHeaders(headers)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-5-1">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=40&amp;state=closed">v1.5.1</a><a class="headerlink" href="#v1-5-1" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>From this version, one can:</p>
+<ul class="last simple">
+<li>use <tt class="docutils literal"><span class="pre">-Dgatling.test.skip</span></tt> in order to disable the gatling maven plugin</li>
+<li>chose between <tt class="docutils literal"><span class="pre">jodd</span></tt> and <tt class="docutils literal"><span class="pre">jsoup</span></tt> in <tt class="docutils literal"><span class="pre">gatling.conf</span></tt> for the CSS Selector engine</li>
+<li>display multiple Simulations (launched in multiple maven plugin executions for example) in the Jenkins plugin</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Fixes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1139">#1139</a> Core: Round-Robin feeder memory leak</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1146">#1146</a> HTTP: Set AHC maxRetry to 0 by default</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1155">#1155</a> Recorder: Recorder doesn&#8217;t dump with selected encoding</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1157">#1157</a> Recorder: Recorder doesn&#8217;t properly extract bodies</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Features<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1063">#1063</a> Maven: Allow one to skip gatling tests</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1138">#1138</a> HTTP: Backport support for poorly encoded Location header</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1145">#1145</a> Core: Let exec take a Scenario</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1160">#1160</a> HTTP: Add session to log triggered by request failure</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1162">#1162</a> Jenkins: Multiple gatling runs in single jenkins job, thanks to &#64;cprice-puppet</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1170">#1170</a> Core: Revive Jodd support, make it default implementation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1171">#1171</a> Core: Backport extractors caching to 1.5</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v2-0-0-m2">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=35&amp;state=closed">v2.0.0-M2</a><a class="headerlink" href="#v2-0-0-m2" title="Permalink to this headline">¶</a></h2>
+<p>This version also contains all the fixes and features from 1.5.0.</p>
+<div class="section" id="id6">
+<h3>Fixes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1093">#1093</a> Charts: Broken link if request name contains</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1098">#1098</a> App: Fix regex for scala-compiler jar, thanks to &#64;nap-stig</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1124">#1124</a> Charts: Invalid JSON file</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1136">#1136</a> Core: else branch of ifOrElse always ignored</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Features<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/827">#827</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1085">#1085</a> Recorder: Generate Simulation from HAR file</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/966">#966</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1090">#1090</a> Output final stats to console, thanks to &#64;jaypatel512</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1091">#1091</a> Core: <tt class="docutils literal"><span class="pre">dirac</span></tt> renamed into <tt class="docutils literal"><span class="pre">heaviside</span></tt></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1105">#1105</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1113">#1113</a> Add an <tt class="docutils literal"><span class="pre">exitASAP</span></tt> to <tt class="docutils literal"><span class="pre">during</span></tt> and <tt class="docutils literal"><span class="pre">asLongAs</span></tt> loops so that exit condition is evaluated on every action instead of once per iteration</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-5-0">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=38&amp;state=closed">v1.5.0</a><a class="headerlink" href="#v1-5-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Fixes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1094">#1094</a> HTTP: JsonPath and XPath checks consume the response body</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1095">#1095</a> Charts: Charts names encoding problem</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1116">#1116</a> Core: DataWriter race condition</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1127">#1127</a> Recorder: Invalid dot in chains</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1133">#1133</a> HTTP: Don&#8217;t drop query params inlined in the URL</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Features<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1055">#1055</a> Core: Reorganize gatling.conf</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1099">#1099</a> Core: Override <tt class="docutils literal"><span class="pre">gatling.data.writers</span></tt> from System properties</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1101">#1101</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1102">#1102</a> Recorder: Override default keystore, thanks to &#64;cprice-puppet</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1114">#1114</a> Core: Switch from Jodd to Jsoup as CSS selectors implementation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1115">#1115</a> Drop custom JsonPath in favor of Jayway one</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1117">#1117</a> HTTP: Add <tt class="docutils literal"><span class="pre">HttpProtocolConfiguration.shareClient</span></tt> to have one http client per user (disabled by default)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1119">#1119</a> HTTP: Add <tt class="docutils literal"><span class="pre">HttpProtocolConfiguration.shareConnections</span></tt> to have one http client per user (enabled by default)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1121">#1121</a> HTTP: Add Session attributes for setting SSL Engine per user</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1125">#1125</a> Core: Add a light mode for ConsoleDataWriter</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1126">#1126</a> Graphite: Add a light mode for GraphiteDataWriter</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1134">#1134</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1135">#1135</a> App: Allow simulation description to be configurable via conf file / CLI, thanks to &#64;cprice-puppet</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1137">#1137</a> Refactor doIfOrElse(String, String) into doIfEqualsOfElse(Expression[String], Expression[String])</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Beware that the configuration file has changed, so the System property names to override it too! Please check the new file.</p>
+</div>
+</div>
+</div>
+<div class="section" id="v2-0-0-m1">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=23&amp;state=closed">v2.0.0-M1</a><a class="headerlink" href="#v2-0-0-m1" title="Permalink to this headline">¶</a></h2>
+<p>See full <a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=23&amp;state=closed">milestone content</a>.</p>
+</div>
+<div class="section" id="v1-4-7">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=37&amp;&amp;state=closed">v1.4.7</a><a class="headerlink" href="#v1-4-7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>Fixes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1047">#1047</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1049">#1049</a> Maven: Forked JVM might not exit on Windows, thanks to alvinlin123!</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1066">#1066</a> Maven: System properties propagation still not working under Windows</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1074">#1074</a> Charts: Broken records cause generation to fail</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1080">#1080</a> Charts: Javascript error when request name starts with a number</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>Features<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1050">#1050</a> Core: Upgrade Slf4j 1.7.5</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1051">#1051</a> Core: Upgrade Logback 1.0.11</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1070">#1070</a> Charts: Long request names break the menu</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1072">#1072</a> HTTP: Upgrade AsyncHttpClient 1.7.13</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1073">#1073</a> HTTP: Upgrade Netty 3.6.5</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-6">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=34&amp;state=closed">v1.4.6</a><a class="headerlink" href="#v1-4-6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h3>Fixes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1018">#1018</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1019">#1019</a> Core: Possible race condition on initialization</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1020">#1020</a> HTTP: Warm up done twice, slowing down start up</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1037">#1037</a> Maven: Renaming property <tt class="docutils literal"><span class="pre">simulation</span></tt> into <tt class="docutils literal"><span class="pre">simulationClass</span></tt> in order to avoid clash when passing as System property</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1042">#1042</a> Recorder: Invalid generated simulation when first element is a tag</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1044">#1044</a> Maven: Fails when propagating a System property with a space</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h3>Features<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1046">#1046</a> Core: Drop attribute axis support in JsonPath, introduce magic value <tt class="docutils literal"><span class="pre">_</span></tt> to target root array</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Be aware of the 2 breaking changes:</p>
+<ul class="last simple">
+<li>Maven plugin property <tt class="docutils literal"><span class="pre">simulation</span></tt> renamed into <tt class="docutils literal"><span class="pre">simulationClass</span></tt></li>
+<li>JsonPath not longer supports attribute axis (didn&#8217;t really make sense and was equivalent to child element one).</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="v1-4-5">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=33&amp;state=closed">v1.4.5</a><a class="headerlink" href="#v1-4-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>Fixes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/995">#995</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/1013">#1013</a> Core: Can&#8217;t use assertions with &#8220;manual scaling&#8221; procedure, see <a class="reference internal" href="../user_documentation/cookbooks/scaling_out.html#scaling-out"><em>Scaling Out</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1003">#1003</a> Maven: line.separator disappears when propagation System properties</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1009">#1009</a> Core: config doesn&#8217;t get overridden with System properties</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>Features<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/1017">#1017</a> HTTP: Upgrade to Async Http Client 1.7.12</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-4">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=32&amp;state=closed">v1.4.4</a><a class="headerlink" href="#v1-4-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3>Fixes<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/971">#971</a> Maven: Plugin broken, wrong Scala version resolved</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/974">#974</a> HTTP: XPath and JsonPath checks crash on empty body</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/984">#984</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/993">#993</a> Charts: stats.tsv file broken</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h3>Features<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/906">#906</a>, <a class="reference external" href="https://github.com/gatling/gatling/issues/911">#911</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/972">#972</a> Core: add new <tt class="docutils literal"><span class="pre">foreach</span></tt> DSL, see <a class="reference internal" href="../user_documentation/reference/structure_elements.html#foreach"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/960">#960</a> Core: Make user ids unique</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/977">#977</a> Maven: Propagate System properties in fork mode</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/983">#983</a> Charts: Make Graphite root configurable, defaulting to gatling</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/996">#996</a> HTTP: Make SslContext configurable</li>
+</ul>
+<ul class="simple">
+<li>tons of optimizations, see full issues list for details</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-3">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=31&amp;state=closed">v1.4.3</a><a class="headerlink" href="#v1-4-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3>Fixes<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/914">#914</a>, <a class="reference external" href="https://github.com/gatling/gatling/issues/915">#915</a>, <a class="reference external" href="https://github.com/gatling/gatling/issues/918">#918</a>, <a class="reference external" href="https://github.com/gatling/gatling/issues/919">#919</a> Charts: Charts not rendering when request/group name contains special characters</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/922">#922</a> Core: Fix pause shift computation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/926">#926</a> HTTP: Improve domain matching in cookie handling</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/942">#942</a> Recorder: Handle poorly encoded queries</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/944">#944</a> Core: NPE when running a simulation with 2 scenarios with the same name</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/954">#954</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/956">#956</a> HTTP: Filtered out multiple cookies with the same name/path (support PHP bug)</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>Features<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/913">#913</a> HTTP: Upgrade Netty 3.6.2</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/934">#934</a> HTTP: Upgrade async-http-client 2.10</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/941">#941</a> Core: Loops clean up</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/957">#957</a> HTTP: Add Connection to possible common headers</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-2">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=30&amp;state=closed">v1.4.2</a><a class="headerlink" href="#v1-4-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id20">
+<h3>Fixes<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/881">#881</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/910">#910</a> Core: Fix Zinc incremental compiler NPE</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/898">#898</a> Charts: invalid group OK/KO stats</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/899">#899</a> HTTP: Cookies are not propagated from HTTP to HTTPS</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/907">#907</a> JDBC: JdbcFeeder SQLException with Oracle</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-1">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=29&amp;state=closed">v1.4.1</a><a class="headerlink" href="#v1-4-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h3>Fixes<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/882">#882</a> Core: Possible SOE when too many requests</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/884">#884</a> Recorder: Not working with HTTPS</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/886">#886</a> Charts: Wrong statistics for groups</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/893">#893</a> Maven: reportsOnly not work with maven plugin</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3>Features<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/889">#889</a> Core: Upgrade Scala 2.9.3-RC1</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/892">#892</a> Core: Upgrade Akka 2.0.5</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/894">#894</a> HTTP: Upgrade Netty 3.6.1</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-4-0">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=22&amp;state=closed">v1.4.0</a><a class="headerlink" href="#v1-4-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h3>Fixes<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/844">#844</a> Charts: Handle parentheses in request names</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/846">#846</a> Core: Fix possible NPE in FileDataWriter.sanitize</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/866">#866</a> <a class="reference external" href="https://github.com/gatling/gatling/issues/867">#867</a> Charts: Fix stats.tsv file header, thanks to &#64;caps (Pete Capra)</li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h3>Features<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/170">#170</a> <a class="reference external" href="https://github.com/gatling/gatling/issues/322">#322</a> Charts: New API for grouping requests</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/560">#560</a> Core: New API for acceptance criteria</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/594">#594</a> Maven: New Jenkins plugin</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/772">#772</a> Charts: Reorganize description</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/782">#782</a> Core: 1.3.X deprecated APIs removed</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/788">#788</a> <a class="reference external" href="https://github.com/gatling/gatling/issues/810">#810</a> Core: Jackson fully configurable through gatling.conf</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/802">#802</a> HTTP: Host header doesn&#8217;t have to be specified as AHC computes it</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/829">#829</a> Core: Feeder is now Iterator[Map[String, T]]</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/832">#832</a> Charts: Upgrade jQuery 1.8.3</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/838">#838</a> <a class="reference external" href="https://github.com/gatling/gatling/issues/840">#840</a> Core: Breaking change in Simulation structure: remove apply and configure, introduce setUp</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/839">#839</a> Maven: maven plugin now use src/test/scala and src/test/resources folders</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/841">#841</a> Core: New <tt class="docutils literal"><span class="pre">.size</span></tt> EL function</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/847">#847</a> Core: Make extraResponseInfoExtractor take an ExtendedResponse</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/848">#848</a> <a class="reference external" href="https://github.com/gatling/gatling/issues/879">#879</a> HTTP: Better tracing/debugging of requests and responses</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/849">#849</a> HTTP: Upgrade Netty 3.6.0.Final</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/857">#857</a> Core: Stop engine nicely instead of System.exit on feeder starvation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/860">#860</a> Core: Upgrade Logback 1.0.9</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/861">#861</a> Core: Upgrade Jackson 2.1.2</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/864">#864</a> <a class="reference external" href="https://github.com/gatling/gatling/issues/872">#872</a> Maven: maven-gatling-plugin refactoring</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/870">#870</a> HTTP: Make fileBody dynamic</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/874">#874</a> Core: Fix Zinc when Gatling path contains special characters</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/876">#876</a> App: Rename deb package name into gatling-tool</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/877">#877</a> HTTP: Upgrade AHC 1.7.9, fix bug when no headers</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/880">#880</a> Charts: Upgrade Highcharts 2.3.5 and Highstock 1.2.5</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This release introduce a breaking change in the Simulation classes format. Deprecated methods in 1.3.X have been removed. See <a class="reference internal" href="migrating.html#x-migration"><em>migration guide</em></a></p>
+</div>
+</div>
+</div>
+<div class="section" id="v1-3-5">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=28&amp;state=closed">v1.3.5</a><a class="headerlink" href="#v1-3-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id25">
+<h3>Fixes<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/799">#799</a> Maven: src/test/scala directory missing in projects generated with the archetype</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/800">#800</a> Core: Fix debig logger in logback.xml</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/808">#808</a> HTTP: Original ContentType header shouldn&#8217;t be propagated when redirecting</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/813">#813</a> HTTP: followRedirect not working properly when Location contains a query</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/816">#816</a> HTTP: CookieStore not accounting for port number in domain computation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/820">#820</a> Core: JsonPath not supporting wildcards</li>
+</ul>
+</div>
+<div class="section" id="id26">
+<h3>Features<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/765">#765</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/814">#814</a> HTTP: Print HTTP params in debug</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/792">#792</a> Core: Make request names dynamic</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/817">#817</a> HTTP: Authorization header can now be declared as a common header in HttpProtocolConfiguration</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/818">#818</a> HTTP: Support for non UTF-8 encoded cookies (value containing an &#8220;=&#8221; character)</li>
+</ul>
+<p><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=27&amp;state=closed">v1.3.4</a></p>
+</div>
+<div class="section" id="id27">
+<h3>Fixes<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/785">#785</a> Recorder: Fix followRedirect support</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/786">#786</a> Core: Fix during loop timer</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/787">#787</a> Core: Fix JsonPath</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-3-3">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=26&amp;state=closed">v1.3.3</a><a class="headerlink" href="#v1-3-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id28">
+<h3>Features<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/754">#754</a> Core: Use Zinc incremental compiler</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/763">#763</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/769">#769</a> Charts: Redesign statistic summary table</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/775">#775</a> HTTP/Recorder: DNT common header support</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/779">#779</a> Core: Loop index is now directly exposed as Session attribute</li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h3>Fixes<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/755">#755</a> Charts: Square and curly braces in request names mess up with javascript</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/756">#756</a> HTTP: Fix abusing caching</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/759">#759</a> Core: Fix check when forcing Simulation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/760">#760</a> Maven: add missing logback.xml file</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/762">#762</a> HTTP: Support Expires headers numerical values</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/766">#766</a> Metrics: Max and count should be reseted along with the buckets</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/770">#770</a> Charts: Run description is not properly printed</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/777">#777</a> Core: Fix unrecoverable crash on while condition evaluation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/778">#778</a> Core: Counter should be incremented before the loop content</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/780">#780</a> Recorder: Fix pauses shift</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-3-2">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=25&amp;state=closed">v1.3.2</a><a class="headerlink" href="#v1-3-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id30">
+<h3>Features<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/750">#750</a> HTTP: better support of multivalued params and queryParams with multiValuedParam and multiValueQueryParam, see <a class="reference internal" href="../user_documentation/reference/http.html#http-query-parameters"><em>doc</em></a></li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h3>Fixes<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/753">#753</a> HTTP: regression: params were being sent as query params</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-3-1">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=24&amp;state=closed">v1.3.1</a><a class="headerlink" href="#v1-3-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id32">
+<h3>Features<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/743">#743</a> Checks: Add new bodyString check, see <a class="reference internal" href="../user_documentation/reference/checks.html#checks-response-body"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/744">#744</a> HTTP: Upgrade Netty to 3.5.8.Final, critical performance fixes</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/752">#752</a> Config: Add aliases for built-ins data readers and writers: console, file and graphite</li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h3>Fixes<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/732">#732</a> HTTP: responseChunksDiscardingEnabled was not working properly</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/734">#734</a> HTTP: Host header was being ignored, fixed thanks to &#64;dustinbarnes</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/735">#735</a> Core: NPE when using chain</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/736">#736</a> Charts: Drop Scalding/Cascading, considerably reduce memory footprint, introduce accuracy config parameter defaulting to 10ms</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/745">#745</a> Recorder: Tags were not dumped in the generated Simulation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/747">#747</a> Charts: Some charts disappear. This is due to a Highstock bug that has been fixed yet, so a workaround was introduced</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/751">#751</a> Feeders and Charts: File streams were not properly closed</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Due to the new accuracy parameter, you will experience less precise values in the charts. You can get the old behavior by setting a 1 ms value, at the cost of a higher memory usage.</p>
+</div>
+</div>
+</div>
+<div class="section" id="v1-3-0">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=20&amp;state=closed">v1.3.0</a><a class="headerlink" href="#v1-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Migration required, see <a class="reference internal" href="migrating.html#migration"><em>migration guide</em></a></p>
+</div>
+<p>API changes:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/669">#669</a> Core: Config file format change</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/698">#698</a> Core: Durations expressed as (value, unit) are deprecated</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/699">#699</a> Core: Loops refactoring, old ones are deprecated</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/705">#705</a> Core: insertChain deprecated, use exec</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/711">#711</a> Core: Feeders are now Iterators</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/730">#730</a> Core: doIf refactoring</li>
+</ul>
+<div class="section" id="id34">
+<h3>Features<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/592">#592</a> Charts: Display mean number of requests/sec in global chart page</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/593">#593</a> Charts: Generate a csv file with global stats</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/604">#604</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/672">#672</a> Charts: Response time and latency charts now display (min, max) ranges instead of a max values line</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/606">#606</a> HTTP: New byteArrayBody(Session =&gt; Array[Byte]), see <a class="reference internal" href="../user_documentation/reference/http.html#http-byte-array-body"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/607">#607</a> HTTP: New baseUrls for round-robin, thanks to &#64;israel, see <a class="reference internal" href="../user_documentation/reference/http.html#http-base-url"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/607">#607</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/683">#683</a> Charts: New summary table on global page</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/621">#621</a> Checks: Css checks underlying parser now supports browser conditional tests</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/623">#623</a> HTTP: New caching support, see <a class="reference internal" href="../user_documentation/reference/http.html#http-caching"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/624">#624</a> Core: New console dashboard</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/627">#627</a> Checks: New currentLocation check, see <a class="reference internal" href="../user_documentation/reference/checks.html#checks-current-location"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/628">#628</a> Core: New pauseCustom(() =&gt; Long), see <a class="reference internal" href="../user_documentation/reference/structure_elements.html#custom-pause"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/641">#641</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/658">#658</a> HTTP: Log requests and responses on failure</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/644">#644</a> HTTP: paramKey and fileName upload parameters are now dynamic</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/646">#646</a> HTTP: Multi file upload support, thanks to &#64;codemnky</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/647">#647</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/690">#690</a> Core: New randomSwitch, see <a class="reference internal" href="../user_documentation/reference/structure_elements.html#random-switch"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/652">#652</a> HTTP: New disableResponseChunksDiscarding, see <a class="reference internal" href="../user_documentation/reference/http.html#dumping-custom-data"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/652">#652</a> Checks: Css checks now support attribute node selection, see <a class="reference internal" href="../user_documentation/reference/checks.html#checks-css"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/674">#674</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/675">#675</a> Graphite: Gatling can now report to Graphite, see <a class="reference internal" href="../user_documentation/extensions/graphite.html#graphite"><em>corresponding page</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/685">#685</a> Project: Continuous Integration now on Cloudbees</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/688">#688</a> Charts: New polar chart with request counts</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/701">#701</a> Core: New exitBlockOnFail and exitHereIfFailed, see doc : <a class="reference internal" href="../user_documentation/reference/structure_elements.html#exit-block-on-fail"><em>exitBlockOnFail</em></a> &amp; <a class="reference internal" href="../user_documentation/reference/structure_elements.html#exit-here-if-failed"><em>exitHereIfFailed</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/702">#702</a> Core: New tryMax, see <a class="reference internal" href="../user_documentation/reference/structure_elements.html#trymax"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/703">#703</a> Core: Remove bootstrapping from chain, see <a class="reference internal" href="../user_documentation/reference/structure_elements.html#bootstrap"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/706">#706</a> Core: new randomRoundRobin, see <a class="reference internal" href="../user_documentation/reference/structure_elements.html#round-robin-switch"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/712">#712</a> Core: Let exec take a chain vararg, see <a class="reference internal" href="../user_documentation/reference/structure_elements.html#exec"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/714">#714</a> Core: Better simulations compilation warnings</li>
+</ul>
+</div>
+<div class="section" id="id35">
+<h3>Fixes<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/571">#571</a> HTTP: Better cookies support</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/609">#609</a> HTTP: NPE when Location header missing</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/615">#615</a> HTTP: Url is encoded twice on redirect</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/630">#630</a> Charts: Fix percentiles</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/639">#639</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/687">#687</a> Recorder: should ask before overwriting</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/651">#651</a> Check: responseTime and latency checks mustn&#8217;t cause body to be stored</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/653">#653</a> HTTP: Duration computation problems</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/664">#664</a> Core: Don&#8217;t display Abstract simulations</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/665">#665</a> Core: LinkageError when using inheritance</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/709">#709</a> Recorder: support empty valued parameters</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/713">#713</a> and <a class="reference external" href="https://github.com/gatling/gatling/issues/715">#715</a> Charts: support quotes in request names</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-5">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=21&amp;state=closed">v1.2.5</a><a class="headerlink" href="#v1-2-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id36">
+<h3>Features<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/596">#596</a> Better live informations</li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h3>Fixes<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/597">#597</a> Fix cookie handling regression</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/599">#599</a> Time measurement is intrinsically imprecise, ensure that it can&#8217;t cause negative response times</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/600">#600</a> Fix response time distribution chart, max value wasn&#8217;t properly displayed</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/601">#601</a> Fix gatling-maven-plugin JVM arguments</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-4">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=16&amp;state=closed">v1.2.4</a><a class="headerlink" href="#v1-2-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id38">
+<h3>Features<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/446">#446</a> Add the ability to dump custom data in the logs, thanks to Stephen Kuenzli, see <a class="reference internal" href="../user_documentation/reference/http.html#dumping-custom-data"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/569">#569</a> New reponseTimeInMillis and latencyInMillis checks, see <a class="reference internal" href="../user_documentation/reference/checks.html#check-response-time"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/576">#576</a> new headerRegex check, see <a class="reference internal" href="../user_documentation/reference/checks.html#check-headerregex"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/591">#591</a> Location header is now automatically decoded when checked, see <a class="reference internal" href="../user_documentation/reference/checks.html#checks-header"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/595">#595</a> New simple feeder</li>
+</ul>
+</div>
+<div class="section" id="id39">
+<h3>Fixes<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/572">#572</a> Fix a bug where cookies with the same name could be sent both under certain conditions</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/573">#573</a> Fix script variables scope under Windows, thanks to Henri Tremblay</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/574">#574</a> Fix logger in logback.conf, thanks to Henri Tremblay</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/583">#583</a> Fix engine encoding handling</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/586">#586</a> Fix recorder class name and package generation</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/587">#587</a> Fix recorder encoding handling</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-3">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=15&amp;state=closed">v1.2.3</a><a class="headerlink" href="#v1-2-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id40">
+<h3>Fixes<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/566">#566</a> Fix body checks regression in 1.2.2</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-2">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=14&amp;state=closed">v1.2.2</a><a class="headerlink" href="#v1-2-2" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">due to <a class="reference external" href="https://github.com/gatling/gatling/issues/566">#566</a>, 1.2.2 users are recommended to upgrade to 1.2.3</p>
+</div>
+<div class="section" id="id41">
+<h3>Features<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/543">#543</a> Make charts generation consume multiple simulation(.*).log files, ease multiple instances testing, see <a class="reference internal" href="../user_documentation/cookbooks/scaling_out.html#scaling-out"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/548">#548</a> New <a class="reference external" href="http://redis.io">Redis</a> Feeder, thanks to &#64;krishnenc (Krishnen Chedambarum), see <a class="reference internal" href="../user_documentation/reference/feeders.html#redis"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/548">#548</a> New byteArrayBody, thanks to &#64;krishnenc (Krishnen Chedambarum), see <a class="reference internal" href="../user_documentation/reference/http.html#http-byte-array-body"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/552">#552</a> Gatling modules can now be built independantly, thanks to &#64;nire (Nicolas Rémond)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/553">#553</a> New checksum checks, see <a class="reference internal" href="../user_documentation/reference/checks.html#checks-checksum"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/555">#555</a> Run name can now be set on gatling-maven-plugin, see <a class="reference internal" href="../user_documentation/extensions/maven_plugin.html#maven-advanced-configuration"><em>doc</em></a></li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/557">#557</a> Gatling now ships <a class="reference external" href="http://grizzly.java.net">Grizzly</a> to ease switching NIO provider (Gatling still uses Netty by default)</li>
+</ul>
+</div>
+<div class="section" id="id42">
+<h3>Fixes<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/562">#562</a> Fix gatling-maven-plugin crash when setting no-reports or run-name options, thanks to &#64;skuenzli (Stephen Kuenzli)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/558">#558</a> Ensure IfAction and WhileAction don&#8217;t lose messages on crash</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-1">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=13&amp;state=closed">v1.2.1</a><a class="headerlink" href="#v1-2-1" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Due to <a class="reference external" href="https://github.com/gatling/gatling/issues/545">#545</a>, 1.2.0 users are highly recommended to upgrade!</p>
+</div>
+<div class="section" id="id43">
+<h3>Features<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/539">#539</a> much better reports generation memory footprint</li>
+</ul>
+</div>
+<div class="section" id="id44">
+<h3>Fixes<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/536">#536</a> HttpProtocolConfiguration DSL wouldn&#8217;t compile when proxy was defined in the middle of the chain</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/537">#537</a> Warm up request would break the run when target url cannot be reached</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/538">#538</a> Fix scatter plot chart</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/540">#540</a> Fix percentile ordinal suffix, thanks to Nicolas Rémond</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/544">#544</a> Fix times computation at very high throughput</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/545">#545</a> Fix pause duration</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/546">#546</a> Fix launch script when path contains special characters, thanks to Jean-François Bilger</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-2-0">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=6&amp;state=closed">v1.2.0</a><a class="headerlink" href="#v1-2-0" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Migration required, see <a class="reference internal" href="migrating.html#id1"><em>migration guide</em></a></p>
+</div>
+<div class="section" id="id45">
+<h3>Features<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/376">#376</a> loop times condition can now be dynamic</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/432">#432</a> &amp; <a class="reference external" href="https://github.com/gatling/gatling/issues/523">#523</a> Referer header can now be automatically computed</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/435">#435</a> &amp; <a class="reference external" href="https://github.com/gatling/gatling/issues/518">#518</a> CSS Selector extractors are now supported, thanks to Nicolas Rémond (&#64;nire)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/493">#493</a> &amp; <a class="reference external" href="https://github.com/gatling/gatling/issues/531">#531</a> HEAD HTTP word is now supported, thanks to Nicolas Rémond (&#64;nire)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/501">#501</a> Reports global page has been refactored</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/509">#509</a> Recorder has been migrated to Scala</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/514">#514</a> Common HTTP Headers can be configured on ProtocolConfiguration</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/522">#522</a> Outgoing proxy credentials can now be configured in the Recorder</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/527">#527</a> Percentiles have been reworked to make more sense</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/530">#530</a> New exponentially distributed pauses, thanks to Stephen Kuenzli (&#64;skuenzli)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/532">#532</a> Add automatic request to compensate for engine warm up</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/535">#535</a> Calling check() several times will now append them instead of overriding them</li>
+</ul>
+</div>
+<div class="section" id="id46">
+<h3>Fixes<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/512">#512</a> &amp; <a class="reference external" href="https://github.com/gatling/gatling/issues/528">#528</a> Fix class name resolution in gatling-maven-plugin, thanks to Cyril Couturi (&#64;ccouturi) and Stephen Kuenzli (&#64;skuenzli)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/520">#520</a> Add protection from SimpleAction crashes</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/534">#534</a> Handle empty lines in CSV files</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-6">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=12&amp;state=closed">v1.1.6</a><a class="headerlink" href="#v1-1-6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id47">
+<h3>Fixes<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/498">#498</a> Recorder: fix NPE on request body</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/507">#507</a> gatling-maven-plugin: fix simulation package on Windows</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/508">#508</a> Charts: fix encoding</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/510">#510</a> Recorder: fix request bodies folder name</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-5">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=11&amp;state=closed">v1.1.5</a><a class="headerlink" href="#v1-1-5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id48">
+<h3>Fixes<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/489">#489</a> Make recorder use relative URIs once connection established</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/490">#490</a> Handle 303 redirect status code</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/491">#491</a> Fix status code check when using non default one</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/497">#497</a> Fix reports when request name contains &#8220;&#8217;&#8221;</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/498">#498</a> Fix NPE in recorder when dumping request bodies</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/499">#499</a> Fix latency chart</li>
+</ul>
+</div>
+<div class="section" id="id49">
+<h3>Features<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/484">#484</a> - Remove check logic from the AHC handler in order to reduce pressure on IO threads</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/486">#486</a> - Charts: all session series is computed once for all</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/492">#492</a> - Add a &#8220;maybe&#8221; check strategy when one want to capture an optional value</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/500">#500</a> - Document transactions/sec chart</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/502">#502</a> - Expose AHC configuration in Gatling conf</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-4">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=10&amp;state=closed">v1.1.4</a><a class="headerlink" href="#v1-1-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id50">
+<h3>Fixes<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/481">#481</a> Fix http client start up</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/483">#483</a> Fix multiple simulations launching</li>
+</ul>
+</div>
+<div class="section" id="id51">
+<h3>Features<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/485">#485</a> - Charts: add new response time distribution</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/487">#487</a> - EL: let occurrence be dynamic</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-3">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=9&amp;state=closed">v1.1.3</a><a class="headerlink" href="#v1-1-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id52">
+<h3>Fixes<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/459">#459</a> - Upgrade Netty 3.4.0.Final that fixes a compression bug.</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/460">#460</a> - Fix recorder SSL certificate.</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/466">#466</a> - Support relative Location headers</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/469">#469</a> - Regression: the recorder shouldn&#8217;t record Cookie and Content-Length headers</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/470">#470</a> - Fix statistics displayed in the CLI while running</li>
+</ul>
+</div>
+<div class="section" id="id53">
+<h3>Features<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/465">#465</a> - Charts: display percentiles</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-2">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=8&amp;state=closed">v1.1.2</a><a class="headerlink" href="#v1-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id54">
+<h3>Fixes<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/450">#450</a> - Properly fixes cookie expiration</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/453">#453</a> - Make XPathExtractor threadsafe</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/455">#455</a> - Fix global statistics</li>
+</ul>
+</div>
+<div class="section" id="id55">
+<h3>Features<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/327">#327</a> - Akka 2 migration, wouhou!!!</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-1">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=7&amp;state=closed">v1.1.1</a><a class="headerlink" href="#v1-1-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id56">
+<h3>Fixes<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/442">#442</a> - Fixes fileBody templating</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/444">#444</a> - Fixes cookie deletion</li>
+</ul>
+</div>
+<div class="section" id="id57">
+<h3>Features<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/447">#447</a> - Log at debug level the response on failed check</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-1-0">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=2&amp;state=closed">v1.1.0</a><a class="headerlink" href="#v1-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Migration required, see <a class="reference internal" href="migrating.html#id2"><em>migration guide</em></a></p>
+</div>
+<div class="section" id="id58">
+<h3>Features<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Engine<ul>
+<li>configurable run id and run description, see <a class="reference external" href="https://github.com/gatling/gatling/issues/416">#416</a></li>
+<li>periodic statistic display while running, see <a class="reference external" href="https://github.com/gatling/gatling/issues/384">#384</a></li>
+<li>link to generated reports, see <a class="reference external" href="https://github.com/gatling/gatling/issues/383">#383</a></li>
+</ul>
+</li>
+<li>Check API<ul>
+<li>Check API is now type safe</li>
+<li>optional transform step on extraction result</li>
+<li>new JSONPath, see <a class="reference external" href="https://github.com/gatling/gatling/issues/433">#433</a></li>
+<li>xpath namespaces support, see <a class="reference external" href="https://github.com/gatling/gatling/issues/434">#434</a></li>
+</ul>
+</li>
+<li>Feeder API<ul>
+<li>new JDBC feeders for retrieving data from a SGBDR, see <a class="reference external" href="https://github.com/gatling/gatling/issues/37">#37</a></li>
+<li>escape character support on CSV based feeders, see <a class="reference external" href="https://github.com/gatling/gatling/issues/105">#105</a></li>
+<li>circular feeders, see <a class="reference external" href="https://github.com/gatling/gatling/issues/321">#321</a></li>
+</ul>
+</li>
+<li>HTTP API<ul>
+<li>follow redirect support, see <a class="reference external" href="https://github.com/gatling/gatling/issues/105">#105</a></li>
+<li>clean cookie handling, see <a class="reference external" href="https://github.com/gatling/gatling/issues/396">#396</a></li>
+</ul>
+</li>
+<li>Charts API<ul>
+<li>configurable time window, see <a class="reference external" href="https://github.com/gatling/gatling/issues/323">#323</a></li>
+<li>new active transactions/sec over time chart</li>
+<li>new response latency over time chart</li>
+</ul>
+</li>
+<li>Recorder<ul>
+<li>no longer an ubber jar, now to be launched from a script</li>
+<li>follow redirect support</li>
+<li>configurable generated Simulation package and class name, see <a class="reference external" href="https://github.com/gatling/gatling/issues/438">#438</a></li>
+<li>configurable encoding, see <a class="reference external" href="https://github.com/gatling/gatling/issues/386">#386</a></li>
+</ul>
+</li>
+<li>Extensions<ul>
+<li>new gatling-maven-plugin, contributed by &#64;nhuray</li>
+<li>new gatling debian package, contributed by &#64;nhuray</li>
+</ul>
+</li>
+</ul>
+<p>And tons of bug fixes and performance enhancements!</p>
+</div>
+</div>
+<div class="section" id="v1-0-3-bug-fix">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=5&amp;state=closed">v1.0.3</a> - Bug fix<a class="headerlink" href="#v1-0-3-bug-fix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id59">
+<h3>Fixes<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Fix a bug  in the recorder introduced in 1.0.2 that prevent from recording scenarios with less than 100 requests</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-0-2-bug-fix">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=4&amp;state=closed">v1.0.2</a> - Bug fix<a class="headerlink" href="#v1-0-2-bug-fix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id60">
+<h3>Features<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/345">#345</a>, <a class="reference external" href="https://github.com/gatling/gatling/issues/348">#348</a> &amp; <a class="reference external" href="https://github.com/gatling/gatling/issues/330">#330</a> - Better support for long scenarios (via <a class="reference internal" href="../user_documentation/tutorial/first_steps_with_gatling.html#long-scenarios"><em>manual splitting</em></a>)</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/347">#347</a> - Recorder splits long scenarios so they can be run with no extra configuration.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-0-1-bug-fix">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=3&amp;state=closed">v1.0.1</a> - Bug fix<a class="headerlink" href="#v1-0-1-bug-fix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id61">
+<h3>Fixes<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/334">#334</a> - Fixes reports template resolution under Windows</li>
+<li><a class="reference external" href="https://github.com/gatling/gatling/issues/320">#320</a> - Stops scenario if queue feeder not big enough</li>
+<li>Fixes a bug with empty lines at end of feeders</li>
+</ul>
+</div>
+<div class="section" id="id62">
+<h3>Features<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Better CLI feedback</li>
+</ul>
+</div>
+</div>
+<div class="section" id="v1-0-0-initial-release">
+<h2><a class="reference external" href="https://github.com/gatling/gatling/issues?milestone=1&amp;state=closed">v1.0.0</a> - Initial Release<a class="headerlink" href="#v1-0-0-initial-release" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Changelog</a><ul class="nav">
+<li><a class="reference internal" href="#v2-0-0-m3a">v2.0.0-M3a</a><ul class="nav">
+<li><a class="reference internal" href="#fixes">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v2-0-0-m3">v2.0.0-M3</a><ul class="nav">
+<li><a class="reference internal" href="#id1">Fixes</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-5-2">v1.5.2</a><ul class="nav">
+<li><a class="reference internal" href="#id2">Fixes</a></li>
+<li><a class="reference internal" href="#id3">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-5-1">v1.5.1</a><ul class="nav">
+<li><a class="reference internal" href="#id4">Fixes</a></li>
+<li><a class="reference internal" href="#id5">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v2-0-0-m2">v2.0.0-M2</a><ul class="nav">
+<li><a class="reference internal" href="#id6">Fixes</a></li>
+<li><a class="reference internal" href="#id7">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-5-0">v1.5.0</a><ul class="nav">
+<li><a class="reference internal" href="#id8">Fixes</a></li>
+<li><a class="reference internal" href="#id9">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v2-0-0-m1">v2.0.0-M1</a></li>
+<li><a class="reference internal" href="#v1-4-7">v1.4.7</a><ul class="nav">
+<li><a class="reference internal" href="#id10">Fixes</a></li>
+<li><a class="reference internal" href="#id11">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-4-6">v1.4.6</a><ul class="nav">
+<li><a class="reference internal" href="#id12">Fixes</a></li>
+<li><a class="reference internal" href="#id13">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-4-5">v1.4.5</a><ul class="nav">
+<li><a class="reference internal" href="#id14">Fixes</a></li>
+<li><a class="reference internal" href="#id15">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-4-4">v1.4.4</a><ul class="nav">
+<li><a class="reference internal" href="#id16">Fixes</a></li>
+<li><a class="reference internal" href="#id17">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-4-3">v1.4.3</a><ul class="nav">
+<li><a class="reference internal" href="#id18">Fixes</a></li>
+<li><a class="reference internal" href="#id19">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-4-2">v1.4.2</a><ul class="nav">
+<li><a class="reference internal" href="#id20">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-4-1">v1.4.1</a><ul class="nav">
+<li><a class="reference internal" href="#id21">Fixes</a></li>
+<li><a class="reference internal" href="#id22">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-4-0">v1.4.0</a><ul class="nav">
+<li><a class="reference internal" href="#id23">Fixes</a></li>
+<li><a class="reference internal" href="#id24">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-5">v1.3.5</a><ul class="nav">
+<li><a class="reference internal" href="#id25">Fixes</a></li>
+<li><a class="reference internal" href="#id26">Features</a></li>
+<li><a class="reference internal" href="#id27">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-3">v1.3.3</a><ul class="nav">
+<li><a class="reference internal" href="#id28">Features</a></li>
+<li><a class="reference internal" href="#id29">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-2">v1.3.2</a><ul class="nav">
+<li><a class="reference internal" href="#id30">Features</a></li>
+<li><a class="reference internal" href="#id31">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-1">v1.3.1</a><ul class="nav">
+<li><a class="reference internal" href="#id32">Features</a></li>
+<li><a class="reference internal" href="#id33">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-3-0">v1.3.0</a><ul class="nav">
+<li><a class="reference internal" href="#id34">Features</a></li>
+<li><a class="reference internal" href="#id35">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-5">v1.2.5</a><ul class="nav">
+<li><a class="reference internal" href="#id36">Features</a></li>
+<li><a class="reference internal" href="#id37">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-4">v1.2.4</a><ul class="nav">
+<li><a class="reference internal" href="#id38">Features</a></li>
+<li><a class="reference internal" href="#id39">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-3">v1.2.3</a><ul class="nav">
+<li><a class="reference internal" href="#id40">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-2">v1.2.2</a><ul class="nav">
+<li><a class="reference internal" href="#id41">Features</a></li>
+<li><a class="reference internal" href="#id42">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-1">v1.2.1</a><ul class="nav">
+<li><a class="reference internal" href="#id43">Features</a></li>
+<li><a class="reference internal" href="#id44">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-2-0">v1.2.0</a><ul class="nav">
+<li><a class="reference internal" href="#id45">Features</a></li>
+<li><a class="reference internal" href="#id46">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-1-6">v1.1.6</a><ul class="nav">
+<li><a class="reference internal" href="#id47">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-1-5">v1.1.5</a><ul class="nav">
+<li><a class="reference internal" href="#id48">Fixes</a></li>
+<li><a class="reference internal" href="#id49">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-1-4">v1.1.4</a><ul class="nav">
+<li><a class="reference internal" href="#id50">Fixes</a></li>
+<li><a class="reference internal" href="#id51">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-1-3">v1.1.3</a><ul class="nav">
+<li><a class="reference internal" href="#id52">Fixes</a></li>
+<li><a class="reference internal" href="#id53">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-1-2">v1.1.2</a><ul class="nav">
+<li><a class="reference internal" href="#id54">Fixes</a></li>
+<li><a class="reference internal" href="#id55">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-1-1">v1.1.1</a><ul class="nav">
+<li><a class="reference internal" href="#id56">Fixes</a></li>
+<li><a class="reference internal" href="#id57">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-1-0">v1.1.0</a><ul class="nav">
+<li><a class="reference internal" href="#id58">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-0-3-bug-fix">v1.0.3 - Bug fix</a><ul class="nav">
+<li><a class="reference internal" href="#id59">Fixes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-0-2-bug-fix">v1.0.2 - Bug fix</a><ul class="nav">
+<li><a class="reference internal" href="#id60">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-0-1-bug-fix">v1.0.1 - Bug fix</a><ul class="nav">
+<li><a class="reference internal" href="#id61">Fixes</a></li>
+<li><a class="reference internal" href="#id62">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#v1-0-0-initial-release">v1.0.0 - Initial Release</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="sponsors.html" title="Previous Chapter: Sponsors">
+      Sponsors
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="migrating.html" title="Next Chapter: Migrating">
+      Migrating
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

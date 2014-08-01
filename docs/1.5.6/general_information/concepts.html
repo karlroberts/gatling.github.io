@@ -1,0 +1,303 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Concepts &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="General Information" href="index.html" />
+    <link rel="next" title="Sponsors" href="sponsors.html" />
+    <link rel="prev" title="Underlying Technologies" href="underlying_technologies.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              General Information
+              </a>
+            </li>
+            <li><a href="">
+              Concepts
+            </a></li>
+          </ul>
+          
+  <div class="section" id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="scenarios">
+<h2>Scenarios<a class="headerlink" href="#scenarios" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-a-scenario">
+<h3>What is a scenario?<a class="headerlink" href="#what-is-a-scenario" title="Permalink to this headline">¶</a></h3>
+<p>To represent users&#8217; behaviors, testers will have to define scenarios which will be written as scripts given to Gatling. These scenarios can be the result of measurements on the running application with analytics tools, or expected behavior from the future users of a new application. In any case, the creation of these scenarios is the key to meaningful results of the stress test.</p>
+<p>A scenario represents a typical user&#8217;s behavior, for example, in an e-commerce application. A standard scenario could be:</p>
+<ol class="arabic simple">
+<li>Access home page</li>
+<li>Select a category of product</li>
+<li>Make a search in this category</li>
+<li>Open a product description</li>
+<li>Go back</li>
+<li>Open another product description</li>
+<li>Buy product</li>
+<li>Log in</li>
+<li>Confirm buying</li>
+<li>Pay</li>
+<li>Log out</li>
+</ol>
+<p>This is a functional scenario, understandable by anyone. There can be as many scenarios as different use cases of the application. We can also imagine the use of a product comparator or an admin panel; each use case can be described as a scenario.</p>
+</div>
+<div class="section" id="scenarios-in-gatling">
+<h3>Scenarios in Gatling<a class="headerlink" href="#scenarios-in-gatling" title="Permalink to this headline">¶</a></h3>
+<p>In Gatling, scenarios are represented as easy-to-maintain scripts in conjunction with a DSL (<a class="reference external" href="http://en.wikipedia.org/wiki/Domain-specific_language">Domain Specific Language</a>). This allows fast writing of scenarios and easy understanding of existing scenarios. Here is a simple example of scenario written for Gatling:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Standard User&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;Access Github&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com&quot;</span><span class="o">)</span> <span class="o">)</span>
+        <span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">exec</span><span class="o">(</span> <span class="n">http</span><span class="o">(</span><span class="s">&quot;Search for &#39;gatling&#39;&quot;</span><span class="o">).</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;http://github.com/search&quot;</span><span class="o">).</span><span class="n">queryParam</span><span class="o">(</span><span class="s">&quot;q&quot;</span><span class="o">,</span><span class="s">&quot;gatling&quot;</span><span class="o">))</span>
+        <span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>As we can easily guess, this scenario:</p>
+<ul class="simple">
+<li>Is named &#8220;Standard User&#8221;</li>
+<li>Contains 2 HTTP Requests</li>
+<li>Contains 2 pauses</li>
+</ul>
+<p>Pauses are here to simulate the reading or thinking time of the user. Indeed, when a user clicks on a link, the page has to be loaded and the user will read it and decide what to do next.</p>
+<p>The HTTP requests are the ones which are actually sent to the tested application when a user clicks on a button or a link. Each HTTP Request is easily read:</p>
+<ol class="arabic simple">
+<li><strong>Access Github</strong> is a <strong>GET</strong> request pointing at <strong>http://github.com</strong></li>
+<li><strong>Search for &#8216;gatling&#8217;</strong> is a <strong>GET</strong> request pointing at <strong>http://github.com/search?q=gatling</strong></li>
+</ol>
+<p>For a complete description of scenarios, see the Reference articles</p>
+</div>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="definition">
+<h3>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h3>
+<p>A simulation is a load test. It is made of different scenarios, each representing a typical user behavior. Here is an example of simulation definition:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">stdUser</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Standard User&quot;</span><span class="o">)...</span>
+<span class="k">val</span> <span class="n">admUser</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Admin User&quot;</span><span class="o">)...</span>
+<span class="k">val</span> <span class="n">advUser</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Advanced User&quot;</span><span class="o">)...</span>
+
+<span class="n">setUp</span><span class="o">(</span>
+  <span class="n">stdUser</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">2000</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">60</span><span class="o">),</span>
+  <span class="n">admUser</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">400</span><span class="o">).</span><span class="n">delay</span><span class="o">(</span><span class="mi">60</span><span class="o">),</span>
+  <span class="n">advUser</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">500</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">200</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p>Each scenario is defined first; here, we have three scenarios representing <em>standard users</em>, <em>advanced users</em> and <em>administrators</em>. For each population of users, the <strong>Number of users</strong> is defined along with a <strong>Ramp</strong> and a <strong>Delay</strong>.</p>
+<ul class="simple">
+<li>The <strong>number of users</strong> is self explanatory: it represents the number of users that will be simulated using this scenario.</li>
+<li>The <strong>ramp</strong> is used to simulate the progressive arriving of user on the application. _ramp(60)_ indicates that all users must be started within 60 seconds. Gatling will start each user at regular intervals; for example, if we have 60 users and a ramp of 60 seconds, a user will be started each second.</li>
+<li>The <strong>delay</strong> is used to define when the scenario will start regarding the beginning of the simulation. As shown below, in the previous simulation, the admUser scenario will start after the others with a delay of 60 seconds.</li>
+</ul>
+<img alt="Delay explained" src="../_images/delay_explained.png" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Using a ramp can be critical for JVM based applications as the JIT compiler identifies hot spots. (The JVM &#8220;warms up&#8221;)</p>
+</div>
+</div>
+<div class="section" id="session">
+<h3>Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h3>
+<p>For each simulated user, there is a session. This session is accessible to one and only one user at runtime. It allows Gatling to store information while processing the scenarios, but it also allows testers to dynamically store data and use it in their requests.</p>
+<p>For more information, check the <a class="reference internal" href="../user_documentation/reference/session.html#session"><em>Session reference section</em></a>.</p>
+</div>
+</div>
+<div class="section" id="feeders">
+<h2>Feeders<a class="headerlink" href="#feeders" title="Permalink to this headline">¶</a></h2>
+<p>When the tested application offers the possibility to authenticate, tests should take this into consideration and use data to test log in, log out, actions allowed only for certain users, and so on.</p>
+<p>Gatling doesn&#8217;t provide the tools to generate this test data. However, it allows you to take existing data and feed scenarios with them thanks to Feeders</p>
+<p>For more information, check the <a class="reference internal" href="../user_documentation/reference/feeders.html#feeders"><em>Feeders reference section</em></a>.</p>
+</div>
+<div class="section" id="checks">
+<h2>Checks<a class="headerlink" href="#checks" title="Permalink to this headline">¶</a></h2>
+<p>Each time a request is sent, a response is eventually sent by the server. Gatling is able to analyze this response with checks.</p>
+<p>A check is a response processor that captures some part of it and verifies that it is what the user expects. For example, when sending a HTTP request, one could expect a redirect; with a check, you can verify that the status of the response is actually a 30X code.</p>
+<p>These checks allow you to be sure that the results obtained during the simulation are not related to server malfunctions. For example, Gatling could retrieve responses with good response times, but these responses may not be what they should, therefore, the analysis you could make on the results given by Gatling may be wrong.</p>
+<p>For more information, check the <a class="reference internal" href="../user_documentation/reference/checks.html#checks"><em>Checks reference section</em></a>.</p>
+</div>
+<div class="section" id="reports">
+<h2>Reports<a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h2>
+<p>By default, Gatling automatically generates reports at the end of a simulation. They consist in HTML files, therefore, they are portable and they can be viewed on any device with a web browser.</p>
+<p>Reports are detailed in the <a class="reference internal" href="../user_documentation/reference/reports.html#reports"><em>corresponding page</em></a></p>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Concepts</a><ul class="nav">
+<li><a class="reference internal" href="#scenarios">Scenarios</a><ul class="nav">
+<li><a class="reference internal" href="#what-is-a-scenario">What is a scenario?</a></li>
+<li><a class="reference internal" href="#scenarios-in-gatling">Scenarios in Gatling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simulation">Simulation</a><ul class="nav">
+<li><a class="reference internal" href="#definition">Definition</a></li>
+<li><a class="reference internal" href="#session">Session</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#feeders">Feeders</a></li>
+<li><a class="reference internal" href="#checks">Checks</a></li>
+<li><a class="reference internal" href="#reports">Reports</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="underlying_technologies.html" title="Previous Chapter: Underlying Technologies">
+      Underlying Technologies
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="sponsors.html" title="Next Chapter: Sponsors">
+      Sponsors
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

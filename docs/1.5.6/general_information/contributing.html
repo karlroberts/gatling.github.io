@@ -1,0 +1,261 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Contributing &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="General Information" href="index.html" />
+    <link rel="next" title="Events" href="events.html" />
+    <link rel="prev" title="FAQ" href="faq.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              General Information
+              </a>
+            </li>
+            <li><a href="">
+              Contributing
+            </a></li>
+          </ul>
+          
+  <div class="section" id="contributing">
+<span id="id1"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<p>If you want to contribute to Gatling, you can do so by different ways.</p>
+<div class="section" id="filing-issues">
+<h2>Filing issues<a class="headerlink" href="#filing-issues" title="Permalink to this headline">¶</a></h2>
+<p>You can file issues on the issue tracker (located here on Github) to:</p>
+<ul class="simple">
+<li><strong>Say that you&#8217;ve found a bug</strong>. Before filing an issue :<ul>
+<li>Make sure it&#8217;s indeed an issue and not a misusage. If you&#8217;re not sure, feel free to ask on the <a class="reference external" href="https://groups.google.com/forum/#!forum/gatling">Google Group</a>.</li>
+<li>Please check if a similar one doesn&#8217;t already exist.</li>
+</ul>
+</li>
+<li><strong>Say that there is a missing feature</strong>. We try to think about many things, but smart ideas are always welcomed and we are eager for user experience.</li>
+<li><strong>Say that you&#8217;ve found spelling errors in the wiki</strong>. We tried to be perfect, but it is incredibly hard... ;-)</li>
+</ul>
+</div>
+<div class="section" id="providing-code">
+<h2>Providing code<a class="headerlink" href="#providing-code" title="Permalink to this headline">¶</a></h2>
+<p>We chose Github for its community oriented workflow. If you want to provide code for Gatling, please follow Github&#8217;s way.</p>
+<ol class="arabic simple">
+<li>Fork the project onto your own account</li>
+<li>Read [[Development Environment]] to install what is needed on your computer</li>
+<li>Code</li>
+<li>Commit and push to your own branch, on your own repository. Try to find a good name for your branch, if your modification is to close an issue, please let us know.</li>
+<li>On Github, go to your branch and create a <em>Pull Request</em></li>
+<li>We will answer as soon as we can</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Please be aware that you can not provide code for gatling-highcharts due to <a class="reference internal" href="license.html#license"><em>license restrictions</em></a>.</p>
+</div>
+</div>
+<div class="section" id="support-us">
+<h2>Support us<a class="headerlink" href="#support-us" title="Permalink to this headline">¶</a></h2>
+<p>We don&#8217;t ask for money, but we&#8217;d love to know if you spoke about us. If you write a blog post on Gatling, please, let us know!</p>
+</div>
+<div class="section" id="community">
+<h2>Community<a class="headerlink" href="#community" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mailing-list">
+<h3>Mailing List<a class="headerlink" href="#mailing-list" title="Permalink to this headline">¶</a></h3>
+<p>The mailing list is hosted on Google Group at <a class="reference external" href="https://groups.google.com/forum/#!forum/gatling">https://groups.google.com/forum/#!forum/gatling</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Before asking the community for help, please read the <a class="reference internal" href="../user_documentation/tutorial/first_steps_with_gatling.html#first-steps-with-gatling"><em>tutorial</em></a>, search the reference, read the <a class="reference internal" href="faq.html#faq"><em>FAQ</em></a> and look for any existing conversation about your problem before creating a new one :-)</p>
+</div>
+</div>
+<div class="section" id="social-networks">
+<h3>Social networks<a class="headerlink" href="#social-networks" title="Permalink to this headline">¶</a></h3>
+<p>Gatling is present on some social networks, follow us for updates about releases and tips.</p>
+<div class="section" id="twitter">
+<h4>Twitter<a class="headerlink" href="#twitter" title="Permalink to this headline">¶</a></h4>
+<p>Follow <a class="reference external" href="http://twitter.com/GatlingTool">&#64;GatlingTool</a>. You can also use the #gatling hashtag when talking about Gatling.</p>
+</div>
+<div class="section" id="google">
+<h4>Google+<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h4>
+<p>Add <a class="reference external" href="http://plus.google.com/101883104222712053693/">Gatling</a> to your Circles.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Contributing</a><ul class="nav">
+<li><a class="reference internal" href="#filing-issues">Filing issues</a></li>
+<li><a class="reference internal" href="#providing-code">Providing code</a></li>
+<li><a class="reference internal" href="#support-us">Support us</a></li>
+<li><a class="reference internal" href="#community">Community</a><ul class="nav">
+<li><a class="reference internal" href="#mailing-list">Mailing List</a></li>
+<li><a class="reference internal" href="#social-networks">Social networks</a><ul class="nav">
+<li><a class="reference internal" href="#twitter">Twitter</a></li>
+<li><a class="reference internal" href="#google">Google+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="faq.html" title="Previous Chapter: FAQ">
+      FAQ
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="events.html" title="Next Chapter: Events">
+      Events
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,430 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advanced Usage &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.5.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Tutorial" href="index.html" />
+    <link rel="next" title="IDE Integration" href="ide_integration.html" />
+    <link rel="prev" title="First Steps With Gatling" href="first_steps_with_gatling.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              User Documentation
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Tutorial
+              </a>
+            </li>
+            <li><a href="">
+              Advanced Usage
+            </a></li>
+          </ul>
+          
+  <div class="section" id="advanced-usage">
+<span id="id1"></span><h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<p>If you are here, you probably know a bit of Gatling. To show the advanced features of Gatling, we will continue to improve the scenario we developed in <a class="reference internal" href="first_steps_with_gatling.html#first-steps-with-gatling"><em>First Steps With Gatling</em></a>. This scenario and the advanced one are available as examples in the Gatling bundle.</p>
+<div class="section" id="checks">
+<h2>Checks<a class="headerlink" href="#checks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-are-they">
+<h3>What are they?<a class="headerlink" href="#what-are-they" title="Permalink to this headline">¶</a></h3>
+<p>Checks are an important feature of Gatling, as you may have noticed, there are some added by the Recorder:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">&quot;request_1&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">headers_1</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">status</span><span class="o">.</span><span class="n">is</span><span class="o">(</span><span class="mi">302</span><span class="o">))</span> <span class="c1">// This is our check!</span>
+  <span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-sure-that-the-scenario-goes-well">
+<h3>Making sure that the scenario goes well<a class="headerlink" href="#making-sure-that-the-scenario-goes-well" title="Permalink to this headline">¶</a></h3>
+<p>What if the login process succeeded (we actually got our 302 status code), but the page shown is an error page? (Custom 404 for example).</p>
+<p>We would like to verify that we actually are viewing the list of our accounts. To do so, we will use a Regular Expression Check:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+  <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_4&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;/private/bank/accounts.html&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">headers_4</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">regex</span><span class="o">(</span><span class="s">&quot;&quot;&quot;&lt;td class=&quot;number&quot;&gt;ACC${account_id}&lt;/td&gt;&quot;&quot;&quot;</span><span class="o">).</span><span class="n">exists</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <tt class="docutils literal"><span class="pre">${account_id}</span></tt> syntax is the same as for the feeders, we will explain it right after.</p>
+</div>
+<p>Here, we verify that the string <tt class="docutils literal"><span class="pre">&quot;&quot;&quot;&lt;td</span> <span class="pre">class=&quot;number&quot;&gt;ACC${account_id}&lt;/td&gt;&quot;&quot;&quot;</span></tt> is present in the body of the response we received.</p>
+</div>
+<div class="section" id="saving-data">
+<h3>Saving data<a class="headerlink" href="#saving-data" title="Permalink to this headline">¶</a></h3>
+<p>Checks can also be used for saving the extracted data so that it can be reused further in the scenario flow.</p>
+<p>For example, one can use a capture group on a regex:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">check</span><span class="o">(</span>
+  <span class="n">regex</span><span class="o">(</span><span class="s">&quot;&quot;&quot;&lt;a href=&quot;/excilys-bank-web/private/bank/account/(ACC[0-9]*)/operations.html&quot;&gt;&quot;&quot;&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">saveAs</span><span class="o">(</span><span class="s">&quot;acc1&quot;</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>Here, if the regex matches the response body, the captured group first occurrence will be saved in the user&#8217;s session under the <tt class="docutils literal"><span class="pre">acc1</span></tt> key.</p>
+<p>For more information about Checks, see the <a class="reference internal" href="../reference/checks.html#checks"><em>Checks reference section</em></a>.</p>
+</div>
+</div>
+<div class="section" id="the-session">
+<span id="id2"></span><h2>The Session<a class="headerlink" href="#the-session" title="Permalink to this headline">¶</a></h2>
+<p>When a simulation is run, each user has its own session in Gatling. It is used by the engine to exchange data between requests, but you can also benefit from this session.</p>
+<p>What if you want to make your scenario more dynamic? For now, we store the <tt class="docutils literal"><span class="pre">account_id</span></tt> in our Feeder, this is quite annoying, and could lead to complex file generation. We want to remove the <tt class="docutils literal"><span class="pre">account_id</span></tt> from our feeder and get it directly from the <tt class="docutils literal"><span class="pre">Account</span> <span class="pre">Page</span></tt>.</p>
+<p>To do so, we can use the <tt class="docutils literal"><span class="pre">saveAs(sessionKey:</span> <span class="pre">String)</span></tt> method; it will save the value captured by the check into the session under the key <tt class="docutils literal"><span class="pre">sessionKey</span></tt>. Thanks to this feature, we can now change our <a class="reference internal" href="../reference/feeders.html#feeders"><em>feeder</em></a>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* user_credentials.csv */</span>
+<span class="n">username</span><span class="o">,</span><span class="n">password</span>
+<span class="n">user1</span><span class="o">,</span><span class="n">password1</span>
+<span class="o">...</span>
+<span class="n">user10</span><span class="o">,</span><span class="n">password10</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We use a different name, because now we only have the user&#8217;s credentials.</p>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* Old Scenario */</span>                                      <span class="o">|</span>  <span class="cm">/* New Scenario */</span>
+<span class="o">-------------------------------------------------------------------------------------------------------</span>
+<span class="n">feed</span><span class="o">(</span><span class="n">csv</span><span class="o">(</span><span class="s">&quot;user_information.csv&quot;</span><span class="o">))</span>                       <span class="o">|</span>  <span class="n">feed</span><span class="o">(</span><span class="n">csv</span><span class="o">(</span><span class="s">&quot;user_credentials.csv&quot;</span><span class="o">))</span>
+<span class="o">...</span>                                                     <span class="o">|</span>  <span class="o">...</span>
+<span class="o">.</span><span class="n">check</span><span class="o">(</span>                                                 <span class="o">|</span>  <span class="o">.</span><span class="n">check</span><span class="o">(</span>
+  <span class="n">regex</span><span class="o">(</span><span class="s">&quot;&quot;&quot;&lt;td class=&quot;number&quot;&gt;ACC${account_id}&lt;/td&gt;&quot;&quot;&quot;</span><span class="o">)</span> <span class="o">|</span>    <span class="n">regex</span><span class="o">(</span><span class="s">&quot;&quot;&quot;&lt;td class=&quot;number&quot;&gt;ACC(\d+)&lt;/td&gt;&quot;&quot;&quot;</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">exists</span>                                               <span class="o">|</span>      <span class="o">.</span><span class="n">saveAs</span><span class="o">(</span><span class="s">&quot;account_id&quot;</span><span class="o">)</span>
+<span class="o">)</span>                                                       <span class="o">|</span>  <span class="o">)</span>
+</pre></div>
+</div>
+<p>As you might have seen, we use an Expression Language to get values from the session. If you have used ELs from other languages, you can recognize the syntax: <tt class="docutils literal"><span class="pre">${</span> <span class="pre">variable</span> <span class="pre">}</span></tt>. Here, variable represents the key of the session value we want to get. See <a class="reference internal" href="../reference/session.html#session-el"><em>here</em></a> for more details.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We also removed the exists strategy which is actually a default automatically added if you don&#8217;t explicitaly specify one.</p>
+</div>
+</div>
+<div class="section" id="conditional-execution">
+<h2>Conditional Execution<a class="headerlink" href="#conditional-execution" title="Permalink to this headline">¶</a></h2>
+<p>You might have to execute different actions depending on a value in the session; to do so, you can use conditional execution. As an example, we could simulate that user7 is the only one to click on the logout button:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">doIf</span><span class="o">(</span><span class="s">&quot;${username}&quot;</span><span class="o">,</span> <span class="s">&quot;user7&quot;</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">exec</span><span class="o">(</span>
+      <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_9&quot;</span><span class="o">)</span>
+        <span class="o">...</span>
+    <span class="o">)</span>
+    <span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">0</span> <span class="n">milliseconds</span><span class="o">,</span> <span class="mi">100</span> <span class="n">milliseconds</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+      <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_10&quot;</span><span class="o">)</span>
+        <span class="o">...</span>
+    <span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="section" id="using-scala-functions">
+<span id="scala-functions"></span><h3>Using Scala Functions<a class="headerlink" href="#using-scala-functions" title="Permalink to this headline">¶</a></h3>
+<p><tt class="docutils literal"><span class="pre">doIf</span></tt> and <tt class="docutils literal"><span class="pre">asLongAs</span></tt> condition can be expressed using two strings that will be tested for equality (as shown in the previous example). It can also be expressed as a Scala Function of type <tt class="docutils literal"><span class="pre">Session</span> <span class="pre">=&gt;</span> <span class="pre">Boolean</span></tt>.</p>
+<p>To illustrate this, we can simulate the opposite of the previous example; that is to say every user will click on <tt class="docutils literal"><span class="pre">logout</span></tt> except user7:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">doIf</span><span class="o">(</span><span class="n">session</span> <span class="k">=&gt;</span> <span class="n">session</span><span class="o">.</span><span class="n">getAttribute</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">)</span> <span class="o">!=</span> <span class="s">&quot;user7&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">exec</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This version will be used in our scenario.</p>
+</div>
+</div>
+</div>
+<div class="section" id="multi-scenarios-simulations">
+<span id="multi-scenarios"></span><h2>Multi-Scenarios Simulations<a class="headerlink" href="#multi-scenarios-simulations" title="Permalink to this headline">¶</a></h2>
+<p>What if your web application is used by different kind of users? You might have administrators, users, advanced users, etc. We can easily simulate the use of the application by each of these groups; with Gatling, you can even simulate the use of the application by all these groups at the same time.</p>
+<p>To do so, just define another scenario in your simulation file:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">scn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Scenario Name&quot;</span><span class="o">)</span>
+        <span class="o">...</span>
+
+<span class="k">val</span> <span class="n">otherScn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Other Scenario Name&quot;</span><span class="o">)</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>There you go, you have defined several scenarios in one simulation file. If you try to run this simulation like this, you&#8217;ll notice that Gatling won&#8217;t see the difference; indeed, you need to add this scenario to the List of scenarios to be simulated:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">setUp</span><span class="o">(</span>
+  <span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">),</span>
+  <span class="n">otherScn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">20</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As you can see, the <tt class="docutils literal"><span class="pre">httpConf</span></tt> can be reused for several scenarios.</p>
+</div>
+<p>If you want to delay the beginning of a scenario, you can use the method <tt class="docutils literal"><span class="pre">delay(duration:</span> <span class="pre">Int)</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">otherScn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">20</span><span class="o">).</span><span class="n">delay</span><span class="o">(</span><span class="mi">30</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>With this configuration <tt class="docutils literal"><span class="pre">otherScn</span></tt> will start 30 seconds after <tt class="docutils literal"><span class="pre">scn</span></tt>.</p>
+</div>
+<div class="section" id="simulation-modularization">
+<h2>Simulation Modularization<a class="headerlink" href="#simulation-modularization" title="Permalink to this headline">¶</a></h2>
+<p>If you are to reuse scenarios in different simulations, you can modularize it thanks to the import mechanism of Scala. For example, in the previous example, we can split the simulation file into 2 scenario files, 1 header file and 1 simulation file:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">user</span><span class="o">-</span><span class="n">files</span><span class="o">/</span>
+<span class="o">|</span><span class="k">_</span> <span class="n">simulations</span>
+   <span class="o">|</span><span class="k">_</span> <span class="n">advanced</span>
+      <span class="o">|</span><span class="k">_</span> <span class="nc">AdvancedExampleSimulation</span><span class="o">.</span><span class="n">scala</span>
+      <span class="o">|</span><span class="k">_</span> <span class="nc">Headers</span><span class="o">.</span><span class="n">scala</span>
+      <span class="o">|</span><span class="k">_</span> <span class="nc">SomeOtherScenario</span><span class="o">.</span><span class="n">scala</span>
+      <span class="o">|</span><span class="k">_</span> <span class="nc">SomeScenario</span><span class="o">.</span><span class="n">scala</span>
+   <span class="o">|</span><span class="k">_</span> <span class="n">basic</span>
+      <span class="o">|</span><span class="k">_</span> <span class="nc">BasicExampleSimulation</span><span class="o">.</span><span class="n">scala</span>
+</pre></div>
+</div>
+<p>The content of the files are the following:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* AdvancedExampleSimulation.scala */</span>
+<span class="k">package</span> <span class="nn">advanced</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.core.Predef._</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.http.Predef._</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.jdbc.Predef._</span>
+
+<span class="k">class</span> <span class="nc">AdvancedExampleSimulation</span> <span class="k">extends</span> <span class="nc">Simulation</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">urlBase</span> <span class="k">=</span> <span class="s">&quot;http://excilysbank.gatling.cloudbees.net&quot;</span>
+  <span class="k">val</span> <span class="n">httpConf</span> <span class="k">=</span> <span class="n">httpConfig</span><span class="o">.</span><span class="n">baseURL</span><span class="o">(</span><span class="n">urlBase</span><span class="o">)</span>
+
+  <span class="n">setUp</span><span class="o">(</span><span class="nc">SomeScenario</span><span class="o">.</span><span class="n">scn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">),</span>
+        <span class="nc">SomeOtherScenario</span><span class="o">.</span><span class="n">otherScn</span><span class="o">.</span><span class="n">users</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="n">ramp</span><span class="o">(</span><span class="mi">20</span><span class="o">).</span><span class="n">delay</span><span class="o">(</span><span class="mi">30</span><span class="o">).</span><span class="n">protocolConfig</span><span class="o">(</span><span class="n">httpConf</span><span class="o">))</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* SomeScenario.scala */</span>
+<span class="k">package</span> <span class="nn">advanced</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.core.Predef._</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.http.Predef._</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.jdbc.Predef._</span>
+<span class="k">import</span> <span class="nn">Headers._</span>
+
+<span class="k">object</span> <span class="nc">SomeScenario</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">scn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Scenario name&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+      <span class="n">http</span><span class="o">(</span><span class="s">&quot;request_1&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="n">headers_1</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">status</span><span class="o">.</span><span class="n">is</span><span class="o">(</span><span class="mi">302</span><span class="o">)))</span>
+        <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* SomeOtherScenario.scala */</span>
+<span class="k">package</span> <span class="nn">advanced</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.core.Predef._</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.http.Predef._</span>
+<span class="k">import</span> <span class="nn">com.excilys.ebi.gatling.jdbc.Predef._</span>
+<span class="k">import</span> <span class="nn">Headers._</span>
+
+<span class="k">object</span> <span class="nc">SomeOtherScenario</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">otherScn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Other Scenario Name&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span>
+      <span class="n">http</span><span class="o">(</span><span class="s">&quot;other_request_1&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="n">check</span><span class="o">(</span><span class="n">status</span><span class="o">.</span><span class="n">is</span><span class="o">(</span><span class="mi">302</span><span class="o">)))</span>
+        <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/* Headers.scala */</span>
+<span class="k">package</span> <span class="nn">advanced</span>
+
+<span class="k">object</span> <span class="nc">Headers</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">headers_1</span> <span class="k">=</span> <span class="nc">Map</span><span class="o">(</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You can now run the simulation if you want and look at the generated reports. Description of simulation scripts is finished, we are now going to discuss some other features of Gatling.</p>
+</div>
+<div class="section" id="the-end-of-the-tutorial">
+<h2>The end of the tutorial<a class="headerlink" href="#the-end-of-the-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>That&#8217;s it for the tutorial! You can learn more about Gatling reading the reference articles of this wiki (accessible from the right sidebar).</p>
+<p>If you want to address specific problems, you might find what you need in the cookbook.</p>
+<p>Happy Gatling!</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Advanced Usage</a><ul class="nav">
+<li><a class="reference internal" href="#checks">Checks</a><ul class="nav">
+<li><a class="reference internal" href="#what-are-they">What are they?</a></li>
+<li><a class="reference internal" href="#making-sure-that-the-scenario-goes-well">Making sure that the scenario goes well</a></li>
+<li><a class="reference internal" href="#saving-data">Saving data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-session">The Session</a></li>
+<li><a class="reference internal" href="#conditional-execution">Conditional Execution</a><ul class="nav">
+<li><a class="reference internal" href="#using-scala-functions">Using Scala Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multi-scenarios-simulations">Multi-Scenarios Simulations</a></li>
+<li><a class="reference internal" href="#simulation-modularization">Simulation Modularization</a></li>
+<li><a class="reference internal" href="#the-end-of-the-tutorial">The end of the tutorial</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="first_steps_with_gatling.html" title="Previous Chapter: First Steps With Gatling">
+      First Steps With Gatling
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="ide_integration.html" title="Next Chapter: IDE Integration">
+      IDE Integration
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>
