@@ -1,0 +1,307 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="General" href="index.html" />
+    <link rel="next" title="Simulation structure" href="simulation_structure.html" />
+    <link rel="prev" title="Operations" href="operations.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              General
+              </a>
+            </li>
+            <li><a href="">
+              Configuration
+            </a></li>
+          </ul>
+          
+  <div class="section" id="configuration">
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>Gatling can be configured and optimized in three ways:</p>
+<ul class="simple">
+<li>with configuration files, located in <tt class="docutils literal"><span class="pre">conf</span></tt> directory</li>
+<li>with command line options</li>
+<li>with <tt class="docutils literal"><span class="pre">$JAVA_OPTS</span></tt> environment variable</li>
+</ul>
+<div class="section" id="configuration-files">
+<h2>Configuration files<a class="headerlink" href="#configuration-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="logback-xml">
+<h3>logback.xml<a class="headerlink" href="#logback-xml" title="Permalink to this headline">¶</a></h3>
+<p>This file allows you to configure the log level of Gatling.
+For further information, you should have a look at <a class="reference external" href="http://logback.qos.ch/manual/index.html">Logback Documentation</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In order to log requests and responses, uncomment the dedicated logger in the <a class="reference external" href="https://github.com/gatling/gatling/blob/master/gatling-bundle/src/universal/conf/logback.xml">default logging configuration file</a>.</p>
+</div>
+</div>
+<div class="section" id="gatling-conf">
+<h3>gatling.conf<a class="headerlink" href="#gatling-conf" title="Permalink to this headline">¶</a></h3>
+<p>Gatling configuration is based on the great <a class="reference external" href="https://github.com/typesafehub/config">Typesafe Config library</a>.</p>
+<p>Gatling configuration files, such as the <a class="reference external" href="https://github.com/gatling/gatling/blob/master/gatling-core/src/main/resources/gatling-defaults.conf">default configuration file</a> uses the <a class="reference external" href="https://github.com/typesafehub/config/blob/master/HOCON.md">HOCON format</a>.</p>
+<p>Gatling uses a fallback strategy, where:</p>
+<p><strong>System properties &gt; gatling.conf &gt; gatling-defaults.conf</strong></p>
+<p><tt class="docutils literal"><span class="pre">gatling.conf</span></tt> is placed in the <tt class="docutils literal"><span class="pre">conf</span></tt> directory. It serves as an easy-to-edit base: all properties are commented and all values are the defaults.</p>
+<p><tt class="docutils literal"><span class="pre">gatling-defaults.conf</span></tt> is shipped in the gatling-core jar and should not be edited.</p>
+<p>If you want to override default values, you have two possibilities:</p>
+<ul class="simple">
+<li>change the value in <tt class="docutils literal"><span class="pre">gatling.conf</span></tt> (don&#8217;t forget to uncomment the line and remove the #).</li>
+<li>set a System property (the name of the property must match <a class="reference external" href="https://github.com/typesafehub/config/blob/master/HOCON.md#paths-as-keys">HOCON Path</a>)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="command-line-options">
+<span id="gatling-cli-options"></span><h2>Command Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p>Gatling can be started with several options listed below:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="25%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option (short)</th>
+<th class="head">Option (long)</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-h</td>
+<td>-help</td>
+<td>Help</td>
+</tr>
+<tr class="row-odd"><td>-nr</td>
+<td>&#8211;no-reports</td>
+<td>Runs simulation but does not generate reports</td>
+</tr>
+<tr class="row-even"><td>-ro &lt;folderName&gt;</td>
+<td>&#8211;reports-only &lt;folderName&gt;</td>
+<td>Generates the reports for the simulation log file located in &lt;gatling_home&gt;/results/&lt;folderName&gt;</td>
+</tr>
+<tr class="row-odd"><td>-df &lt;path&gt;</td>
+<td>&#8211;data-folder &lt;path&gt;</td>
+<td>Uses &lt;path&gt; as the folder where feeders are stored</td>
+</tr>
+<tr class="row-even"><td>-rf &lt;path&gt;</td>
+<td>&#8211;results-folder &lt;path&gt;</td>
+<td>Uses &lt;path&gt; as the folder where results are stored</td>
+</tr>
+<tr class="row-odd"><td>-bf &lt;path&gt;</td>
+<td>&#8211;request-bodies-folder &lt;path&gt;</td>
+<td>Uses &lt;path&gt; as the folder where request bodies are stored</td>
+</tr>
+<tr class="row-even"><td>-sf &lt;path&gt;</td>
+<td>&#8211;simulations-folder &lt;path&gt;</td>
+<td>Uses &lt;path&gt; as the folder where simulations are stored</td>
+</tr>
+<tr class="row-odd"><td>-sbf &lt;path&gt;</td>
+<td>&#8211;simulations-binaries-folder &lt;path&gt;</td>
+<td>Uses &lt;path&gt; as the folder where simulation binaries are stored</td>
+</tr>
+<tr class="row-even"><td>-s &lt;className&gt;</td>
+<td>&#8211;simulation &lt;className&gt;</td>
+<td>Uses &lt;className&gt; as the name of the simulation to be run</td>
+</tr>
+<tr class="row-odd"><td>-on &lt;name&gt;</td>
+<td>&#8211;output-name &lt;name&gt;</td>
+<td>Uses &lt;name&gt; for the base name of the output directory</td>
+</tr>
+<tr class="row-even"><td>-sd &lt;description&gt;</td>
+<td>&#8211;simulation-description &lt;description&gt;</td>
+<td>A short &lt;description&gt; of the run to include in the report</td>
+</tr>
+<tr class="row-odd"><td>-m</td>
+<td>&#8211;mute</td>
+<td>Runs in mute mode: doesn&#8217;t ask for run description nor simulation ID, uses defaults</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="java-opts">
+<h2>$JAVA_OPTS<a class="headerlink" href="#java-opts" title="Permalink to this headline">¶</a></h2>
+<p>Default JAVA_OPTS are set in Gatling&#8217;s launch scripts.
+If you want to override them, you&#8217;ll have to edit these files and replace whatever value you&#8217;d like to change in JAVA_OPTS.</p>
+<p>If you want to set additional JAVA_OPTS for Gatling, you can do so by defining the JAVA_OPTS before the gatling command:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">~</span><span class="n">$</span> <span class="nc">JAVA_OPTS</span><span class="o">=</span><span class="s">&quot;myAdditionalOption&quot;</span> <span class="n">bin</span><span class="o">/</span><span class="n">gatling</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Configuration</a><ul class="nav">
+<li><a class="reference internal" href="#configuration-files">Configuration files</a><ul class="nav">
+<li><a class="reference internal" href="#logback-xml">logback.xml</a></li>
+<li><a class="reference internal" href="#gatling-conf">gatling.conf</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-line-options">Command Line Options</a></li>
+<li><a class="reference internal" href="#java-opts">$JAVA_OPTS</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="operations.html" title="Previous Chapter: Operations">
+      Operations
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="simulation_structure.html" title="Next Chapter: Simulation structure">
+      Simulation structure
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

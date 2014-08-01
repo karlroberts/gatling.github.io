@@ -1,0 +1,321 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>FAQ &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="Project Information" href="index.html" />
+    <link rel="next" title="Issue tracking" href="issue_tracking.html" />
+    <link rel="prev" title="Migrating from 2.0.0-M3a to 2.0.0-RC1" href="migration_guides/2.0.0-M3a-to-2.0.0-RC1.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              Project Information
+              </a>
+            </li>
+            <li><a href="">
+              FAQ
+            </a></li>
+          </ul>
+          
+  <div class="section" id="faq">
+<span id="id1"></span><h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<p>If you are here, chances are that Gatling does not work as expected.
+To help you fixing the problem, here is a list of common problems and their solutions.</p>
+<p>If you can&#8217;t find a solution here, consider joining our <a class="reference external" href="https://groups.google.com/forum/#!forum/gatling">Google Group</a>.</p>
+<ul class="simple" id="faq-gatling-highcharts-split">
+<li><strong>Why the hell did you move gatling-highcharts into a dedicated project?</strong></li>
+</ul>
+<p>Highcharts and Highstock are javascript libraries whose license is not open-source friendly.
+We pay license fees so that we can package and distribute them and let people use them <strong>for free</strong>, but this module can&#8217;t be open sourced.</p>
+<p>We really want to keep as much code as possible under Apache 2, so we move the reports generation library implementation into a separate project <a class="reference external" href="https://github.com/gatling/gatling-highcharts">https://github.com/gatling/gatling-highcharts</a>.</p>
+<p>If anyone can come with an Apache 2 licensed solution that&#8217;s as sexy and plug-and-play as Highcharts and Highstock, we&#8217;d gladly make it the default implementation and integrate it into the main project!</p>
+<p>See <a class="reference internal" href="licenses.html#license"><em>License section</em></a></p>
+<ul class="simple" id="faq-gatling-highcharts-split2">
+<li><strong>I built from sources and got a java.lang.NoClassDefFoundError: com/excilys/ebi/gatling/charts/component/impl/ComponentLibraryImpl</strong></li>
+</ul>
+<p>See up here, the Highcharts based charts implementation is hosted in a separate project.
+You have to build it too.</p>
+<ul class="simple" id="faq-xss">
+<li><strong>Can&#8217;t compile long scenarios</strong></li>
+</ul>
+<p>Scenarios use method chaining <strong>a lot</strong>.
+The longer the chain, the bigger the stack size required by the compiler to compile them.</p>
+<p>This parameter can be increased with the <tt class="docutils literal"><span class="pre">-Xss</span></tt> JVM parameter.
+Another solution is of course to split into smaller chains.</p>
+<p>Since 2M3, Gatling forks a new process for running so compiler, so that one can tune JVM differently for compiler and running.
+The compiler JVM can be tuned with a parameter named <tt class="docutils literal"><span class="pre">gatling.core.zinc</span></tt> in <a class="reference external" href="https://github.com/gatling/gatling/blob/2.0.0-M3a/gatling-core/src/main/resources/gatling-defaults.conf#L44">gatling.conf</a>.</p>
+<ul class="simple" id="faq-warmup">
+<li><strong>I get a &#8220;Connection timed out: no further information to http://gatling-tool.org&#8221;, what happened?</strong></li>
+</ul>
+<p>Since 1.2.0, Gatling has an option for sending a request in order to warm up the engine and have more precise statistics during the run.
+This option is enabled by default and <a class="reference external" href="http://gatling-tool.org">http://gatling-tool.org</a> is the default url.</p>
+<p>If Gatling can&#8217;t reach out this url either because you don&#8217;t have a connection, or because it requires a proxy configuration, you&#8217;ll get this stacktrace.</p>
+<p>Either disable this feature, or change the target url. See documentation <a class="reference internal" href="../http/http_protocol.html#http-protocol-warmup"><em>here</em></a>.</p>
+<ul class="simple" id="faq-class-size">
+<li><strong>The compiler complains my Simulation class is too big</strong></li>
+</ul>
+<p>Scala classes have the same limitations as Java ones.
+For example, the amount of code inside a method can&#8217;t exceed 64ko.</p>
+<p>If you are in this case (for example, you recorded a big maven installation), you should consider refactoring things a little bit.</p>
+<p>If you want to achieve modular and maintainable scenarios, you should consider externalizing processes as chains in other Scala objects.</p>
+<p>If you don&#8217;t care about maintainability but just want to quickly play what you recorded, you can move the chains outside of the <tt class="docutils literal"><span class="pre">apply</span></tt> method.
+Also consider changing them from <tt class="docutils literal"><span class="pre">val</span></tt> to <tt class="docutils literal"><span class="pre">lazy</span> <span class="pre">val</span></tt> if you have multiple Simulations in your directory.</p>
+<ul class="simple" id="faq-maven-log">
+<li><strong>How can I override the maven-gatling-plugin log level?</strong></li>
+<li>either set a JVM param <tt class="docutils literal"><span class="pre">-Dlogback.configurationFile=/path/to/config.xml</span></tt></li>
+<li>or add a <tt class="docutils literal"><span class="pre">logback-test.xml</span></tt> to your classpath that will have precedence over the embedded <tt class="docutils literal"><span class="pre">logback.xml</span></tt> file</li>
+</ul>
+<ul class="simple" id="faq-http-caching">
+<li><strong>I don&#8217;t get the number of HTTP requests I expect?</strong></li>
+</ul>
+<p>Are you sure that some requests are not being cached?
+Gatling does its best to simulate real users behavior, so HTTP caching is enabled by default.</p>
+<p>Depending on your use case, you might either realize that the number of requests is actually perfectly fine, or you might want to <a class="reference internal" href="../http/http_protocol.html#http-protocol-caching"><em>disable caching</em></a>.</p>
+<ul class="simple" id="faq-scheduler">
+<li><strong>Does Gatling have a scheduler?</strong></li>
+</ul>
+<p>No.
+For now, we consider this is not a task for a load testing tool.
+We provide a Jenkins plugin and it&#8217;s easy to call the Gatling launch scripts from the scheduler of your choice.</p>
+<ul class="simple" id="faq-multiple-simulations">
+<li><strong>Can Gatling launch several simulations sequentially?</strong></li>
+</ul>
+<p>No.</p>
+<p>It was possible in old versions, but it caused tons of problems, so we removed this feature.</p>
+<p>However, just like scheduling, that&#8217;s something very easy to achieve outside Gatling. For example, one can configure <a class="reference external" href="http://maven.apache.org/guides/mini/guide-default-execution-ids.html">multiple executions</a> of the Gatling maven plugin, or multiple Jenkins jobs.</p>
+<ul class="simple" id="faq-simulation-log">
+<li><strong>What&#8217;s the meaning of the 4 longs in simulation.log file?</strong></li>
+</ul>
+<p>Those are currently:</p>
+<ol class="arabic simple">
+<li>first byte sent timestamp</li>
+<li>last byte sent timestamp</li>
+<li>first byte received timestamp</li>
+<li>last byte received timestamp</li>
+</ol>
+<p>A timestamp is of course the number of milliseconds since epoch.</p>
+<ul class="simple">
+<li>response time (in ms) = 4 - 1</li>
+<li>latency (in ms) = 3 - 2</li>
+</ul>
+<p>Beware that the format of this file is an implementation details of the <tt class="docutils literal"><span class="pre">FileDataWriter</span></tt>/<tt class="docutils literal"><span class="pre">FileDataReader</span></tt> combo, so it might be subject to changes.</p>
+<ul class="simple" id="faq-elb">
+<li><strong>Using Amazon Elastic Load Balancing?</strong></li>
+</ul>
+<p>See <a class="reference external" href="http://aws.amazon.com/articles/1636185810492479">this page</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">DNS Resolution
+If clients do not re-resolve the DNS at least once per minute, then the new resources Elastic Load Balancing adds to DNS will not be used by clients. This can mean that clients continue to overwhelm a small portion of the allocated Elastic Load Balancing resources, while overall Elastic Load Balancing is not being heavily utilized. This is not a problem that can occur in real-world scenarios, but it is a likely problem for load testing tools that do not offer the control needed to ensure that clients are re-resolving DNS frequently.</p>
+</div>
+<p>Basically, Gatling/JVM&#8217;s DNS cache has to tuned. A solution is to add <tt class="docutils literal"><span class="pre">-Dsun.net.inetaddr.ttl=0</span></tt> to the command line.</p>
+<ul class="simple" id="faq-bad-record-mac">
+<li><strong>I get some &#8220;bad_record_mac&#8221; Exceptions over SSL</strong></li>
+</ul>
+<p>This seems to be a Hostpot JDK7 bug and affects all Java programs, for example: <a class="reference external" href="https://github.com/rubygems/rubygems.org/issues/615">https://github.com/rubygems/rubygems.org/issues/615</a>.</p>
+<p>OpenJDK 7 and Hostpot JDK8 seem to be fine.</p>
+<ul class="simple" id="faq-method-too-large">
+<li><strong>I have a HUGE simulation and I get a &#8220;Method too large&#8221; compile error</strong></li>
+</ul>
+<p>In Java and Scala, there&#8217;s a method size limit. Here, the method is your Simulation constructor.</p>
+<p>Typically, you have to move your chains out of your Simulation class, for example into objects:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">object</span> <span class="nc">ChainLibrary1</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">chain1</span> <span class="k">=</span> <span class="o">???</span>
+  <span class="k">val</span> <span class="n">chain2</span> <span class="k">=</span> <span class="o">???</span>
+  <span class="o">...</span>
+  <span class="k">val</span> <span class="n">chain100</span> <span class="k">=</span> <span class="o">???</span>
+<span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">ChainLibrary2</span> <span class="o">{</span>
+  <span class="k">val</span> <span class="n">chain101</span> <span class="k">=</span> <span class="o">???</span>
+  <span class="k">val</span> <span class="n">chain102</span> <span class="k">=</span> <span class="o">???</span>
+  <span class="o">...</span>
+  <span class="k">val</span> <span class="n">chain150</span> <span class="k">=</span> <span class="o">???</span>
+<span class="o">}</span>
+
+<span class="k">class</span> <span class="nc">MyVeryBigSimulation</span> <span class="o">{</span>
+
+  <span class="k">import</span> <span class="nn">ChainLibrary1._</span>
+  <span class="k">import</span> <span class="nn">ChainLibrary2._</span>
+
+  <span class="k">val</span> <span class="n">scn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;Name&quot;</span><span class="o">).</span><span class="n">exec</span><span class="o">(</span><span class="n">chain1</span><span class="o">,</span> <span class="o">...,</span> <span class="n">chain150</span><span class="o">)</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ul class="simple" id="dandling-connections">
+<li><strong>I have dandling connections that don&#8217;t get closed after timeout</strong></li>
+</ul>
+<p>This issue has been reported once, and preferring IPv4 fixed it:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">-</span><span class="nc">Djava</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">preferIPv4Stack</span><span class="k">=</span><span class="kc">true</span>
+</pre></div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">FAQ</a></li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <h5>Previous topic</h5>
+  <li>
+    <a href="migration_guides/2.0.0-M3a-to-2.0.0-RC1.html" title="Previous Chapter: Migrating from 2.0.0-M3a to 2.0.0-RC1">
+      Migrating from 2.0.0-M3a...
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="issue_tracking.html" title="Next Chapter: Issue tracking">
+      Issue tracking
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>
