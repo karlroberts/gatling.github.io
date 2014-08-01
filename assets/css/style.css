@@ -370,9 +370,12 @@ footer .content-wrapper {
   padding-bottom: 5px;
 }
 #doc a.headerlink {
-  color: #c3c47a;
+  color: #e8e7e2;
   margin-left: 10px;
   text-decoration: none;
+}
+#doc a.headerlink:hover {
+  color: #c3c47a;
 }
 #doc form {
   display: none;
