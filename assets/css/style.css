@@ -249,6 +249,15 @@ a.btn-gatling:hover {
 #cheat-sheet .javams-config .function-syntax {
   border-left-color: rgba(205, 207, 209, 0.4);
 }
+#cheat-sheet .javams-connect .function-syntax {
+  border-left-color: rgba(205, 207, 209, 0.2);
+}
+#cheat-sheet .javams-delivery .function-syntax {
+  border-left-color: rgba(205, 207, 209, 0.2);
+}
+#cheat-sheet .javams-match .function-syntax {
+  border-left-color: rgba(205, 207, 209, 0.2);
+}
 #cheat-sheet .check .function-syntax {
   border-left-color: rgba(0, 160, 255, 0.8);
 }
