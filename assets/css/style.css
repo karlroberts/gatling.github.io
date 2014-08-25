@@ -737,6 +737,15 @@ footer .content-wrapper {
   font-weight: bold;
   text-align: center;
 }
+#logos .col-xs-2 {
+  height: 70px;
+  text-align: center;
+}
+#logos .col-xs-2 a {
+  display: block;
+  height: 70px;
+  line-height: 70px;
+}
 
 
 #steps {
