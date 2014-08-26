@@ -313,12 +313,14 @@ a.btn-gatling:hover {
   border-left-color: rgba(255, 187, 51, 0.4);
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
 body {
-  background: #e8e7e2;
   color: #111111;
   font-family: Arial, Verdana, Tahoma, sans-serif;
-  height: 100%;
-  position: relative;
+  padding-bottom: 100px;
 }
 body.home section,
 body.home footer {
@@ -490,8 +492,11 @@ footer .content-wrapper {
 #footer {
   background-color: #444444;
   border-top: 4px solid #8f8c8e;
+  bottom: 0;
   box-shadow: 0px -10px 8px -8px #e7e6e2;
   color: #aaaaaa;
+  position: absolute;
+  width: 100%;
 }
 #footer a:link,
 #footer a:visited,
@@ -524,6 +529,7 @@ footer .content-wrapper {
   min-height: 48px;
 }
 #header {
+  background: #e8e7e2;
   min-height: 48px;
 }
 #header .navbar-nav.navbar-right:last-child {
@@ -727,6 +733,7 @@ footer .content-wrapper {
 }
 
 #logos {
+  background-color: #e8e7e2;
   box-shadow: 0px -10px 8px -8px #e7e6e2;
 }
 #logos header.row-fluid {
