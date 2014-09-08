@@ -195,7 +195,18 @@ the duration of each pause is on average that specified in the <tt class="docuti
 </div>
 <div class="section" id="throttling">
 <span id="simulation-setup-throttling"></span><h2>Throttling<a class="headerlink" href="#throttling" title="Permalink to this headline">¶</a></h2>
-<p>If you want to reason in terms of request per second and not in terms of users, Gatling support throttling with the <tt class="docutils literal"><span class="pre">throttle</span></tt> method, e.g.:</p>
+<p>If you want to reason in terms of requests per second and not in terms of concurrent users,
+consider using constantUsersPerSecond() to set the arrival rate of users, and therefore requests,
+without need for throttling as well as it will be redundant in most cases.</p>
+<p>If this is not sufficient for some reason then Gatling supports throttling with the <tt class="docutils literal"><span class="pre">throttle</span></tt> method</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>You still have to inject users at the scenario level.
+Throttling tries to ensure a targeted throughput with the given scenarios and their injection profiles, it&#8217;s a bottleneck.</li>
+<li>Throttling can also be configured <a class="reference internal" href="scenario.html#scenario-throttling"><em>per scenario</em></a>.</li>
+</ul>
+</div>
 <div class="highlight-scala"><div class="highlight"><pre><span class="n">setUp</span><span class="o">(...).</span><span class="n">throttle</span><span class="o">(</span>
   <span class="n">reachRps</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="n">in</span> <span class="o">(</span><span class="mi">10</span> <span class="n">seconds</span><span class="o">),</span>
   <span class="n">holdFor</span><span class="o">(</span><span class="mi">1</span> <span class="n">minute</span><span class="o">),</span>
@@ -211,14 +222,6 @@ the duration of each pause is on average that specified in the <tt class="docuti
 <li><tt class="docutils literal"><span class="pre">jumpToRps(target)</span></tt>: jump immediately to a given targeted throughput.</li>
 <li><tt class="docutils literal"><span class="pre">holdFor(duration)</span></tt>: hold the current throughput for a given duration.</li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ul class="last simple">
-<li>Defining throttling doesn&#8217;t prevent you from injecting users at the scenario level.
-Throttling tries to ensure a targeted throughput on the simulation level with the given scenarios and their injection profiles.</li>
-<li>Throttling can also be configured at scenario level.</li>
-</ul>
-</div>
 </div>
 <div class="section" id="maximum-duration">
 <span id="simulation-setup-maxduration"></span><h2>Maximum duration<a class="headerlink" href="#maximum-duration" title="Permalink to this headline">¶</a></h2>

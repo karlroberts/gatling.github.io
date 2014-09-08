@@ -321,11 +321,15 @@ This can only happen after Gatling has resolved the request, e.g. computed the b
 </div>
 <p><tt class="docutils literal"><span class="pre">request</span></tt> is the immutable object that&#8217;s been computed so far, <tt class="docutils literal"><span class="pre">requestBuilder</span></tt> is the mutable object that will be used to generate the final request.</p>
 <p>So, basically, you have to read the proper information from the <tt class="docutils literal"><span class="pre">url</span></tt> and <tt class="docutils literal"><span class="pre">request</span></tt> parameters, compute the new information out of them, such as a HMAC header, and set it on the <tt class="docutils literal"><span class="pre">requestBuilder</span></tt>.</p>
-<p>There&#8217;s 2 ways to set a SignatureCalculator on a request:</p>
+<p>There&#8217;s 3 ways to set a SignatureCalculator on a request:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="o">.</span><span class="n">signatureCalculator</span><span class="o">(</span><span class="n">calculator</span><span class="k">:</span> <span class="kt">SignatureCalculator</span><span class="o">)</span>
 
-<span class="c1">// use this signature is you want to directly pass a function instead of a SignatureCalculator</span>
+<span class="c1">// use this signature if you want to directly pass a function instead of a SignatureCalculator</span>
 <span class="o">.</span><span class="n">signatureCalculator</span><span class="o">(</span><span class="n">calculator</span><span class="k">:</span> <span class="o">(</span><span class="kt">Request</span><span class="o">,</span> <span class="kt">RequestBuilderBase</span><span class="o">[</span><span class="k">_</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="nc">Unit</span><span class="o">)</span>
+
+<span class="c1">// use this signature if you need information from the session to compute the signature (e.g. user specific authentication keys)</span>
+<span class="c1">// does not work with an anonymous function as in the second signature</span>
+<span class="o">.</span><span class="n">signatureCalculator</span><span class="o">(</span><span class="n">calculator</span><span class="k">:</span> <span class="kt">Expression</span><span class="o">[</span><span class="kt">SignatureCalculator</span><span class="o">])</span>
 </pre></div>
 </div>
 </div>

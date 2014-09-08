@@ -24,7 +24,7 @@ See :ref:`License section <license>`
 
 .. _faq-gatling-highcharts-split2:
 
-* **I built from sources and got a java.lang.NoClassDefFoundError: com/excilys/ebi/gatling/charts/component/impl/ComponentLibraryImpl**
+* **I built from sources and got a java.lang.NoClassDefFoundError: io/gatling/charts/component/impl/ComponentLibraryImpl**
 
 See up here, the Highcharts based charts implementation is hosted in a separate project.
 You have to build it too.
@@ -40,14 +40,14 @@ This parameter can be increased with the ``-Xss`` JVM parameter.
 Another solution is of course to split into smaller chains.
 
 Since 2M3, Gatling forks a new process for running so compiler, so that one can tune JVM differently for compiler and running.
-The compiler JVM can be tuned with a parameter named ``gatling.core.zinc`` in `gatling.conf <https://github.com/gatling/gatling/blob/2.0.0-M3a/gatling-core/src/main/resources/gatling-defaults.conf#L44>`_.
+The compiler JVM can be tuned with a parameter named ``gatling.core.zinc`` in `gatling.conf <https://github.com/gatling/gatling/blob/master/gatling-core/src/main/resources/gatling-defaults.conf#49>`_.
 
 .. _faq-warmup:
 
 * **I get a "Connection timed out: no further information to http://gatling-tool.org", what happened?**
 
 Since 1.2.0, Gatling has an option for sending a request in order to warm up the engine and have more precise statistics during the run.
-This option is enabled by default and http://gatling-tool.org is the default url.
+This option is enabled by default and http://gatling.io is the default url.
 
 If Gatling can't reach out this url either because you don't have a connection, or because it requires a proxy configuration, you'll get this stacktrace.
 
@@ -100,24 +100,6 @@ No.
 It was possible in old versions, but it caused tons of problems, so we removed this feature.
 
 However, just like scheduling, that's something very easy to achieve outside Gatling. For example, one can configure `multiple executions <http://maven.apache.org/guides/mini/guide-default-execution-ids.html>`_ of the Gatling maven plugin, or multiple Jenkins jobs.
-
-.. _faq-simulation-log:
-
-* **What's the meaning of the 4 longs in simulation.log file?**
-
-Those are currently:
-
-#. first byte sent timestamp
-#. last byte sent timestamp
-#. first byte received timestamp
-#. last byte received timestamp
-
-A timestamp is of course the number of milliseconds since epoch.
-
-* response time (in ms) = 4 - 1
-* latency (in ms) = 3 - 2
-
-Beware that the format of this file is an implementation details of the ``FileDataWriter``/``FileDataReader`` combo, so it might be subject to changes.
 
 .. _faq-elb:
 

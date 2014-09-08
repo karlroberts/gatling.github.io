@@ -171,11 +171,28 @@ For example, on an HTTP request:</p>
 <p class="last">A status check is automatically added to a request when you don&#8217;t specify one.
 It checks that the HTTP response has a 2XX or 304 status code.</p>
 </div>
+</div>
+<div class="section" id="page-location">
+<h3>Page location<a class="headerlink" href="#page-location" title="Permalink to this headline">¶</a></h3>
 <ul class="simple" id="http-check-current-location">
 <li><tt class="docutils literal"><span class="pre">currentLocation</span></tt></li>
 </ul>
 <p>Targets the current page absolute URL.
 Useful when following redirects in order to check if the landing page is indeed the expected one.</p>
+<ul class="simple" id="http-check-current-location-regex">
+<li><tt class="docutils literal"><span class="pre">currentLocationRegex(pattern)</span></tt></li>
+</ul>
+<p>Same as above, but <em>pattern</em> is used to apply a regex on the current location.</p>
+<p>By default, it can extract 0 or 1 capture group, so the extract type is <tt class="docutils literal"><span class="pre">String</span></tt>.</p>
+<p>One can extract more than 1 capture group and define an different type with the <tt class="docutils literal"><span class="pre">ofType[T]</span></tt> extra step:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">currentLocationRegex</span><span class="o">(</span><span class="n">pattern</span><span class="o">).</span><span class="n">ofType</span><span class="o">[</span><span class="kt">T</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Gatling provides built-in support for extracting String tuples from <tt class="docutils literal"><span class="pre">Tuple2[String]</span></tt> to <tt class="docutils literal"><span class="pre">Tuple8[String]</span></tt>.</p>
+<p>The example below will capture two capture groups:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">currentLocationRegex</span><span class="o">(</span><span class="s">&quot;http://foo.com/bar?(.*)=(.*)&quot;</span><span class="o">).</span><span class="n">ofType</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span><span class="o">)]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="http-header">
 <h3>HTTP header<a class="headerlink" href="#http-header" title="Permalink to this headline">¶</a></h3>
@@ -357,15 +374,23 @@ For example, <tt class="docutils literal"><span class="pre">status</span></tt> o
 <span id="http-check-transform"></span><h2>Transforming<a class="headerlink" href="#transforming" title="Permalink to this headline">¶</a></h2>
 <p>Transforming is an <strong>optional</strong> step for transforming the result of the extraction before trying to match or save it.</p>
 <p><tt class="docutils literal"><span class="pre">transform(function)</span></tt> takes a <tt class="docutils literal"><span class="pre">X</span> <span class="pre">=&gt;</span> <span class="pre">X2</span></tt> function, meaning that it can only transform the result when it exists.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can also gain access to the <tt class="docutils literal"><span class="pre">Session</span></tt> and pass a <tt class="docutils literal"><span class="pre">(X,</span> <span class="pre">Session)</span> <span class="pre">=&gt;</span> <span class="pre">X2</span></tt> instead.</p>
+</div>
 <p><tt class="docutils literal"><span class="pre">transformOption(function)</span></tt> takes a <tt class="docutils literal"><span class="pre">Option[X]</span> <span class="pre">=&gt;</span> <span class="pre">Validation[Option[X2]]</span></tt> function, meaning that it gives full control over the extracted result, even providing a default value.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can also gain access to the <tt class="docutils literal"><span class="pre">Session</span></tt> and pass a <tt class="docutils literal"><span class="pre">(Option[X],</span> <span class="pre">Session)</span> <span class="pre">=&gt;</span> <span class="pre">Validation[X2]</span></tt> instead.</p>
+</div>
 <div class="highlight-scala"><div class="highlight"><pre><span class="n">transform</span><span class="o">(</span><span class="n">string</span> <span class="k">=&gt;</span> <span class="n">string</span> <span class="o">+</span> <span class="s">&quot;foo&quot;</span><span class="o">)</span>
 
 <span class="n">transformOption</span><span class="o">(</span><span class="n">extract</span> <span class="k">=&gt;</span> <span class="n">extract</span><span class="o">.</span><span class="n">orElse</span><span class="o">(</span><span class="nc">Some</span><span class="o">(</span><span class="s">&quot;default&quot;</span><span class="o">))).</span><span class="n">success</span><span class="o">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="verifying">
-<span id="http-check-verifying"></span><h2>Verifying<a class="headerlink" href="#verifying" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="validating">
+<span id="http-check-validating"></span><h2>Validating<a class="headerlink" href="#validating" title="Permalink to this headline">¶</a></h2>
 <ul class="simple" id="http-check-is">
 <li><tt class="docutils literal"><span class="pre">is(expected)</span></tt></li>
 </ul>
@@ -451,6 +476,7 @@ For example, <tt class="docutils literal"><span class="pre">status</span></tt> o
 <li><a class="reference internal" href="#concepts">Concepts</a></li>
 <li><a class="reference internal" href="#defining-the-check-type">Defining the check type</a><ul class="nav">
 <li><a class="reference internal" href="#http-status">HTTP status</a></li>
+<li><a class="reference internal" href="#page-location">Page location</a></li>
 <li><a class="reference internal" href="#http-header">HTTP header</a></li>
 <li><a class="reference internal" href="#http-response-body">HTTP response body</a></li>
 </ul>
@@ -460,7 +486,7 @@ For example, <tt class="docutils literal"><span class="pre">status</span></tt> o
 </ul>
 </li>
 <li><a class="reference internal" href="#transforming">Transforming</a></li>
-<li><a class="reference internal" href="#verifying">Verifying</a></li>
+<li><a class="reference internal" href="#validating">Validating</a></li>
 <li><a class="reference internal" href="#saving">Saving</a></li>
 <li><a class="reference internal" href="#putting-it-all-together">Putting it all together</a></li>
 </ul>

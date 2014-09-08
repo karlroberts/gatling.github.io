@@ -1,0 +1,288 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Reports &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.0.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../index.html" />
+    <link rel="up" title="General" href="index.html" />
+    <link rel="next" title="Session" href="../session/index.html" />
+    <link rel="prev" title="Timings" href="timings.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li class="active"><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../index.html">Gatling documentation</a></li>
+            <li><a href="index.html"
+              accesskey="U">
+              General
+              </a>
+            </li>
+            <li><a href="">
+              Reports
+            </a></li>
+          </ul>
+          
+  <div class="section" id="reports">
+<span id="id1"></span><h1>Reports<a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Global menu points to consolidated statistics.</p>
+<p>Details menu points to per-request-type statistics.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reports can be generated from the simulation.log file even if the scenario was interrupted (Ctrl+C or process killed), use the <tt class="docutils literal"><span class="pre">-ro</span></tt> option.
+See <a class="reference internal" href="configuration.html#gatling-cli-options"><em>Configuration page</em></a>.</p>
+</div>
+</div>
+<div class="section" id="overall-simulation-charts">
+<h2>Overall Simulation charts<a class="headerlink" href="#overall-simulation-charts" title="Permalink to this headline">¶</a></h2>
+<p>Most of those charts are available for both the overall simulation report and for per request/group charts.</p>
+<div class="section" id="indicators">
+<h3>Indicators<a class="headerlink" href="#indicators" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-indicators.png"><img alt="DetailsIndicators" src="../_images/charts-indicators.png" /></a>
+<p>This chart shows how response times are distributed among standard ranges.
+The right panel show number of OK/KO requests.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">these ranges can be configured in the <tt class="docutils literal"><span class="pre">gatling.conf</span></tt> file.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/charts-statistics.png"><img alt="Statistics" src="../_images/charts-statistics.png" /></a>
+<p>The top panel shows some standard statistics such as min, max, average, standard deviation and percentiles globally and per request.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">these percentiles can be configured in the <tt class="docutils literal"><span class="pre">gatling.conf</span></tt> file.</p>
+</div>
+<p>The bottom panel shows some details on the failed requests.</p>
+</div>
+<div class="section" id="active-users-over-time">
+<h3>Active users over time<a class="headerlink" href="#active-users-over-time" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-users.png"><img alt="ActiveUsers" src="../_images/charts-users.png" /></a>
+<p>This chart displays the active users during the simulation : total and per scenario.</p>
+</div>
+<div class="section" id="response-time-distribution">
+<h3>Response time distribution<a class="headerlink" href="#response-time-distribution" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-distrib.png"><img alt="ReponseTimeDistribution" src="../_images/charts-distrib.png" /></a>
+<p>This chart displays the distribution of the response times.</p>
+</div>
+<div class="section" id="response-time-percentiles-over-time">
+<h3>Response time percentiles over time<a class="headerlink" href="#response-time-percentiles-over-time" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-response-percentiles-per-sec.png"><img alt="ResponseTimePercentilesPerSecond" src="../_images/charts-response-percentiles-per-sec.png" /></a>
+<p>This charts displays a variety of response time percentiles over time, but only for successful requests.
+As failed requests can end prematurely or be caused by timeouts, they would have a drastic effect on the percentiles computation.</p>
+</div>
+<div class="section" id="requests-per-second-over-time">
+<h3>Requests per second over time<a class="headerlink" href="#requests-per-second-over-time" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-requests-per-sec.png"><img alt="RequestsPerSecond" src="../_images/charts-requests-per-sec.png" /></a>
+<p>This chart displays the number of requests per second over time : total, successes and failures.</p>
+</div>
+<div class="section" id="responses-per-second-over-time">
+<h3>Responses per second over time<a class="headerlink" href="#responses-per-second-over-time" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-responses-per-sec.png"><img alt="TransactionsPerSecond" src="../_images/charts-responses-per-sec.png" /></a>
+<p>This chart displays the number of responses received per second over time : total, successes and failures.</p>
+</div>
+</div>
+<div class="section" id="request-group-specific-charts">
+<h2>Request/group specific charts<a class="headerlink" href="#request-group-specific-charts" title="Permalink to this headline">¶</a></h2>
+<p>Those charts are only available when consulting the details for a request/group.</p>
+<div class="section" id="latency-over-time">
+<h3>Latency over time<a class="headerlink" href="#latency-over-time" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-latency-percentiles-per-sec.png"><img alt="LatencyOverTime" src="../_images/charts-latency-percentiles-per-sec.png" /></a>
+<p>This charts displays a variety of latency percentiles over time, but only for successful requests.
+As failed requests can end prematurely or be caused by timeouts, they would have a drastic effect on the percentiles computation.</p>
+</div>
+<div class="section" id="response-time-against-global-rps">
+<h3>Response Time against Global RPS<a class="headerlink" href="#response-time-against-global-rps" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-response-time-global-rps.png"><img alt="ResponseTimeOverLoad" src="../_images/charts-response-time-global-rps.png" /></a>
+<p>This chart shows how the response time for the given request is distributed, depending on the overnall number of request at the same time.</p>
+</div>
+<div class="section" id="latency-against-global-rps">
+<h3>Latency against Global RPS<a class="headerlink" href="#latency-against-global-rps" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../_images/charts-latency-global-rps.png"><img alt="LatencyOverLoad" src="../_images/charts-latency-global-rps.png" /></a>
+<p>This chart shows how the latency for the given request is distributed, depending on the overall number of requests at the same time.</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Reports</a><ul class="nav">
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#overall-simulation-charts">Overall Simulation charts</a><ul class="nav">
+<li><a class="reference internal" href="#indicators">Indicators</a></li>
+<li><a class="reference internal" href="#active-users-over-time">Active users over time</a></li>
+<li><a class="reference internal" href="#response-time-distribution">Response time distribution</a></li>
+<li><a class="reference internal" href="#response-time-percentiles-over-time">Response time percentiles over time</a></li>
+<li><a class="reference internal" href="#requests-per-second-over-time">Requests per second over time</a></li>
+<li><a class="reference internal" href="#responses-per-second-over-time">Responses per second over time</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#request-group-specific-charts">Request/group specific charts</a><ul class="nav">
+<li><a class="reference internal" href="#latency-over-time">Latency over time</a></li>
+<li><a class="reference internal" href="#response-time-against-global-rps">Response Time against Global RPS</a></li>
+<li><a class="reference internal" href="#latency-against-global-rps">Latency against Global RPS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <li>
+    <a href="https://github.com/gatling/gatling/edit/master/src/sphinx/general/reports.rst">Edit this page on Github</a>
+  </li>
+  <h5>Previous topic</h5>
+  <li>
+    <a href="timings.html" title="Previous Chapter: Timings">
+      Timings
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="../session/index.html" title="Next Chapter: Session">
+      Session
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

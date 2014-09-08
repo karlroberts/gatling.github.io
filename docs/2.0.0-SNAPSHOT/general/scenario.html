@@ -477,7 +477,7 @@ Groups can be nested.</p>
 <div class="section" id="protocol-definition">
 <span id="scenario-protocols"></span><h2>Protocol definition<a class="headerlink" href="#protocol-definition" title="Permalink to this headline">¶</a></h2>
 <p>You can configure protocols at scenario level with <tt class="docutils literal"><span class="pre">protocols</span></tt> method:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="n">scn</span><span class="o">.</span><span class="n">protocols</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)</span>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scn</span><span class="o">.</span><span class="n">inject</span><span class="o">(...).</span><span class="n">protocols</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)</span>
 </pre></div>
 </div>
 <p>See the dedicated section for http protocol definition <a class="reference internal" href="../http/http_protocol.html#http-protocol"><em>here</em></a>.</p>
@@ -488,8 +488,9 @@ Groups can be nested.</p>
 </div>
 <div class="section" id="throttling">
 <span id="scenario-throttling"></span><h2>Throttling<a class="headerlink" href="#throttling" title="Permalink to this headline">¶</a></h2>
-<p>You can also configure throttling at scenario level with <tt class="docutils literal"><span class="pre">throttle</span></tt> method:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="n">scn</span><span class="o">.</span><span class="n">throttle</span><span class="o">(</span><span class="n">reachRps</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="n">in</span> <span class="o">(</span><span class="mi">10</span> <span class="n">seconds</span><span class="o">),</span> <span class="n">holdFor</span><span class="o">(</span><span class="mi">10</span> <span class="n">minute</span><span class="o">))</span>
+<p>You can also configure throttling at scenario level with <tt class="docutils literal"><span class="pre">throttle</span></tt> method.</p>
+<p>This way, you can configure different throttling profiles for different scenarios running in the same simulation.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">scn</span><span class="o">.</span><span class="n">inject</span><span class="o">(...).</span><span class="n">throttle</span><span class="o">(</span><span class="n">reachRps</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="n">in</span> <span class="o">(</span><span class="mi">10</span> <span class="n">seconds</span><span class="o">),</span> <span class="n">holdFor</span><span class="o">(</span><span class="mi">10</span> <span class="n">minute</span><span class="o">))</span>
 </pre></div>
 </div>
 <p>For further information see the dedicated section <a class="reference internal" href="simulation_setup.html#simulation-setup-throttling"><em>here</em></a>.</p>

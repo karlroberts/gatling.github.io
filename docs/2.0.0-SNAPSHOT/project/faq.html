@@ -34,7 +34,7 @@
     <link rel="top" title="Gatling documentation" href="../index.html" />
     <link rel="up" title="Project Information" href="index.html" />
     <link rel="next" title="Issue tracking" href="issue_tracking.html" />
-    <link rel="prev" title="Migrating from 2.0.0-M3a to 2.0.0-RC3" href="migration_guides/2.0.0-M3a-to-2.0.0-RC3.html" />
+    <link rel="prev" title="Migrating from 2.0.0-M3a to 2.0.0-RC4" href="migration_guides/2.0.0-M3a-to-2.0.0-RC4.html" />
 <!--[if IE]>
 <script src="/vendor/javascripts/html5shiv.min.js"></script>
 <![endif]-->
@@ -148,7 +148,7 @@ We pay license fees so that we can package and distribute them and let people us
 <p>If anyone can come with an Apache 2 licensed solution that&#8217;s as sexy and plug-and-play as Highcharts and Highstock, we&#8217;d gladly make it the default implementation and integrate it into the main project!</p>
 <p>See <a class="reference internal" href="licenses.html#license"><em>License section</em></a></p>
 <ul class="simple" id="faq-gatling-highcharts-split2">
-<li><strong>I built from sources and got a java.lang.NoClassDefFoundError: com/excilys/ebi/gatling/charts/component/impl/ComponentLibraryImpl</strong></li>
+<li><strong>I built from sources and got a java.lang.NoClassDefFoundError: io/gatling/charts/component/impl/ComponentLibraryImpl</strong></li>
 </ul>
 <p>See up here, the Highcharts based charts implementation is hosted in a separate project.
 You have to build it too.</p>
@@ -160,12 +160,12 @@ The longer the chain, the bigger the stack size required by the compiler to comp
 <p>This parameter can be increased with the <tt class="docutils literal"><span class="pre">-Xss</span></tt> JVM parameter.
 Another solution is of course to split into smaller chains.</p>
 <p>Since 2M3, Gatling forks a new process for running so compiler, so that one can tune JVM differently for compiler and running.
-The compiler JVM can be tuned with a parameter named <tt class="docutils literal"><span class="pre">gatling.core.zinc</span></tt> in <a class="reference external" href="https://github.com/gatling/gatling/blob/2.0.0-M3a/gatling-core/src/main/resources/gatling-defaults.conf#L44">gatling.conf</a>.</p>
+The compiler JVM can be tuned with a parameter named <tt class="docutils literal"><span class="pre">gatling.core.zinc</span></tt> in <a class="reference external" href="https://github.com/gatling/gatling/blob/master/gatling-core/src/main/resources/gatling-defaults.conf#49">gatling.conf</a>.</p>
 <ul class="simple" id="faq-warmup">
 <li><strong>I get a &#8220;Connection timed out: no further information to http://gatling-tool.org&#8221;, what happened?</strong></li>
 </ul>
 <p>Since 1.2.0, Gatling has an option for sending a request in order to warm up the engine and have more precise statistics during the run.
-This option is enabled by default and <a class="reference external" href="http://gatling-tool.org">http://gatling-tool.org</a> is the default url.</p>
+This option is enabled by default and <a class="reference external" href="http://gatling.io">http://gatling.io</a> is the default url.</p>
 <p>If Gatling can&#8217;t reach out this url either because you don&#8217;t have a connection, or because it requires a proxy configuration, you&#8217;ll get this stacktrace.</p>
 <p>Either disable this feature, or change the target url. See documentation <a class="reference internal" href="../http/http_protocol.html#http-protocol-warmup"><em>here</em></a>.</p>
 <ul class="simple" id="faq-class-size">
@@ -200,22 +200,6 @@ We provide a Jenkins plugin and it&#8217;s easy to call the Gatling launch scrip
 <p>No.</p>
 <p>It was possible in old versions, but it caused tons of problems, so we removed this feature.</p>
 <p>However, just like scheduling, that&#8217;s something very easy to achieve outside Gatling. For example, one can configure <a class="reference external" href="http://maven.apache.org/guides/mini/guide-default-execution-ids.html">multiple executions</a> of the Gatling maven plugin, or multiple Jenkins jobs.</p>
-<ul class="simple" id="faq-simulation-log">
-<li><strong>What&#8217;s the meaning of the 4 longs in simulation.log file?</strong></li>
-</ul>
-<p>Those are currently:</p>
-<ol class="arabic simple">
-<li>first byte sent timestamp</li>
-<li>last byte sent timestamp</li>
-<li>first byte received timestamp</li>
-<li>last byte received timestamp</li>
-</ol>
-<p>A timestamp is of course the number of milliseconds since epoch.</p>
-<ul class="simple">
-<li>response time (in ms) = 4 - 1</li>
-<li>latency (in ms) = 3 - 2</li>
-</ul>
-<p>Beware that the format of this file is an implementation details of the <tt class="docutils literal"><span class="pre">FileDataWriter</span></tt>/<tt class="docutils literal"><span class="pre">FileDataReader</span></tt> combo, so it might be subject to changes.</p>
 <ul class="simple" id="faq-elb">
 <li><strong>Using Amazon Elastic Load Balancing?</strong></li>
 </ul>
@@ -285,7 +269,7 @@ If clients do not re-resolve the DNS at least once per minute, then the new reso
   </li>
   <h5>Previous topic</h5>
   <li>
-    <a href="migration_guides/2.0.0-M3a-to-2.0.0-RC3.html" title="Previous Chapter: Migrating from 2.0.0-M3a to 2.0.0-RC3">
+    <a href="migration_guides/2.0.0-M3a-to-2.0.0-RC4.html" title="Previous Chapter: Migrating from 2.0.0-M3a to 2.0.0-RC4">
       Migrating from 2.0.0-M3a...
     </a>
   </li>

@@ -1,0 +1,419 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quickstart &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="index.html" />
+    <link rel="next" title="Advanced Tutorial" href="advanced_tutorial.html" />
+    <link rel="prev" title="Gatling" href="index.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li class="active"><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="index.html">Gatling documentation</a></li>
+            <li><a href="">
+              Quickstart
+            </a></li>
+          </ul>
+          
+  <div class="section" id="quickstart">
+<span id="id1"></span><h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will use Gatling to load test a simple cloud hosted web server and will introduce you to the basic elements of the DSL.</p>
+<div class="section" id="getting-the-bundle">
+<h3>Getting the bundle<a class="headerlink" href="#getting-the-bundle" title="Permalink to this headline">¶</a></h3>
+<p>You can get Gatling bundles as a .tar.gz or .zip file <a class="reference external" href="http://gatling.io/download">here</a>.</p>
+</div>
+<div class="section" id="installing">
+<h3>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h3>
+<p>Just unzip the downloaded bundle to a folder of your choice.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Windows users : we recommend that you do not place Gatling in the <em>Programs</em> folder as there may be permission issues.</p>
+</div>
+<p>In order to run Gatling, you need to have a JDK installed.
+Gatling requires <strong>at least JDK7u6</strong>, yet we recommend that you use an up-to-date version.</p>
+<p>For all details regarding the installation and the tuning of the operating system (OS), please refer to the <a class="reference internal" href="general/operations.html#operations"><em>Operations</em></a> section.</p>
+</div>
+<div class="section" id="a-word-on-encoding">
+<h3>A Word on Encoding<a class="headerlink" href="#a-word-on-encoding" title="Permalink to this headline">¶</a></h3>
+<p>Gatling&#8217;s <strong>default encoding is UTF-8</strong>. If you want to use a different one, you have to:</p>
+<ul>
+<li><p class="first">select the proper encoding while using the Recorder</p>
+</li>
+<li><dl class="first docutils">
+<dt>configure the proper encoding in the <tt class="docutils literal"><span class="pre">gatling.conf</span></tt> file.</dt>
+<dd><p class="first last">It will be used for compiling your simulations and building your requests.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">make sure your text editor encoding is properly configured to match.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="a-word-on-scala">
+<h3>A Word on Scala<a class="headerlink" href="#a-word-on-scala" title="Permalink to this headline">¶</a></h3>
+<p>Gatling simulation scripts are written in <a class="reference external" href="http://www.scala-lang.org/">Scala</a>, <strong>but don&#8217;t panic!</strong> You can use all the basic functions of Gatling without knowing much about Scala.
+In most situations the DSL will cover most of your needs and you&#8217;ll be able to build your scenarios.</p>
+<p>If you are interested in knowing more about Scala, then we recommend that you have a look at <a class="reference external" href="http://twitter.github.io/scala_school">Twitter&#8217;s Scala School</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Feel also free to join our <a class="reference external" href="https://groups.google.com/forum/#!forum/gatling">Google Group</a> and ask for help.</p>
+</div>
+</div>
+</div>
+<div class="section" id="test-case">
+<h2>Test Case<a class="headerlink" href="#test-case" title="Permalink to this headline">¶</a></h2>
+<p>This page will guide you through most of Gatling HTTP features. You&#8217;ll learn about <em>simulations</em>, <em>scenarios</em>, <em>feeders</em>, <em>recorder</em>, <em>loops</em>, etc.</p>
+<div class="section" id="application-under-test">
+<h3>Application under Test<a class="headerlink" href="#application-under-test" title="Permalink to this headline">¶</a></h3>
+<p>In this tutorial, we will use an application named <em>Computer-Database</em> deployed at the URL: <a class="reference external" href="http://computer-database.herokuapp.com">http://computer-database.herokuapp.com</a>.</p>
+<p>This application is a simple CRUD application for managing computer models, and was a sample for the <a class="reference external" href="http://www.playframework.com/">Play Framework</a>.</p>
+<p>You can also run it on your local machine: download Play! 2.2.x&#8217;s bundle and check out <a class="reference external" href="https://github.com/playframework/playframework/tree/2.2.x/samples/scala/computer-database">the samples</a>.</p>
+</div>
+<div class="section" id="scenario">
+<h3>Scenario<a class="headerlink" href="#scenario" title="Permalink to this headline">¶</a></h3>
+<p>To test the performance of this application, we will create scenarios representative of what really happens when users navigate it.</p>
+<dl class="docutils">
+<dt>Here is what we think a real user would do with the application:</dt>
+<dd><ol class="first last arabic simple">
+<li>A user arrives at the application.</li>
+<li>The user searches for &#8216;macbook&#8217;.</li>
+<li>The user opens one of the related models.</li>
+<li>The user goes back to home page.</li>
+<li>The user iterates through pages.</li>
+<li>The user creates a new model.</li>
+</ol>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-recorder">
+<h3>Using the Recorder<a class="headerlink" href="#using-the-recorder" title="Permalink to this headline">¶</a></h3>
+<p>To ease the creation of the scenario, we will use the <em>Recorder</em>, a tool provided with Gatling that allows you to record your actions on a web application and export them as a Gatling scenario.</p>
+<p>This tool is launched with a script located in the <em>bin</em> directory:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">~</span><span class="n">$</span> <span class="nc">$GATLING_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">recorder</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>Once launched, the following GUI lets you configure how requests and responses will be recorded.</p>
+<dl class="docutils">
+<dt>Set it up with the following options:</dt>
+<dd><ul class="first last simple">
+<li><em>computerdatabase</em> package</li>
+<li><em>BasicSimulation</em> name</li>
+<li><em>Follow Redirects?</em> checked</li>
+<li><em>Automatic Referers?</em> checked</li>
+<li><em>Black list first</em> filter strategy selected</li>
+<li><em>.*\.css</em>, <em>.*\.js</em> and <em>.*\.ico</em> in the black list filters</li>
+</ul>
+</dd>
+</dl>
+<img alt="_images/recorder1.png" src="_images/recorder1.png" />
+<p>After configuring the recorder, all you have to do is to start it and configure your browser to use Gatling Recorder&#8217;s proxy.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more information regarding Recorder and browser configuration, please check out <a class="reference internal" href="http/recorder.html#recorder"><em>Recorder reference page</em></a>.</p>
+</div>
+</div>
+<div class="section" id="recording-the-scenario">
+<h3>Recording the scenario<a class="headerlink" href="#recording-the-scenario" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Now simply browse the application:</dt>
+<dd><ol class="first last arabic simple">
+<li>Enter &#8216;Search&#8217; tag.</li>
+<li>Go to the website: <a class="reference external" href="http://computer-database.herokuapp.com">http://computer-database.herokuapp.com</a></li>
+<li>Search for models with &#8216;macbook&#8217; in their name.</li>
+<li>Select &#8216;Macbook pro&#8217;.</li>
+<li>Enter &#8216;Browse&#8217; tag.</li>
+<li>Go back to home page.</li>
+<li>Iterates several times through the model pages by clicking on <em>Next</em> button.</li>
+<li>Enter &#8216;Edit&#8217; tag.</li>
+<li>Click on <em>Add new computer</em>.</li>
+<li>Fill the form.</li>
+<li>Click on <em>Create this computer</em>.</li>
+</ol>
+</dd>
+</dl>
+<p>Try to act as a real user would, don&#8217;t immediately jump from one page to another without taking the time to read.
+This will make your scenario closer to real users&#8217; behavior.</p>
+<p>When you have finished playing the scenario, click on <tt class="docutils literal"><span class="pre">Stop</span></tt> in the Recorder interface.</p>
+<p>The Simulation will be generated in the folder <tt class="docutils literal"><span class="pre">user-files/simulations/computerdatabase</span></tt> of your Gatling installation under the name <tt class="docutils literal"><span class="pre">BasicSimulation.scala</span></tt>.</p>
+</div>
+<div class="section" id="gatling-scenario-explained">
+<h3>Gatling scenario explained<a class="headerlink" href="#gatling-scenario-explained" title="Permalink to this headline">¶</a></h3>
+<p>Here is the produced output:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">package</span> <span class="nn">computerdatabase</span> <span class="c1">// 1</span>
+
+<span class="k">import</span> <span class="nn">io.gatling.core.Predef._</span> <span class="c1">// 2</span>
+<span class="k">import</span> <span class="nn">io.gatling.http.Predef._</span>
+<span class="k">import</span> <span class="nn">scala.concurrent.duration._</span>
+
+<span class="k">class</span> <span class="nc">BasicSimulation</span> <span class="k">extends</span> <span class="nc">Simulation</span> <span class="o">{</span> <span class="c1">// 3</span>
+
+  <span class="k">val</span> <span class="n">httpConf</span> <span class="k">=</span> <span class="n">http</span> <span class="c1">// 4</span>
+    <span class="o">.</span><span class="n">baseURL</span><span class="o">(</span><span class="s">&quot;http://computer-database.herokuapp.com&quot;</span><span class="o">)</span> <span class="c1">// 5</span>
+    <span class="o">.</span><span class="n">acceptHeader</span><span class="o">(</span><span class="s">&quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;</span><span class="o">)</span> <span class="c1">// 6</span>
+    <span class="o">.</span><span class="n">doNotTrackHeader</span><span class="o">(</span><span class="s">&quot;1&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">acceptLanguageHeader</span><span class="o">(</span><span class="s">&quot;en-US,en;q=0.5&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">acceptEncodingHeader</span><span class="o">(</span><span class="s">&quot;gzip, deflate&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">userAgentHeader</span><span class="o">(</span><span class="s">&quot;Mozilla/5.0 (Windows NT 5.1; rv:31.0) Gecko/20100101 Firefox/31.0&quot;</span><span class="o">)</span>
+
+  <span class="k">val</span> <span class="n">scn</span> <span class="k">=</span> <span class="n">scenario</span><span class="o">(</span><span class="s">&quot;BasicSimulation&quot;</span><span class="o">)</span> <span class="c1">// 7</span>
+    <span class="o">.</span><span class="n">exec</span><span class="o">(</span><span class="n">http</span><span class="o">(</span><span class="s">&quot;request_1&quot;</span><span class="o">)</span>  <span class="c1">// 8</span>
+      <span class="o">.</span><span class="n">get</span><span class="o">(</span><span class="s">&quot;/&quot;</span><span class="o">))</span> <span class="c1">// 9</span>
+    <span class="o">.</span><span class="n">pause</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span> <span class="c1">// 10</span>
+
+  <span class="n">setUp</span><span class="o">(</span> <span class="c1">// 11</span>
+    <span class="n">scn</span><span class="o">.</span><span class="n">inject</span><span class="o">(</span><span class="n">atOnceUsers</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="c1">// 12</span>
+  <span class="o">).</span><span class="n">protocols</span><span class="o">(</span><span class="n">httpConf</span><span class="o">)</span> <span class="c1">// 13</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>What does it mean?</p>
+<ol class="arabic simple">
+<li>The optional package.</li>
+<li>The required imports.</li>
+<li>The class declaration. Note that it extends <tt class="docutils literal"><span class="pre">Simulation</span></tt>.</li>
+<li>The common configuration to all HTTP requests.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><tt class="docutils literal"><span class="pre">val</span></tt> is the keyword for defining a constant value.
+Types are not defined and are inferred by the Scala compiler.</p>
+</div>
+<ol class="arabic simple" start="5">
+<li>The baseURL that will be prepended to all relative urls.</li>
+<li>Common HTTP headers that will be sent with all the requests.</li>
+<li>The scenario definition.</li>
+<li>A HTTP request, named <em>request_1</em>. This name will be displayed in the final reports.</li>
+<li>The url this request targets with the <em>GET</em> method.</li>
+<li>Some pause/think time.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Duration units default to <tt class="docutils literal"><span class="pre">seconds</span></tt>, e.g. <tt class="docutils literal"><span class="pre">pause(5)</span></tt> is equivalent to <tt class="docutils literal"><span class="pre">pause(5</span> <span class="pre">seconds)</span></tt>.</p>
+</div>
+<ol class="arabic simple" start="11">
+<li>Where one sets up the scenarios that will be launched in this Simulation.</li>
+<li>Declaring to inject into scenario named <em>scn</em> one single user.</li>
+<li>Attaching the HTTP configuration declared above.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For more details regarding Simulation structure, please check out <a class="reference internal" href="general/simulation_structure.html#simulation-structure"><em>Simulation reference page</em></a>.</p>
+</div>
+</div>
+<div class="section" id="running-gatling">
+<h3>Running Gatling<a class="headerlink" href="#running-gatling" title="Permalink to this headline">¶</a></h3>
+<p>Launch the second script located in the <em>bin</em> directory:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">~</span><span class="n">$</span> <span class="nc">$GATLING_HOME</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">gatling</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">bat</span>
+</pre></div>
+</div>
+<p>You should see a menu with the simulation examples:</p>
+<div class="highlight-scala"><div class="highlight"><pre>Choose a simulation number:
+   [0] computerdatabase.BasicSimulation
+</pre></div>
+</div>
+<p>When the simulation is done, the console will display a link to the HTML reports.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If Gatling doesn&#8217;t work as expected, see our <a class="reference internal" href="project/faq.html#faq"><em>FAQ</em></a> or ask on our <a class="reference external" href="https://groups.google.com/forum/#!forum/gatling">Google Group</a>.</p>
+</div>
+</div>
+<div class="section" id="going-further">
+<h3>Going Further<a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h3>
+<p>When you&#8217;re ready to go further, please check out the <a class="reference internal" href="advanced_tutorial.html#advanced-tutorial"><em>Advanced Tutorial</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Quickstart</a><ul class="nav">
+<li><a class="reference internal" href="#introduction">Introduction</a><ul class="nav">
+<li><a class="reference internal" href="#getting-the-bundle">Getting the bundle</a></li>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+<li><a class="reference internal" href="#a-word-on-encoding">A Word on Encoding</a></li>
+<li><a class="reference internal" href="#a-word-on-scala">A Word on Scala</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-case">Test Case</a><ul class="nav">
+<li><a class="reference internal" href="#application-under-test">Application under Test</a></li>
+<li><a class="reference internal" href="#scenario">Scenario</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basics">Basics</a><ul class="nav">
+<li><a class="reference internal" href="#using-the-recorder">Using the Recorder</a></li>
+<li><a class="reference internal" href="#recording-the-scenario">Recording the scenario</a></li>
+<li><a class="reference internal" href="#gatling-scenario-explained">Gatling scenario explained</a></li>
+<li><a class="reference internal" href="#running-gatling">Running Gatling</a></li>
+<li><a class="reference internal" href="#going-further">Going Further</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <li>
+    <a href="https://github.com/gatling/gatling/edit/master/src/sphinx/quickstart.rst">Edit this page on Github</a>
+  </li>
+  <h5>Previous topic</h5>
+  <li>
+    <a href="index.html" title="Previous Chapter: Gatling">
+      Gatling
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="advanced_tutorial.html" title="Next Chapter: Advanced Tutorial">
+      Advanced Tutorial
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>

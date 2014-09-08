@@ -149,7 +149,8 @@
 </div>
 <p>Moreover, Gatling EL provide the following built-in functions:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="s">&quot;${foo.size()}&quot;</span>   <span class="c1">// returns the size of `foo` if `foo` is a Scala or Java collection</span>
-<span class="s">&quot;${foo.random()}&quot;</span> <span class="c1">// returns a random element of `foo` if `foo` is an indexed collection</span>
+<span class="s">&quot;${foo.random()}&quot;</span> <span class="c1">// returns a random element of `foo` if `foo` is an indexed collectio</span>
+<span class="s">&quot;${foo.exists()}&quot;</span> <span class="c1">// returns true if the session contains `foo`, false otherwise</span>
 <span class="s">&quot;${foo(5)}&quot;</span>       <span class="c1">// returns the 5th element of `foo` if `foo` is an indexed collection</span>
 <span class="s">&quot;${foo(n)}&quot;</span>       <span class="c1">// returns the n-th element of `foo` if `n` is an Int and `foo` is an indexed collection</span>
 <span class="s">&quot;${foo.bar}&quot;</span>      <span class="c1">// returns the value associated with key `bar` if `foo` is a map</span>

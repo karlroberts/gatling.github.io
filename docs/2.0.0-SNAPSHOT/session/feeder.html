@@ -333,9 +333,9 @@ It is possible to load millions of keys in a few seconds in Redis and Gatling wi
 <span id="feeder-non-shared"></span><h2>Non Shared Data<a class="headerlink" href="#non-shared-data" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes, Gatling users still want all virtual users to play all the records in a file, and Feeder doesn&#8217;t match this behavior.</p>
 <p>Still, it&#8217;s quite easy to build, thanks to <a class="reference internal" href="../general/scenario.html#scenario-exec-function-flatten"><em>flattenMapIntoAttributes</em></a>  e.g.:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">array</span> <span class="k">=</span> <span class="n">csv</span><span class="o">(</span><span class="s">&quot;foo.csv&quot;</span><span class="o">).</span><span class="n">array</span>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">records</span> <span class="k">=</span> <span class="n">csv</span><span class="o">(</span><span class="s">&quot;foo.csv&quot;</span><span class="o">).</span><span class="n">records</span>
 
-<span class="n">foreach</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="s">&quot;record&quot;</span><span class="o">)</span> <span class="o">{</span>
+<span class="n">foreach</span><span class="o">(</span><span class="n">records</span><span class="o">,</span> <span class="s">&quot;record&quot;</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">exec</span><span class="o">(</span><span class="n">flattenMapIntoAttributes</span><span class="o">(</span><span class="s">&quot;${record}&quot;</span><span class="o">))</span>
   <span class="o">...</span>
 <span class="o">}</span>
