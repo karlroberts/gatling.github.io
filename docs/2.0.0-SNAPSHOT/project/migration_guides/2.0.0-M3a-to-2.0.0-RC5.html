@@ -1,0 +1,308 @@
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Migrating from 2.0.0-M3a to 2.0.0-RC5 &mdash; Gatling documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Maven+Pro:400,500,700" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.0.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/modernizr.min.js"></script>
+    <script type="text/javascript" src="/vendor/javascripts/bootstrap.min.js"></script>
+    <link rel="top" title="Gatling documentation" href="../../index.html" />
+    <link rel="up" title="Migration guides" href="index.html" />
+    <link rel="next" title="FAQ" href="../faq.html" />
+    <link rel="prev" title="Migrating from 1.5.x to 2.0.0-RC5" href="1.5.x-to-2.0.0-RC5.html" />
+<!--[if IE]>
+<script src="/vendor/javascripts/html5shiv.min.js"></script>
+<![endif]-->
+
+<!--[if IE 6]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 7]>
+<script src="/vendor/javascripts/PIE_IE678.min.js"></script>
+<![endif]-->
+<!--[if IE 9]>
+<script src="/vendor/javascripts/PIE_IE9.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // @formatter:off
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53375088-1', 'gatling.io');
+  ga('send', 'pageview');
+  // @formatter:on
+</script>
+
+<script type='text/javascript'>
+  $(document).ready(function () {
+    $('#affix').affix({
+      offset: {
+        top: 48
+      }
+    });
+
+    $('body').scrollspy({
+      target: '#affix'
+    })
+  });
+</script>
+
+  </head>
+  <body>
+<header id="header" class="navbar navbar-static-top" role="banner">
+  <div class="container">
+    <div class="navbar" role="navigation">
+      <form action="../../search.html" class="col-xs-12 col-sm-6 col-md-4" method="get" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Search through the documentation"/>
+
+            <div class="input-group-addon">
+              <button type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            <div class="input-group-addon">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" name="check_keywords" value="yes"/>
+        <input type="hidden" name="area" value="default"/>
+      </form>
+
+      <nav id="navbar-collapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/download">DOWNLOAD</a></li>
+          <li class="active"><a href="/docs">DOCUMENTATION</a></li>
+          <li><a href="/services">PROFESSIONAL SERVICES</a></li>
+          <li><a class="icon icon-github" href="https://github.com/gatling/gatling"></a></li>
+          <li><a class="icon icon-twitter" href="https://twitter.com/GatlingTool"></a></li>
+          <li><a class="icon icon-googlegroup" href="https://groups.google.com/forum/#!forum/gatling"></a></li>
+        </ul>
+      </nav>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </div>
+</header>
+
+<section id="doc">
+  <div class="container">
+    <section class="row">
+      <div class="col-md-9">
+          <ul class="breadcrumb">
+            <li><a href="../../index.html">Gatling documentation</a></li>
+            <li><a href="../index.html"
+              >
+              Project Information
+              </a>
+            </li>
+            <li><a href="index.html"
+              accesskey="U">
+              Migration guides
+              </a>
+            </li>
+            <li><a href="">
+              Migrating from 2.0.0-M3a to 2.0.0-RC5
+            </a></li>
+          </ul>
+          
+  <div class="section" id="migrating-from-2-0-0-m3a-to-2-0-0-rc5">
+<span id="m3a-to-2-0-rc5"></span><h1>Migrating from 2.0.0-M3a to 2.0.0-RC5<a class="headerlink" href="#migrating-from-2-0-0-m3a-to-2-0-0-rc5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="global-changes">
+<h2>Global changes<a class="headerlink" href="#global-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gatling-requires-at-least-jdk7u6">
+<h3>Gatling requires at least JDK7u6<a class="headerlink" href="#gatling-requires-at-least-jdk7u6" title="Permalink to this headline">¶</a></h3>
+<p>As targeting newer JDKs provides bug fixes, speed improvements and opens opportunities for optimization,
+Gatling now requires at least a JDK7u6 (released almost two years ago already).</p>
+</div>
+<div class="section" id="gatling-is-now-available-on-maven-central">
+<h3>Gatling is now available on Maven Central<a class="headerlink" href="#gatling-is-now-available-on-maven-central" title="Permalink to this headline">¶</a></h3>
+<p>Gatling releases are now available on Maven Central, and snapshots are deployed on each successful build by Travis CI to Sonatype&#8217;s snapshots repository.
+If you were using Gatling with its Maven plugin, you no longer need to add the Excilys repository in your <tt class="docutils literal"><span class="pre">pom.xml</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="necessary-imports">
+<h3>Necessary imports<a class="headerlink" href="#necessary-imports" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">import</span> <span class="pre">bootstrap._</span></tt> and <tt class="docutils literal"><span class="pre">import</span> <span class="pre">assertions._</span></tt> are now unnecessary and have to be removed.</li>
+<li><tt class="docutils literal"><span class="pre">import</span> <span class="pre">io.gatling.http.Headers.Names._</span></tt> is now unnecessary, headers names are now directly available from <cite>HeaderNames</cite>.</li>
+<li><tt class="docutils literal"><span class="pre">import</span> <span class="pre">io.gatling.http.Headers.Values._</span></tt> is now unnecessary, headers values are now directly available from <cite>HeaderValues</cite>.</li>
+</ul>
+</div>
+<div class="section" id="injection-dsl">
+<h3>Injection DSL<a class="headerlink" href="#injection-dsl" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ramp(10</span> <span class="pre">users)</span></tt> becomes <tt class="docutils literal"><span class="pre">rampUsers(10)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">heaviside(10</span> <span class="pre">users)</span></tt> becomes <tt class="docutils literal"><span class="pre">heavideUsers(10)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">atOnce(10</span> <span class="pre">users)</span></tt> becomes <tt class="docutils literal"><span class="pre">atOnceUsers(10)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">constantRate(10</span> <span class="pre">usersPerSec)</span></tt> becomes <tt class="docutils literal"><span class="pre">constantUsersPerSec(10)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">rampRate(10</span> <span class="pre">usersPerSec)</span></tt> becomes <tt class="docutils literal"><span class="pre">rampUsersPerSec(10)</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">split(10</span> <span class="pre">users)</span></tt> becomes <tt class="docutils literal"><span class="pre">splitUsers(10)</span></tt></li>
+</ul>
+</div>
+</div>
+<div class="section" id="core">
+<h2>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="checks">
+<h3>Checks<a class="headerlink" href="#checks" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">whatever</span></tt> has been renamed to <tt class="docutils literal"><span class="pre">optional</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">transform</span></tt> now no longer takes and returns an <tt class="docutils literal"><span class="pre">Option[T]</span></tt> and takes and returns <em>plain</em> types, but <tt class="docutils literal"><span class="pre">transformOption</span></tt> provides the same functionality as <tt class="docutils literal"><span class="pre">transform</span></tt> did.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="http">
+<h2>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="form-parameters-for-post-requests">
+<h3>Form parameters (for POST requests)<a class="headerlink" href="#form-parameters-for-post-requests" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="renamed">
+<h4>Renamed<a class="headerlink" href="#renamed" title="Permalink to this headline">¶</a></h4>
+<p>Methods for adding form parameters to the request have been renamed:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">param</span></tt> =&gt; <tt class="docutils literal"><span class="pre">formParam</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">multiValuedParam</span></tt> =&gt; <tt class="docutils literal"><span class="pre">multiValuedFormParam</span></tt></li>
+</ul>
+</div>
+</div>
+<div class="section" id="misc">
+<h3>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">requestInfoExtractor</span></tt> and <tt class="docutils literal"><span class="pre">responseInfoExtractor</span></tt> have been merged into a single <tt class="docutils literal"><span class="pre">extraInfoExtractor</span></tt>, which takes a <tt class="docutils literal"><span class="pre">ExtraInfo</span> <span class="pre">=&gt;</span> <span class="pre">List[Any]</span></tt> function.</li>
+<li><tt class="docutils literal"><span class="pre">gatling.http.ahc.useRawUrl</span></tt> configuration parameter was removed, please use <tt class="docutils literal"><span class="pre">disableUrlEncoding</span></tt> instead, as described <a class="reference internal" href="../../http/http_protocol.html#http-protocol-urlencoding"><em>here</em></a>.</li>
+</ul>
+<p>For more information on <tt class="docutils literal"><span class="pre">extraInfoExtractor</span></tt>, please refer to its <a class="reference internal" href="../../http/http_protocol.html#http-protocol-extractor"><em>documentation</em></a>.</p>
+</div>
+</div>
+<div class="section" id="logs">
+<h2>Logs<a class="headerlink" href="#logs" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">simulation.log</span></tt> has been redesigned.</p>
+<p>If you wrote your own specific <tt class="docutils literal"><span class="pre">simulation.log</span></tt> parser, you&#8217;ll need to migrate it to the new structure.</p>
+</div>
+<div class="section" id="recorder">
+<h2>Recorder<a class="headerlink" href="#recorder" title="Permalink to this headline">¶</a></h2>
+<p>Until now, when setting up the Recorder, you had to setup two ports for the Recorder&#8217;s <em>local proxy</em>: one for HTTP, one for HTTPS.
+This is not needed anymore, as the Recorder handles itself the switch to an HTTPS connection if necessary, and only a single port needs to be specified.</p>
+</div>
+<div class="section" id="maven-plugin">
+<h2>Maven Plugin<a class="headerlink" href="#maven-plugin" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">&lt;includes&gt;...&lt;/includes&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;excludes&gt;...&lt;/excludes&gt;</span></tt> configuration options have been removed.
+Should you want to select a specific simulation to run, you can use the <tt class="docutils literal"><span class="pre">&lt;simulationClass&gt;...&lt;/simulationClass&gt;</span></tt> config option to do so.</p>
+<p>For more information, see the <a class="reference internal" href="../../extensions/maven_plugin.html#maven-plugin"><em>Maven plugin documentation</em></a>.</p>
+</div>
+</div>
+
+
+        </div>
+        <div class="col-md-3">
+          <aside id="affix" class="visible-md visible-lg">
+            <ul class="nav">
+<li><a class="reference internal" href="#">Migrating from 2.0.0-M3a to 2.0.0-RC5</a><ul class="nav">
+<li><a class="reference internal" href="#global-changes">Global changes</a><ul class="nav">
+<li><a class="reference internal" href="#gatling-requires-at-least-jdk7u6">Gatling requires at least JDK7u6</a></li>
+<li><a class="reference internal" href="#gatling-is-now-available-on-maven-central">Gatling is now available on Maven Central</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simulation">Simulation</a><ul class="nav">
+<li><a class="reference internal" href="#necessary-imports">Necessary imports</a></li>
+<li><a class="reference internal" href="#injection-dsl">Injection DSL</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#core">Core</a><ul class="nav">
+<li><a class="reference internal" href="#checks">Checks</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#http">HTTP</a><ul class="nav">
+<li><a class="reference internal" href="#form-parameters-for-post-requests">Form parameters (for POST requests)</a><ul class="nav">
+<li><a class="reference internal" href="#renamed">Renamed</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#misc">Misc</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#logs">Logs</a></li>
+<li><a class="reference internal" href="#recorder">Recorder</a></li>
+<li><a class="reference internal" href="#maven-plugin">Maven Plugin</a></li>
+</ul>
+</li>
+</ul>
+
+            
+<hr>
+<ul class="nav">
+  <li>
+    <a href="https://github.com/gatling/gatling/edit/master/src/sphinx/project/migration_guides/2.0.0-M3a-to-2.0.0-RC5.rst">Edit this page on Github</a>
+  </li>
+  <h5>Previous topic</h5>
+  <li>
+    <a href="1.5.x-to-2.0.0-RC5.html" title="Previous Chapter: Migrating from 1.5.x to 2.0.0-RC5">
+      Migrating from 1.5.x to ...
+    </a>
+  </li>
+  <h5>Next topic</h5>
+  <li>
+    <a href="../faq.html" title="Next Chapter: FAQ">
+      FAQ
+    </a>
+  </li>
+</ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="footer">
+  <header class="row-fluid">
+    <div class="content-wrapper text-center">
+      Gatling is an open-source load testing framework based on
+      <strong>Scala</strong>, <strong>Akka</strong> and <strong>Netty</strong>
+    </div>
+  </header>
+  <section class="row-fluid">
+    <div class="content-wrapper text-center">&copy;2014 eBusiness Information 2000-2014</div>
+  </section>
+</footer>
+
+
+
+
+
+
+  </body>
+</html>
